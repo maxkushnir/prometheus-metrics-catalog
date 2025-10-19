@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import MetricList from './components/MetricList';
+import { allMetrics, services } from './data/metrics';
 import './index.css';
 
 function App() {
@@ -10,33 +11,12 @@ function App() {
   const [serviceFilter, setServiceFilter] = useState('');
 
   useEffect(() => {
-    // Load services configuration
-    fetch('/data/services.json')
-      .then(response => response.json())
-      .then(servicesConfig => {
-        // Load metrics from all service files
-        const servicePromises = servicesConfig.services.map(service => 
-          fetch(service.path)
-            .then(response => response.json())
-            .then(metrics => ({ service: service.name, metrics }))
-            .catch(error => {
-              console.error(`Error loading metrics for ${service.name}:`, error);
-              return { service: service.name, metrics: [] };
-            })
-        );
-
-        Promise.all(servicePromises)
-          .then(serviceMetrics => {
-            const allMetrics = serviceMetrics.flatMap(({ metrics }) => metrics);
-            setMetrics(allMetrics);
-          })
-          .catch(error => console.error('Error loading service metrics:', error));
-      })
-      .catch(error => console.error('Error loading services config:', error));
+    // Load metrics from embedded data
+    setMetrics(allMetrics);
   }, []);
 
   // Get unique services from metrics
-  const services = [...new Set(metrics.map(metric => metric.service))].sort();
+  const availableServices = [...new Set(metrics.map(metric => metric.service))].sort();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -59,7 +39,7 @@ function App() {
             <div className="absolute inset-0 bg-black bg-opacity-20">
               <div className="absolute bottom-4 right-4 text-white">
                 <p className="text-lg md:text-xl opacity-90">
-                  {metrics.length} metrics across {services.length} services
+                  {metrics.length} metrics across {availableServices.length} services
                 </p>
               </div>
             </div>
@@ -76,7 +56,7 @@ function App() {
             onSearchChange={setSearchTerm}
             onImportanceFilter={setImportanceFilter}
             onServiceFilter={setServiceFilter}
-            services={services}
+                services={availableServices}
             serviceFilter={serviceFilter}
           />
         </div>
