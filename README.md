@@ -13,7 +13,7 @@ A modern, responsive web application for browsing and discovering Prometheus met
 
 ## 🚀 Live Demo
 
-Visit the live application: [https://maxkushnir.github.io/prometheus-metrics-catalog/](https://maxkushnir.github.io/prometheus-metrics-catalog/)
+Visit the live application: [https://maxkushnir.github.io/prometheus-metrics-catalog.github.io/](https://maxkushnir.github.io/prometheus-metrics-catalog.github.io/)
 
 ## 🛠️ Tech Stack
 
