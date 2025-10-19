@@ -26,7 +26,7 @@ function App() {
           {/* Banner Image */}
           <div className="w-full h-48 md:h-56 lg:h-64 bg-gradient-to-r from-primary-500 to-primary-700 flex items-center justify-center relative overflow-hidden">
             <img 
-              src="/banner.png" 
+              src={`${import.meta.env.BASE_URL}banner.png`} 
               alt="Prometheus Metrics Catalog" 
               className="h-full w-full object-cover"
               onError={(e) => {
