@@ -29,16 +29,11 @@ const MetricList = ({ metrics, searchTerm, importanceFilter, serviceFilter }) =>
   return (
     <div>
       <div className="bg-white rounded-lg shadow-soft border border-gray-200 p-4 mb-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900">Metrics</h2>
-            <p className="text-sm text-gray-600">
-              Showing {filteredMetrics.length} of {metrics.length} metrics
-            </p>
-          </div>
-          <div className="text-sm text-gray-500">
-            {filteredMetrics.length} result{filteredMetrics.length !== 1 ? 's' : ''}
-          </div>
+        <div>
+          <h2 className="text-lg font-semibold text-gray-900">Metrics</h2>
+          <p className="text-sm text-gray-600">
+            Showing {filteredMetrics.length} of {metrics.length} metrics
+          </p>
         </div>
       </div>
       
