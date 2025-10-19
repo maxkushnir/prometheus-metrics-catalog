@@ -1,0 +1,32 @@
+{
+  "services": [
+    {
+      "name": "aerospike",
+      "displayName": "Aerospike",
+      "description": "NoSQL database metrics",
+      "path": "/data/services/aerospike/metrics.json",
+      "color": "blue"
+    },
+    {
+      "name": "node_exporter",
+      "displayName": "Node Exporter",
+      "description": "System and hardware metrics",
+      "path": "/data/services/node_exporter/metrics.json",
+      "color": "green"
+    },
+    {
+      "name": "nginx",
+      "displayName": "Nginx",
+      "description": "Web server and reverse proxy metrics",
+      "path": "/data/services/nginx/metrics.json",
+      "color": "orange"
+    },
+    {
+      "name": "redis",
+      "displayName": "Redis",
+      "description": "In-memory data structure store metrics",
+      "path": "/data/services/redis/metrics.json",
+      "color": "red"
+    }
+  ]
+}

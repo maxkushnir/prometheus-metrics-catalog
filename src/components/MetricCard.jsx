@@ -1,0 +1,76 @@
+import React from 'react';
+
+const MetricCard = ({ metric }) => {
+  const getImportanceColor = (importance) => {
+    switch (importance) {
+      case 'critical': return 'border-red-500 bg-red-50';
+      case 'high': return 'border-orange-500 bg-orange-50';
+      case 'medium': return 'border-yellow-500 bg-yellow-50';
+      case 'low': return 'border-green-500 bg-green-50';
+      default: return 'border-gray-500 bg-gray-50';
+    }
+  };
+
+  const getServiceColor = (service) => {
+    switch (service) {
+      case 'aerospike': return 'bg-blue-100 text-blue-800';
+      case 'node_exporter': return 'bg-green-100 text-green-800';
+      case 'nginx': return 'bg-orange-100 text-orange-800';
+      case 'redis': return 'bg-red-100 text-red-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
+  return (
+    <div className={`bg-white rounded-lg shadow-soft border-l-4 p-6 mb-6 hover:shadow-medium transition-shadow duration-200 ${getImportanceColor(metric.importance)}`}>
+      {/* Header */}
+      <div className="flex justify-between items-start mb-4">
+        <div className="flex-1">
+          <h3 className="text-xl font-mono font-bold text-gray-900 mb-2">{metric.name}</h3>
+          <div className="flex items-center gap-2">
+            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getServiceColor(metric.service)}`}>
+              {metric.service}
+            </span>
+            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+              metric.importance === 'critical' ? 'bg-red-100 text-red-800' :
+              metric.importance === 'high' ? 'bg-orange-100 text-orange-800' :
+              metric.importance === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+              'bg-green-100 text-green-800'
+            }`}>
+              {metric.importance}
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Description */}
+      <div className="mb-4">
+        <p className="text-gray-700 leading-relaxed">{metric.description}</p>
+      </div>
+      
+      {/* Labels */}
+      {metric.labels && metric.labels.length > 0 && (
+        <div className="mb-4">
+          <h4 className="text-sm font-semibold text-gray-900 mb-2">Labels</h4>
+          <div className="flex flex-wrap gap-2">
+            {metric.labels.map((label, index) => (
+              <span key={index} className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      
+      {/* Example Usage */}
+      <div className="bg-gray-50 rounded-md p-4 border border-gray-200">
+        <h4 className="text-sm font-semibold text-gray-900 mb-2">Example Usage</h4>
+        <div className="bg-gray-900 rounded-md p-3 overflow-x-auto">
+          <code className="text-sm text-green-400 font-mono">{metric.example_usage}</code>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MetricCard;

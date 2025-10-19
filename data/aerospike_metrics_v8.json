@@ -1,0 +1,3326 @@
+{
+  "service": "aerospike",
+  "version": 8,
+  "metrics": [
+    {
+      "name": "aerospike_namespace_appeals_records_exonerated",
+      "description": "formula for the associated metrics is as follows:",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_appeals_rx_active",
+      "description": "Number of partition appeals currently being received",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_appeals_tx_active",
+      "description": "Number of partition appeals currently being sent",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_appeals_tx_remaining",
+      "description": "Number of partition appeals not yet sent",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_auto_revived_partitions",
+      "description": "Number of partitions that the auto-revive feature revived at startup",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_available_bin_names",
+      "description": "Remaining number of unique bins that the user can create for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_delete_error",
+      "description": "Number of batch-index delete sub-batches that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_delete_filtered_out",
+      "description": "Number of batch-index delete sub-batches that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_delete_not_found",
+      "description": "Number of batch-index delete sub-batches that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_delete_success",
+      "description": "Number of records successfully deleted by batch-index sub-batches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_delete_timeout",
+      "description": "Number of batch-index delete sub-batches that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_lang_delete_success",
+      "description": "Number of successful batch-index UDF delete sub-batches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_lang_error",
+      "description": "Number of language (Lua) batch-index errors for UDF sub-transactions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_lang_read_success",
+      "description": "Number of successful batch-index UDF read sub-batches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_lang_write_success",
+      "description": "Number of successful batch-index UDF write sub-batches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_proxy_complete",
+      "description": "Number of proxied batch-index sub-batches that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_proxy_error",
+      "description": "Number of proxied batch-index sub transactions that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_proxy_timeout",
+      "description": "Number of proxied batch-index sub-batches that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_read_error",
+      "description": "Number of batch-index read subtransaction that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_read_filtered_out",
+      "description": "Number of batch-index read sub-batches that were skipped because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_read_not_found",
+      "description": "Number of batch-index read subtransaction that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_read_success",
+      "description": "Number of records successfully read by batch-index sub-batches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_read_timeout",
+      "description": "Number of batch-index read sub-batches that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_tsvc_error",
+      "description": "Number of batch-index sub-batches that failed with an error in the transaction service, before attempting to handle the transaction",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_tsvc_timeout",
+      "description": "Number of batch-index sub-batches that timed out in the transaction service, before attempting to handle the transaction",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_udf_complete",
+      "description": "Number of completed batch-index UDF sub-batches for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_udf_error",
+      "description": "Number of failed batch-index UDF sub-batches for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_udf_filtered_out",
+      "description": "Number of batch-index UDF sub-batches that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_udf_timeout",
+      "description": "Number of batch-index UDF sub-batches that timed out for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_write_error",
+      "description": "Number of batch-index write sub-batches that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_write_filtered_out",
+      "description": "Number of batch-index write sub-batches that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_write_success",
+      "description": "Number of records successfully written by batch-index sub-batches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_batch_sub_write_timeout",
+      "description": "Number of batch-index write sub-batches that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_bin_names",
+      "description": "Number of bin names used for the namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_bin_names_quota",
+      "description": "formula for the associated metrics is as follows:",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_cache_read_pct",
+      "description": "the post-write-cache and read-page-cache documentation for ways to improve read-intensive workloads latency by leveraging those 2 different caching options.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_client_delete_error",
+      "description": "Number of client delete commands that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_delete_filtered_out",
+      "description": "Number of client delete commands that did not happen because the record was filtered out with Filter Expression",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_delete_not_found",
+      "description": "Number of client delete commands that resulted in a not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_delete_success",
+      "description": "Number of successful client delete commands",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_delete_timeout",
+      "description": "Number of client delete commands that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_lang_delete_success",
+      "description": "Number of UDF commands that successfully deleted a record",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_lang_error",
+      "description": "Number of UDF commands that failed with a language (Lua) error during UDF execution",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_lang_read_success",
+      "description": "Number of successful record reads caused by a UDF command",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_lang_write_success",
+      "description": "Number of successful record writes caused by a UDF command",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_proxy_complete",
+      "description": "Number of client commands proxied to another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_proxy_error",
+      "description": "Number of client commands that failed to proxy to another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_proxy_timeout",
+      "description": "Number of client commands that timed out while being proxied to another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_read_error",
+      "description": "Number of read commands that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_read_filtered_out",
+      "description": "Number of read commands that did not happen because they were filtered out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_read_not_found",
+      "description": "Number of client read commands that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_read_success",
+      "description": "Number of successful client read commands",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_read_timeout",
+      "description": "Number of client read commands that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_tsvc_error",
+      "description": "Number of client commands that failed in the transaction service, before attempting to handle the transaction",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_tsvc_timeout",
+      "description": "Number of client commands that timed out while in the transaction service, before attempting to handle the command",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_udf_complete",
+      "description": "Number of completed UDF commands initiated by the client",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_udf_error",
+      "description": "Number of failed UDF commands initiated by the client",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_udf_filtered_out",
+      "description": "Number of client UDF commands that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_udf_timeout",
+      "description": "Number of UDF commands initiated by the client that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_write_error",
+      "description": "ratio is higher than acceptable,alert operations to investigate.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_write_filtered_out",
+      "description": "Number of client write commands that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_write_success",
+      "description": "Number of successful client write commands",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_client_write_timeout",
+      "description": "single write replica failure (master failing to replicate) increments the client_write_timeout metric.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_clock_skew_stop_writes",
+      "description": "critical Namespace will stop accepting client writes when true",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_current_time",
+      "description": "Current time represented as Aerospike epoch time",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_data_avail_pct",
+      "description": "the distribution is not perfectly uniform (which is usual), data_avail_pct represents the file that has the fewest free blocks.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_data_compression_ratio",
+      "description": "Finding total namespace memory for the total memory accounted for the namespace.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_data_total_bytes",
+      "description": "Regardless of storage-engine, the total allocated storage",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_data_used_bytes",
+      "description": "Regardless of storage-engine, the total storage allocated is data_total_bytes, and the amount of data used in that storage is data_used_bytes, which includes both user data and record overhead",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_data_used_pct",
+      "description": "Percentage of used storage capacity for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_dead_partitions",
+      "description": "example, for a replication factor 2 namespace configured as strong consistent on a 10 node cluster, shutting down one node, waiting for migrations to complete, then shutting down a second node, erasing storage and bringing both nodes back in results in approximately 90 partitions [2x(4096/(10x9))] being marked as dead. Invoking the revive and recluster commands provide 100% availability, and, in this particular case, no data inconsistencies. Dead partitions turn into unavailable_partitions every time the roster is not complete for a namespace. See Configuring strong consistency and Consistency management for further details.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_deleted_last_bin",
+      "description": "Number of objects deleted because their last bin was deleted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_device_available_pct",
+      "description": "device_available_pct drops below 20%, warn your operations group, this condition might indicate that defrag is unable to keep up with the current load.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_device_compression_ratio",
+      "description": "data_compression_ratio in Database 7.0.",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_namespace_device_free_pct",
+      "description": "device_free_pct would be 75%.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_device_total_bytes",
+      "description": "Total bytes of disk space allocated to this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_device_used_bytes",
+      "description": "Total bytes of disk space used by this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_dup_res_ask",
+      "description": "Number of duplicate resolution requests made by the node to other individual nodes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_dup_res_respond_no_read",
+      "description": "Number of duplicate resolution requests handled by the node without reading the record",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_dup_res_respond_read",
+      "description": "Number of duplicate resolution requests handled by the node where the record was read",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_effective_active_rack",
+      "description": "The effective active-rack for the namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_effective_is_quiesced",
+      "description": "Reports 'true' when the namespace has rebalanced after previously receiving a quiesce info request",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_effective_prefer_uniform_balance",
+      "description": "Applies only to Enterprise Edition",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_effective_replication_factor",
+      "description": "effective replication factor is less than the replication-factor if the cluster size is smaller than the RF, in which case the effective replication factor would match the cluster size.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_evict_ttl",
+      "description": "The current eviction depth, or the highest ttl of records that have been evicted, in seconds",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_evict_void_time",
+      "description": "The current eviction depth, expressed as a void time in seconds since 1 January 2010 UTC",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_evicted_objects",
+      "description": "Number of objects evicted from this namespace on this node since the server started",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_client_lost_conflict",
+      "description": "clock skew across DCs causing XDR write commands to write bins with a future timestamp compared to local time.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_generation",
+      "description": "Number of read/write commands failed on generation check",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_key_busy",
+      "description": "to the following article for some further details: https://support.aerospike.com/s/article/Why-does-my-client-return-Error-code-14-Hot-key",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_mrt_blocked",
+      "description": "Number of transactions or read/write commands blocked by an ongoing transaction",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_fail_mrt_version_mismatch",
+      "description": "Number of version mismatches - usually in verify reads, but also individual commands (reads/writes/deletes/UDFs) where version checks occur if the record had previously been read in the transaction",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_fail_record_too_big",
+      "description": "Number of write commands that failed because a record was larger than max-record-size",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_xdr_forbidden",
+      "description": "XDR traffic (xdr-write stat) and allow-xdr-writes set to false.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_xdr_key_busy",
+      "description": "ship-versions-policy is all and a new write is attempted before the most recent update to the record successfully shipped to the destination.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_fail_xdr_lost_conflict",
+      "description": "Number of XDR write commands that did not succeed in updating all the attempted bins",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_delete_error",
+      "description": "Number of batch-index delete subtransactions proxied from another node that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_delete_filtered_out",
+      "description": "Number of batch-index delete subtransactions proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_delete_not_found",
+      "description": "Number of batch-index delete subtransactions proxied from another node that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_delete_success",
+      "description": "Number of records successfully deleted by batch-index subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_delete_timeout",
+      "description": "Number of batch-index delete subtransactions proxied from another node that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_lang_delete_success",
+      "description": "Number of successful batch-index UDF delete subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_lang_error",
+      "description": "Number of language (Lua) batch-index errors for UDF sub-transactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_lang_read_success",
+      "description": "Number of successful batch-index UDF read subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_lang_write_success",
+      "description": "Number of successful batch-index UDF write subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_read_error",
+      "description": "Number of batch-index read sub-transactions proxied from another node that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_read_filtered_out",
+      "description": "Number of batch-index read subtransactions proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_read_not_found",
+      "description": "Number of batch-index read subtransactions proxied from another node that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_read_success",
+      "description": "Number of records successfully read by batch-index subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_read_timeout",
+      "description": "Number of batch-index read subtransactions proxied from another node that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_tsvc_error",
+      "description": "Number of batch-index subtransactions proxied from another node that failed with an error in the transaction service, before attempting to handle the transaction",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_tsvc_timeout",
+      "description": "transaction service (tsvc) subsystem implements the execution of read/write commands, including transactions, queries, and info commands. tsvc errors happen before records are accessed for reads or writes. They're counted separately from tsvc timeouts.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_udf_complete",
+      "description": "Number of completed batch-index UDF subtransactions proxied from another node for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_udf_error",
+      "description": "Number of failed batch-index UDF subtransactions proxied from another node for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_udf_filtered_out",
+      "description": "Number of batch-index UDF subtransactions proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_udf_timeout",
+      "description": "Number of batch-index UDF subtransactions proxied from another node that timed out for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_write_error",
+      "description": "Number of batch-index write subtransactions proxied from another node that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_write_filtered_out",
+      "description": "Number of batch-index write subtransactions proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_write_success",
+      "description": "Number of records successfully written by batch-index subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_batch_sub_write_timeout",
+      "description": "Number of batch-index write subtransactions proxied from another node that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_delete_error",
+      "description": "Number of errors for delete transactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_delete_filtered_out",
+      "description": "Number of delete transactions proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_delete_not_found",
+      "description": "Number of delete transactions proxied from another node that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_delete_success",
+      "description": "Number of successful delete transactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_delete_timeout",
+      "description": "Number of timeouts for delete transactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_lang_delete_success",
+      "description": "Number of successful UDF delete transactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_lang_error",
+      "description": "Number of language (Lua) errors for UDF transactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_lang_read_success",
+      "description": "Number of successful UDF read commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_lang_write_success",
+      "description": "Number of successful UDF write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_read_error",
+      "description": "Number of errors for read commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_read_filtered_out",
+      "description": "Number of read commands proxied from another node that did not happen because they were filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_read_not_found",
+      "description": "Number of read commands proxied from another node that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_read_success",
+      "description": "Number of successful read commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_read_timeout",
+      "description": "Number of timeouts for read commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_tsvc_error",
+      "description": "Number of commands proxied from another node that failed in the transaction service, before attempting to handle the commands",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_tsvc_timeout",
+      "description": "Number of commands proxied from another node that timed out while in the transaction service, before attempting to handle the commands",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_udf_complete",
+      "description": "Number of successful UDF commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_udf_error",
+      "description": "Number of errors for UDF commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_udf_filtered_out",
+      "description": "Number of UDF commands proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_udf_timeout",
+      "description": "Number of timeouts for UDF commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_write_error",
+      "description": "Number of errors for write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_write_filtered_out",
+      "description": "Number of write commands proxied from another node that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_write_success",
+      "description": "Number of successful write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_from_proxy_write_timeout",
+      "description": "Number of timeouts for write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_geo_region_query_cells",
+      "description": "Number of cell coverings for query region queried",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_geo_region_query_falsepos",
+      "description": "Number of points outside the region",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_geo_region_query_points",
+      "description": "Number of points within the region",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_geo_region_query_reqs",
+      "description": "Number of geo queries on the system since the uptime of the node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_hwm_breached",
+      "description": "If true, Aerospike has breached 'high-water-[disk|memory]-pct' for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index",
+      "description": "optional Context namespace Prometheus Name aerospike_namespace_index-type",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_flash_alloc_bytes",
+      "description": "Applies only to Enterprise Edition configured with index-type flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_flash_alloc_pct",
+      "description": "Applies only to Enterprise Edition configured with index-type flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_flash_used_bytes",
+      "description": "Applies only to Enterprise Edition configured with index-type flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_flash_used_pct",
+      "description": "Applies only to Enterprise Edition configured with index-type flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_mounts_used_pct",
+      "description": "Applies only to Enterprise Edition configured with index-type pmem or flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_pmem_used_bytes",
+      "description": "Applies only to Enterprise Edition configured with index-type pmem",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_pmem_used_pct",
+      "description": "Applies only to Enterprise Edition configured with index-type pmem",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_index_used_bytes",
+      "description": "Amount of memory occupied by the primary index for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_indexes_memory_used_pct",
+      "description": "Combined RAM indexes' size as a percentage of indexes-memory-budget when indexes-memory-budget is configured nonzero",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_master_tombstones",
+      "description": "Number of tombstones on this node which are active masters",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_max",
+      "description": "max-evicted-ttl optional Context namespace Prometheus Name aerospike_namespace_max-evicted-ttl The highest record TTL that Aerospike has evicted from this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_max_void_time",
+      "description": "Maximum record TTL ever inserted into this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_memory_free_pct",
+      "description": "critical Percentage of memory capacity free for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_memory_used_bytes",
+      "description": "(Database 5.6 and later)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_memory_used_data_bytes",
+      "description": "Amount of memory occupied by data",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_memory_used_index_bytes",
+      "description": "Amount of memory occupied by the index for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_memory_used_set_index_bytes",
+      "description": "Amount of memory occupied by set indexes for this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_memory_used_sindex_bytes",
+      "description": "Amount of memory occupied by secondary indexes for this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_fresh_partitions",
+      "description": "Number of partitions that are created fresh or empty because a number of nodes, greater than the replication factor, have left the cluster",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_record_receives",
+      "description": "Number of record insert request received by immigration",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_migrate_record_retransmits",
+      "description": "Number of times emigration has retransmitted records",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_migrate_records_skipped",
+      "description": "Number of times emigration did not ship a record because the remote node was already up-to-date",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_migrate_records_transmitted",
+      "description": "Number of records emigration has read and sent",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_migrate_records_unreadable",
+      "description": "Number of records skipped during migration because they were unreadable when migrate-skip-unreadable is enabled",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_migrate_rx_instance_count",
+      "description": "Number of instance objects managing immigrations",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_rx_partitions_active",
+      "description": "Number of partitions currently immigrating to this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_rx_partitions_initial",
+      "description": "Total number of migrations this node will receive during the current migration cycle for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_rx_partitions_remaining",
+      "description": "Number of migrations this node has not yet received during the current migration cycle for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_signals_active",
+      "description": "For finished partition migrations on this node, number of outstanding clean-up signals, sent to participating member nodes, waiting for clean-up acknowledgment",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_signals_remaining",
+      "description": "For unfinished partition migrations on this node, number of clean-up signals to send to participating member nodes, as migration completes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_tx_instance_count",
+      "description": "Number of instance objects managing emigrations",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_tx_partitions_active",
+      "description": "Number of partitions currently emigrating from this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_tx_partitions_imbalance",
+      "description": "Number of partition migrations failures which could lead to partitions being imbalanced",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_migrate_tx_partitions_initial",
+      "description": "Total number of migrations this node will send during the current migration cycle for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_tx_partitions_lead_remaining",
+      "description": "Number of initially scheduled emigrations which are not delayed by the migrate-fill-delay configuration",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_migrate_tx_partitions_remaining",
+      "description": "Number of migrations this node not yet sent during the current migration cycle for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_back_error",
+      "description": "Subset of mrt_roll_back_error where monitor did the roll back",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_back_success",
+      "description": "Subset of mrt_roll_back_success where monitor did the roll back",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_back_timeout",
+      "description": "Subset of mrt_roll_back_timeout where monitor did the roll back",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_forward_error",
+      "description": "Subset of mrt_roll_forward_error where monitor did the roll forward",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_forward_success",
+      "description": "Subset of mrt_roll_forward_success where monitor did the roll forward",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_forward_timeout",
+      "description": "Subset of mrt_roll_forward_timeout where monitor did the roll forward",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitor_roll_tombstone_creates",
+      "description": "Number of times monitor transactions rolls (forward or back) generate tombstones from nothing \u2013 this is rare but normal",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitors",
+      "description": "The number of mrt_monitors records in a namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_monitors_active",
+      "description": "Number of monitors currently driving roll forwards or roll backs after a transaction timeout",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_provisionals",
+      "description": "Number of provisional records in a transaction",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_roll_back_error",
+      "description": "Number of roll back transactions that failed",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_roll_back_success",
+      "description": "Number of roll back transactions that succeeded",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_roll_back_timeout",
+      "description": "Number of roll back transactions that timed out",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_roll_forward_error",
+      "description": "Number of roll forward transactions that failed",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_roll_forward_success",
+      "description": "Number of roll forward transactions that succeeded",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_roll_forward_timeout",
+      "description": "Number of roll forward transactions that timed out",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_verify_read_error",
+      "description": "Number of verify read commands that failed",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_verify_read_success",
+      "description": "Number of verify read commands that succeeded Introduced 8",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_mrt_verify_read_timeout",
+      "description": "Number of verify read commands that timed out",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_nodes_quiesced",
+      "description": "The number of nodes observed to be quiesced as of the most recent reclustering event",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_non_expirable_objects",
+      "description": "Number of records in this namespace with non-expirable TTLs (TTLs of value 0)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_non_replica_objects",
+      "description": "Number of records on this node which are neither master nor replicas",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_non_replica_tombstones",
+      "description": "Number of tombstones on this node which are neither master nor replicas",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_nsup_cycle_deleted_pct",
+      "description": "calculation was different in older versions (it was changed in versions 6.3.0.21, 6.4.0.15, 7.0.0.8 and 7.1.0.0). In those older versions, nsup_cycle_deleted_pct was calculated based on the total objects present after the NSUP cycle finished and the number of objects that got deleted in that cycle.This led to 2 special cases when its value turned up to 100:",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_nsup_cycle_duration",
+      "description": "Length of the last NSUP cycle in seconds",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_nsup_xdr_key_busy",
+      "description": "ship-versions-policy is all and the most recent update to the record has not yet successfully shipped to the destination.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_objects",
+      "description": "Number of records in this namespace for this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_ops_sub_tsvc_error",
+      "description": "Number of times a background query operate command failed to access a record",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_ops_sub_tsvc_timeout",
+      "description": "Number of records accessed by a background query operate command that timed out in the transaction service",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_ops_sub_write_error",
+      "description": "Number of records accessed by a background query operate command write subtransactions that failed with an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_ops_sub_write_filtered_out",
+      "description": "Number of records accessed by a background query operate command write subtransactions for which the write did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_ops_sub_write_success",
+      "description": "Number of successful records accessed by a background query operate command write subtransactions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_ops_sub_write_timeout",
+      "description": "Number of records accessed by a background query operate command write subtransactions that timed out",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pending_quiesce",
+      "description": "Reports 'true' when the quiesce info command has been received by a node, or if stay-quiesced is true for the node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_aggr_abort",
+      "description": "Number of primary index query aggregations that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_aggr_complete",
+      "description": "Number of primary index query aggregations that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_aggr_error",
+      "description": "Number of primary index query aggregations that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_long_basic_abort",
+      "description": "Number of basic long primary index queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_long_basic_complete",
+      "description": "Number of basic long primary index queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_long_basic_error",
+      "description": "Number of basic long primary index queries that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_ops_bg_abort",
+      "description": "Number of ops background primary index queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_ops_bg_complete",
+      "description": "Number of ops background primary index queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_ops_bg_error",
+      "description": "Number of ops background primary index queries that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_short_basic_complete",
+      "description": "Number of basic short primary index queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_short_basic_error",
+      "description": "Number of basic short primary index queries that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_short_basic_timeout",
+      "description": "Short primary index queries are not monitored, so they cannot be aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_udf_bg_abort",
+      "description": "Number of UDF background primary index queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_udf_bg_complete",
+      "description": "Number of UDF background primary index queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pi_query_udf_bg_error",
+      "description": "Number of UDF background queries that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_pmem_available_pct",
+      "description": "condition might indicate that defrag is unable to keep up with the current load.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_pmem_compression_ratio",
+      "description": "data_compression_ratio in Database 7.0.",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_namespace_pmem_free_pct",
+      "description": "data_used_pct in Database 7.0, representing the amount of used space rather than the amount of free space.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_pmem_total_bytes",
+      "description": "Total bytes of pmem storage file space allocated to this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_pmem_used_bytes",
+      "description": "Total bytes of pmem storage file space used by this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_prole_objects",
+      "description": "Number of records on this node which are proles (replicas)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_prole_tombstones",
+      "description": "Number of tombstones on this node which are proles (replicas) on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_query_agg",
+      "description": "Number of query aggregations attempted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_agg_abort",
+      "description": "Number of query aggregations aborted by the user seen by this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_agg_avg_rec_count",
+      "description": "Average number of records returned by the aggregations underlying query",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_query_agg_error",
+      "description": "Number of query aggregations errors due to an internal error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_agg_success",
+      "description": "Number of query aggregations completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_aggr_abort",
+      "description": "Number of query aggregations aborted by the user seen by this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_aggr_avg_rec_count",
+      "description": "Average number of records returned by the aggregations underlying query",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_query_aggr_complete",
+      "description": "Number of query aggregations completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_aggr_error",
+      "description": "Number of query aggregation errors due to an internal error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_basic_abort",
+      "description": "Number of secondary index basic queries that were aborted by a user",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_basic_avg_rec_count",
+      "description": "Average number of records returned by all secondary index basic queries",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_query_basic_complete",
+      "description": "Number of secondary index basic queries which completed successfully",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_basic_error",
+      "description": "Number of secondary index basic queries that returned an error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_fail",
+      "description": "Number of queries which failed due to an internal error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_false_positives",
+      "description": "Number of entries that were shortlisted from the secondary index but the bin values are not matching the query clause",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_long_queue_full",
+      "description": "Number of long running queries queue full errors",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_long_reqs",
+      "description": "Number of long running queries ever attempted in the system (query selected record more than query_threshold)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_lookup_abort",
+      "description": "Number of user aborted secondary index queries",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_lookup_avg_rec_count",
+      "description": "Average number of records returned by all secondary index query look-ups",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_query_lookup_error",
+      "description": "Number of secondary index query look-up errors",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_lookup_success",
+      "description": "Number of secondary index look-ups which succeeded",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_lookups",
+      "description": "Number of secondary index lookups attempted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_ops_bg_abort",
+      "description": "Number of ops background queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_ops_bg_complete",
+      "description": "Number of ops background queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_ops_bg_error",
+      "description": "Number of ops background queries that returned error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_ops_bg_failure",
+      "description": "Number of ops background queries that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_ops_bg_success",
+      "description": "Number of ops background queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_proto_compression_ratio",
+      "description": "Measures the average compressed size to uncompressed size ratio for protocol message data in query responses to the client",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_namespace_query_proto_uncompressed_pct",
+      "description": "Measures the percentage of query responses to the client with uncompressed protocol message data",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_query_reqs",
+      "description": "Number of query requests ever attempted on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_short_queue_full",
+      "description": "Number of short running queries queue full errors",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_short_reqs",
+      "description": "Number of short running queries ever attempted in the system (query selected record less than query_threshold)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_udf_bg_abort",
+      "description": "Number of UDF background queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_udf_bg_complete",
+      "description": "Number of UDF background queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_udf_bg_error",
+      "description": "Number of UDF background queries which returned error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_udf_bg_failure",
+      "description": "Number of UDF background queries that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_query_udf_bg_success",
+      "description": "Number of UDF background queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_re_repl_error",
+      "description": "Number of re-replication errors which were not timeout",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_re_repl_success",
+      "description": "Number of successful re-replications",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_re_repl_timeout",
+      "description": "Number of re-replications that ended in timeout",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_re_repl_tsvc_error",
+      "description": "Number of re-replication errors happening in the transaction queue which were not re_repl_tsvc_timeout (before the re-replication attempt)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_re_repl_tsvc_timeout",
+      "description": "Number of re-replications that time out early in the internal transaction queue, while waiting to be picked up by a service thread",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_record_proto_compression_ratio",
+      "description": "Measures the average compressed size to uncompressed size ratio for protocol message data in single-record transaction client responses",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_record_proto_uncompressed_pct",
+      "description": "Measures the percentage of single-record transaction client responses with uncompressed protocol message data",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_delete_dup_res",
+      "description": "Number of retransmits that occurred during batch delete subtransactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_delete_repl_write",
+      "description": "Number of retransmits that occurred during batch delete subtransactions that were being replica-written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_dup_res",
+      "description": "Obsolete as of Database 6",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_read_dup_res",
+      "description": "Number of retransmits that occurred during batch read subtransactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_read_repl_ping",
+      "description": "Number of retransmits that occurred during SC linearized read subtransactions within batched commands",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_udf_dup_res",
+      "description": "Number of retransmits that occurred during batch UDF subtransactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_udf_repl_write",
+      "description": "Number of retransmits that occurred during batch UDF subtransactions that were being replica-written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_write_dup_res",
+      "description": "Number of retransmits that occurred during batch write subtransactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_batch_sub_write_repl_write",
+      "description": "Number of retransmits that occurred during batch write (insert/update/upsert/replace) subtransactions that were being replica-written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_delete_dup_res",
+      "description": "Number of retransmits that occurred during delete transactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_delete_repl_write",
+      "description": "Number of retransmits that occurred during delete transactions that were being replica written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_read_dup_res",
+      "description": "Number of retransmits that occurred during read commands that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_read_repl_ping",
+      "description": "Number of retransmits that occurred during SC linearized reads",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_udf_dup_res",
+      "description": "Number of retransmits that occurred during client initiated UDF transactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_udf_repl_write",
+      "description": "Number of retransmits that occurred during client initiated UDF transactions that were being replica written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_write_dup_res",
+      "description": "Number of retransmits that occurred during write transactions that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_all_write_repl_write",
+      "description": "Number of retransmits that occurred during write transactions that were being replica written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_nsup_repl_write",
+      "description": "Number of retransmits that occurred during NSUP initiated delete transactions that were being replica written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_ops_sub_dup_res",
+      "description": "Number of retransmits that occurred during write subtransactions of background ops scan/query jobs that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_ops_sub_repl_write",
+      "description": "Number of retransmits that occurred during write subtransactions of background ops scan/query jobs that were being replica written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_udf_sub_dup_res",
+      "description": "Number of retransmits that occurred during UDF subtransactions of scan/query background UDF jobs that were being duplicate-resolved",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_retransmit_udf_sub_repl_write",
+      "description": "Number of retransmits that occurred during UDF subtransactions of scan/query background UDF jobs that were being replica written",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_aggr_abort",
+      "description": "Number of scan aggregations that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_aggr_complete",
+      "description": "Number of scan aggregations that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_aggr_error",
+      "description": "Number of scan aggregations that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_basic_abort",
+      "description": "Number of basic scans that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_basic_complete",
+      "description": "Number of basic scans that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_basic_error",
+      "description": "Number of basic scans that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_ops_bg_abort",
+      "description": "Number of ops background scans that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_ops_bg_complete",
+      "description": "Number of ops background scans that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_ops_bg_error",
+      "description": "Number of ops background scans that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_proto_compression_ratio",
+      "description": "Measures the average compressed size to uncompressed size ratio for protocol message data in basic scan or aggregation scan client responses",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_namespace_scan_proto_uncompressed_pct",
+      "description": "Measures the percentage of basic scan or aggregation scan client responses with uncompressed protocol message data",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_scan_udf_bg_abort",
+      "description": "Number of UDF background scans that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_udf_bg_complete",
+      "description": "Number of UDF background scans that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_scan_udf_bg_error",
+      "description": "Number of UDF background scans that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_set",
+      "description": "set-evicted-objects optional Context namespace Prometheus Name aerospike_namespace_set-evicted-objects Number of records evicted by a set",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_set_index_used_bytes",
+      "description": "Amount of memory occupied by set indexes for this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_si_query_aggr_abort",
+      "description": "Number of secondary index query aggregations aborted by the user seen by this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_aggr_complete",
+      "description": "Number of secondary index query aggregations completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_aggr_error",
+      "description": "Number of secondary index query aggregation errors due to an internal error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_long_basic_abort",
+      "description": "Number of basic long secondary index queries aborted for this namespace",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_long_basic_complete",
+      "description": "Number of basic long secondary index queries completed for this namespace",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_ops_bg_abort",
+      "description": "Number of ops background secondary index queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_ops_bg_complete",
+      "description": "Number of ops background secondary index queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_ops_bg_error",
+      "description": "Number of ops background secondary index queries that returned error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_udf_bg_abort",
+      "description": "Number of UDF background secondary index queries that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_udf_bg_complete",
+      "description": "Number of UDF background secondary index queries that completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_si_query_udf_bg_error",
+      "description": "Number of UDF background secondary index queries which returned error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_sindex",
+      "description": "optional Context namespace Prometheus Name aerospike_namespace_sindex-type",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sindex_flash_used_bytes",
+      "description": "Applies only to Enterprise Edition configured with sindex-type flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sindex_flash_used_pct",
+      "description": "Applies only to Enterprise Edition configured with sindex-type flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sindex_gc_cleaned",
+      "description": "Number of secondary index entries cleaned by sindex GC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_sindex_mounts_used_pct",
+      "description": "Applies only to Enterprise Edition configured with sindex-type pmem or flash",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sindex_pmem_used_bytes",
+      "description": "Applies only to Enterprise Edition configured with sindex-type pmem",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sindex_pmem_used_pct",
+      "description": "Applies only to Enterprise Edition configured with sindex-type pmem",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sindex_used_bytes",
+      "description": "Total bytes in-use on the mount(s) for the secondary indexes used by this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_smd_evict_void_time",
+      "description": "The cluster-wide specified eviction depth, expressed as a void time in seconds since 1 January 2010 UTC",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_stop_writes",
+      "description": "If true, this namespace is currently not allowing client-originated writes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage",
+      "description": "storage-engine.stripe[ix].defrag_reads",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_",
+      "description": "device[ix] optional Context namespace Prometheus Name Label \"device\" and \"device_index\" in all aerospike_namespace_storage_engine_device_* metrics The raw device that is configured in device configuration in namespace context and storage-engine subcontext",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_age",
+      "description": "Shows percentage of lifetime (total usage) claimed by OEM for underlying storage-engine",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_defrag_partial_writes",
+      "description": "storage-engine.device[ix].defrag_partial_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_defrag_q",
+      "description": "storage-engine.device[ix].defrag_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_defrag_reads",
+      "description": "storage-engine.device[ix].defrag_reads",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_defrag_writes",
+      "description": "storage-engine.device[ix].defrag_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_free_wblocks",
+      "description": "storage-engine.device[ix].free_wblocks",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_partial_writes",
+      "description": "storage-engine.device[ix].partial_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_read_errors",
+      "description": "storage-engine.device[ix].read_errors",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_shadow_write_q",
+      "description": "storage-engine.device[ix].shadow_write_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_used_bytes",
+      "description": "storage-engine.device[ix].used_bytes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_write_q",
+      "description": "storage-engine.device[ix].write_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_device_writes",
+      "description": "storage-engine.device[ix].writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_",
+      "description": "file[ix] optional Context namespace Prometheus Name Label \"file\" and \"file_index\" in all aerospike_namespace_storage_engine_file_* metrics The data file path that is configured in file configuration in namespace context and storage-engine subcontext",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_age",
+      "description": "Shows the percentage of lifetime (total usage) claimed by OEM for the underlying device of storage-engine",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_defrag_partial_writes",
+      "description": "storage-engine.file[ix].defrag_partial_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_defrag_q",
+      "description": "storage-engine.file[ix].defrag_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_defrag_reads",
+      "description": "storage-engine.file[ix].defrag_reads",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_defrag_writes",
+      "description": "storage-engine.file[ix].defrag_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_free_wblocks",
+      "description": "storage-engine.file[ix].free_wblocks",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_partial_writes",
+      "description": "storage-engine.file[ix].partial_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_shadow_write_q",
+      "description": "storage-engine.file[ix].shadow_write_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_used_bytes",
+      "description": "storage-engine.file[ix].used_bytes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_write_q",
+      "description": "storage-engine.file[ix].write_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_file_writes",
+      "description": "The number of wblocks written to storage-engine",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_",
+      "description": "stripe[ix] optional Context namespace Prometheus Name Label \"stripe\" and \"stripe_index\" in all aerospike_namespace_storage_engine_stripe_* metrics Stripe is a shared memory segment",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_age",
+      "description": "Shows the percentage of lifetime (total usage) claimed by OEM for the respective storage-backed persistence device of storage-engine",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_backing_write_q",
+      "description": "storage-engine.stripe[ix].backing_write_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_defrag_partial_writes",
+      "description": "storage-engine.stripe[ix].defrag_partial_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_defrag_q",
+      "description": "storage-engine.stripe[ix].defrag_q",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_defrag_writes",
+      "description": "storage-engine.stripe[ix].defrag_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_partial_writes",
+      "description": "storage-engine.stripe[ix].partial_writes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_storage_engine_stripe_used_bytes",
+      "description": "storage-engine.stripe[ix].used_bytes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_sub_objects",
+      "description": "Number of LDT sub objects",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_tombstones",
+      "description": "Total number tombstones in this namespace on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_truncate_lut",
+      "description": "'The most covering truncate_lut for this namespace",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_truncated_records",
+      "description": "The total number of records deleted by truncation for this namespace (includes set truncations)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_truncating",
+      "description": "Indicates when the namespace is in the process of being truncated",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_ttl_reductions_applied",
+      "description": "Incremented when apply-ttl-reduction is true and a command reduces the TTL",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_ttl_reductions_ignored",
+      "description": "Incremented when apply-ttl-reduction is false and a command's attempt to reduce the TTL is ignored",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_lang_delete_success",
+      "description": "Number of successful UDF delete sub-transactions for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_lang_error",
+      "description": "Number of UDF sub-transactions errors for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_lang_read_success",
+      "description": "Number of successful UDF read sub-transactions for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_lang_write_success",
+      "description": "Number of successful UDF write sub-transactions for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_tsvc_error",
+      "description": "Number of UDF subtransactions that failed with an error in the transaction service, before attempting to handle the transaction for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_tsvc_timeout",
+      "description": "Number of UDF subtransactions that timed out in the transaction service, before attempting to handle the transaction for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_udf_complete",
+      "description": "Number of completed UDF subtransactions for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_udf_error",
+      "description": "Number of failed UDF subtransactions for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_udf_filtered_out",
+      "description": "Number of UDF subtransactions that did not happen because the record was filtered out with Filter Expressions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_udf_sub_udf_timeout",
+      "description": "Number of UDF subtransactions that timed out for scan/query background UDF jobs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_unavailable_partitions",
+      "description": "Number of unavailable partitions for this namespace (when using strong-consistency)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_unreplicated_records",
+      "description": "a re-replication is triggered, the unreplicated_records stat is decremented as the record goes into the \u201creplicating\u201d state. It is incremented back if the re-replication attempt fails, and the record gets into an unreplicated state again.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_write",
+      "description": "write-smoothing-period optional Context namespace Prometheus Name aerospike_namespace_write-smoothing-period Removed",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_xdr_bin_cemeteries",
+      "description": "Number of tombstones with bin tombstones",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_delete_error",
+      "description": "Number of delete requests initiated by XDR that failed on the namespace on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_delete_not_found",
+      "description": "Number of delete requests initiated by XDR that failed on the namespace on this node due to the record not being found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_delete_success",
+      "description": "Number of delete requests initiated by XDR that succeeded on the namespace on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_delete_timeout",
+      "description": "Number of delete requests initiated by XDR that timed out on the namespace on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_write_error",
+      "description": "Number of write requests initiated by XDR that failed on the namespace on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_write_success",
+      "description": "Number of write requests initiated by XDR that succeeded on the namespace on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_client_write_timeout",
+      "description": "Number of write requests initiated by XDR that timed out on the namespace on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_delete_error",
+      "description": "Number of errors for XDR delete commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_delete_not_found",
+      "description": "Number of XDR delete commands proxied from another node that resulted in not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_delete_success",
+      "description": "Number of successful XDR delete commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_delete_timeout",
+      "description": "Number of timeouts for XDR delete commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_write_error",
+      "description": "Number of errors for XDR write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_write_success",
+      "description": "Number of successful XDR write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_from_proxy_write_timeout",
+      "description": "Number of timeouts for XDR write commands proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_namespace_xdr_tombstones",
+      "description": "tombstones are deleted after they have been shipped via XDR. The XDR tomb raider runs as specified in xdr-tomb-raider-period and uses xdr-tomb-raider-threads to reduce the index and delete XDR tombstones where the last update time (LUT) is older than the current global last ship time (GLST). The GLST is computed as the lowest value across the last ship time (LST) of all the partitions for the namespace. This is done by having each node send the LST for each partition they own to the principal node which then determines the lowest value and sends it back to all nodes in the cluster via the system metadata (SMD) fabric channel.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_complete",
+      "description": "Format: Q1_REQUESTS:Q1_BUFFERS, Q2_REQUESTS:Q2_BUFFERS, ...",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_created_buffers",
+      "description": "Number of 128KB response buffers created",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_delay",
+      "description": "Number of times a batch index response buffer has been delayed (WOULDBLOCK on the send)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_destroyed_buffers",
+      "description": "Number of 128KB response buffers destroyed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_error",
+      "description": "Context node_stats Number of batch index requests that completed with an error when, for example, the client has timed out but the server is still attempting to send response buffers back",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_huge_buffers",
+      "description": "Number temporary response buffers created that exceeded 128KB",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_initiate",
+      "description": "Number of batch index requests received",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_proto_compression_ratio",
+      "description": "Measures the average compressed size to uncompressed size ratio for protocol message data in batch index responses",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_proto_uncompressed_pct",
+      "description": "Measures the percentage of batch index responses with uncompressed protocol message data",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_queue",
+      "description": "Format: Q1_REQUESTS:Q1_BUFFERS, Q2_REQUESTS:Q2_BUFFERS, ...",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_timeout",
+      "description": "Database 4.1 through 6.3, the overall batch index transaction max delay time is twice the total timeout set by the client, or 30 seconds if there is no timeout set by the client.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_batch_index_unused_buffers",
+      "description": "Number of available 128 KB response buffers currently in buffer pool",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_client_connections",
+      "description": "client_connections is below an expected low value,",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_client_connections_closed",
+      "description": "Number of client connections that have been closed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_client_connections_opened",
+      "description": "critical Context node_stats Number of client connections created to this node since the node was started",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_clock_skew_ms",
+      "description": "Current maximum clock skew in milliseconds between nodes in a cluster",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_clock_skew_stop_writes_sec",
+      "description": "value is in seconds, not milliseconds.",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_generation",
+      "description": "A 64 bit unsigned integer incremented on a node for every successful cluster partition re-balance or transition to orphan state",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_integrity",
+      "description": "When false, indicates integrity issues within the cluster, meaning that some nodes are either faulty or dead",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_is_member",
+      "description": "When false, indicates that the node is not joined to a cluster; that is, it is an orphan",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_key",
+      "description": "Randomly generated 64 bit hexadecimal string used to name the last Paxos cluster state agreement",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_max_compatibility_id",
+      "description": "Each node has a compatibility ID that is an integer based on the node's database version",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_min_compatibility_id",
+      "description": "Context node_stats Each node has a compatibility ID that is an integer based on the node's database version",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_principal",
+      "description": "This specifies the Node ID of the current cluster principal",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_cluster_size",
+      "description": "critical Context node_stats Size of the cluster",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_demarshal_error",
+      "description": "Number of errors during the demarshal step",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_deprecated_requests",
+      "description": "watch Context node_stats Number of times a deprecated feature has been used",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_early_tsvc_batch_sub_error",
+      "description": "Number of errors early in the transaction for batch subtransactions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_early_tsvc_client_error",
+      "description": "Number of errors early in the transaction for direct client requests",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_early_tsvc_from_proxy_batch_sub_error",
+      "description": "Number of errors early in the commands for batch subtransactions proxied from another node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_early_tsvc_from_proxy_error",
+      "description": "Number of errors early in the commands for commands, other than batch subtransactions, proxied from another node, for example, bad or unknown namespace name or security authentication errors",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_early_tsvc_ops_sub_error",
+      "description": "Number of errors early in an internal ops subtransaction (records accessed by a background query operate command)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_early_tsvc_udf_sub_error",
+      "description": "Number of errors early in the transaction for UDF subtransactions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_entries_per_bval",
+      "description": "Ratio of entries to unique bvals (bin values) for a given secondary index on the node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_entries_per_rec",
+      "description": "Ratio of entries to unique records for a given secondary index on the node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_err_storage_defrag_fd_get",
+      "description": "Aerospike metric: aerospike_node_stats_err_storage_defrag_fd_get",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_err_sync_copy_null_node",
+      "description": "Number of errors during cluster state exchange because of missing general node information",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_bulk_recv_rate",
+      "description": "Rate of traffic (bytes/sec) received by the fabric bulk channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_bulk_send_rate",
+      "description": "Rate of traffic (bytes/sec) sent by the fabric bulk channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_connections",
+      "description": "watch Context node_stats Number of active fabric connections to this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_connections_closed",
+      "description": "Number of fabric connections that have been closed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_connections_opened",
+      "description": "critical Context node_stats Number of fabric connections created to this node since the node was started",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_ctrl_recv_rate",
+      "description": "Rate of traffic (bytes/sec) received by the fabric ctrl channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_ctrl_send_rate",
+      "description": "Rate of traffic (bytes/sec) sent by the fabric ctrl channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_meta_recv_rate",
+      "description": "Rate of traffic (bytes/sec) received by the fabric meta channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_meta_send_rate",
+      "description": "Rate of traffic (bytes/sec) sent by the fabric meta channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_rw_recv_rate",
+      "description": "Rate of traffic (bytes/sec) received by the fabric meta channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_fabric_rw_send_rate",
+      "description": "Rate of traffic (bytes/sec) sent by the fabric rw channel during the last ticker-interval (every 10 seconds by default)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_failed_best_practices",
+      "description": "Indicates true if any of the best-practices, which are checked when the server starts, were violated, otherwise failed_best_practices will indicate false",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_heap_active_kbytes",
+      "description": "The amount of memory in in-use pages, in KiB",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_heap_allocated_kbytes",
+      "description": "watch Context node_stats The amount of memory, in KiB, allocated by the asd daemon",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_heap_efficiency_pct",
+      "description": "Context node_stats Provides an indication of the jemalloc heap fragmentation",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_heap_mapped_kbytes",
+      "description": "watch Context node_stats Amount of memory in mapped pages in KiB, such as the amount of memory that JEM received from the Linux kernel",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_heap_site_count",
+      "description": "Number of distinct sites in the server code (specific locations in server functions) that have allocated heap memory designated for tracking as governed by the debug-allocations setting from the time when the server was started",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_heartbeat_connections",
+      "description": "watch Context node_stats Number of active heartbeat connections to this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_heartbeat_connections_closed",
+      "description": "Number of heartbeat connections that have been closed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_heartbeat_connections_opened",
+      "description": "critical Context node_stats Number of heartbeat connections created to this node since the node was started",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_heartbeat_received_foreign",
+      "description": "Total number of heartbeats received from remote nodes",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_heartbeat_received_self",
+      "description": "Total number of multicast heartbeats from this node received by this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_info_complete",
+      "description": "Number of info requests completed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_info_queue",
+      "description": "Number of info requests pending in info queue",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_info_timeout",
+      "description": "Tracks total timed-out info transactions",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_long_queries_active",
+      "description": "Number of queries currently active (formerly queries_active or scans_active)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_migrate_allowed",
+      "description": "This indicates whether migrations are allowed or not on a node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_migrate_partitions_remaining",
+      "description": "This is the number of partitions remaining to migrate (in either direction)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_objects",
+      "description": "watch Context node_stats Total number of replicated objects on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_paxos_principal",
+      "description": "Identifier for the node in which this node believes to be the Paxos Principal",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_process_cpu_pct",
+      "description": "Percentage of CPU usage by the asd process",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_proxy_in_progress",
+      "description": "Number of proxies in progress",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_queries_active",
+      "description": "Number of queries currently active (formerly scans_active)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_query_bad_records",
+      "description": "Number of false positive entries in secondary index queries",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_query_long_running",
+      "description": "Number of long running queries currently in process",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_query_short_running",
+      "description": "Number of short running queries currently in process",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_query_tracked",
+      "description": "Number of queries tracked by the system",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_read_touch_error",
+      "description": "Number of read touch errors which were not timeouts",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_read_touch_skip",
+      "description": "Number of touches abandoned upon finding that another write (including an earlier touch) has taken place or is taking place, removing the need to proceed with the touch",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_read_touch_success",
+      "description": "Number of successful read touches",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_read_touch_timeout",
+      "description": "Number of touches that ended in timeout",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_read_touch_tsvc_error",
+      "description": "Number of read touch subtransactions that failed with an error in the internal transaction queue",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_read_touch_tsvc_timeout",
+      "description": "Number of read touches that time out early in the internal transaction queue, while waiting to be picked up by a service thread",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_reaped_fds",
+      "description": "Number of idle client connections closed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_rw_err_dup_write_cluster_key",
+      "description": "Aerospike metric: aerospike_node_stats_rw_err_dup_write_cluster_key",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_rw_err_dup_write_internal",
+      "description": "Aerospike metric: aerospike_node_stats_rw_err_dup_write_internal",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_rw_in_progress",
+      "description": "Context node_stats Number of rw transactions in progress",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_scans_active",
+      "description": "Number of scans currently active",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_gc_garbage_cleaned",
+      "description": "Sum of secondary index garbage entries cleaned by sindex GC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_gc_garbage_found",
+      "description": "Sum of secondary index garbage entries found by sindex GC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_gc_list_creation_time",
+      "description": "Sum of time spent in finding secondary index garbage entries by sindex GC (millisecond)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_gc_list_deletion_time",
+      "description": "Sum of time spent in cleaning sindex garbage entries by sindex GC (millisecond)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_gc_objects_validated",
+      "description": "Number of secondary index entries processed by sindex GC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_gc_retries",
+      "description": "Number of retries when sindex GC cannot get sprigs lock",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sindex_ucgarbage_found",
+      "description": "Number of un-cleanable garbage entries in the sindexes encountered through queries",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_cluster_key_err_ack_rw_trans_reenqueue",
+      "description": "Number of Read/Write trans re-enqueued because of cluster key mismatch",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_cluster_key_partition_transaction_queue_count",
+      "description": "Aerospike metric: aerospike_node_stats_stat_cluster_key_partition_transaction_queue_count",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_cluster_key_prole_retry",
+      "description": "Number of times a prole write was retried as a result of a cluster key mismatch",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_cluster_key_regular_processed",
+      "description": "Number of successful transactions that passed the cluster key test",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_cluster_key_trans_to_proxy_retry",
+      "description": "Number of times a proxy was redirected",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_cluster_key_transaction_reenqueue",
+      "description": "Aerospike metric: aerospike_node_stats_stat_cluster_key_transaction_reenqueue",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_evicted_set_objects",
+      "description": "Number of objects evicted from a Set due to set limits defined in Aerospike configuration",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_single_bin_records",
+      "description": "Removed: Number of single bin records",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_slow_trans_queue_batch_pop",
+      "description": "Number of times we moved a batch of trans from slow queue to fast queue",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_slow_trans_queue_pop",
+      "description": "Number of trans that were moved from slow queue to fast queue",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_stat_slow_trans_queue_push",
+      "description": "Number of trans that we pushed onto the slow queue",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_storage_defrag_wait",
+      "description": "Number of times the defrag waited (called sleep)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_sub_objects",
+      "description": "Number of LDT sub objects",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_system_free_mem_kbytes",
+      "description": "critical Context node_stats Amount of free system memory in kilobytes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_system_free_mem_pct",
+      "description": "critical Context node_stats Percentage of free system memory",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_system_kernel_cpu_pct",
+      "description": "Percentage of CPU usage by processes running in kernel mode",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_system_thp_mem_kbytes",
+      "description": "Amount of memory in use by the Transparent Huge Page mechanism, in kilobytes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_system_total_cpu_pct",
+      "description": "Percentage of CPU usage by all running processes",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_system_user_cpu_pct",
+      "description": "Percentage of CPU usage by processes running in user mode",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_threads_detached",
+      "description": "Number of detached server threads currently running",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_threads_joinable",
+      "description": "Number of joinable server threads currently running",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_threads_pool_active",
+      "description": "Number of currently active threads in the server thread pool",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_threads_pool_total",
+      "description": "Total number of threads in the server thread pool",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_time_since_rebalance",
+      "description": "Number of seconds since the last reclustering event, either triggered by the recluster info command or by a cluster disruption (such as a node being add/removed or a network disruption)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_tree_gc_queue",
+      "description": "This is the number of trees queued up, ready to be completely removed (partitions drop)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_tscan_aborted",
+      "description": "Number of scans that were aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_tscan_initiate",
+      "description": "Number of new scan requests initiated",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_tscan_pending",
+      "description": "Number of scan requests pending",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_node_stats_tscan_succeeded",
+      "description": "Number of scan requests that have successfully finished",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_node_stats_uptime",
+      "description": "Time in seconds since last server restart",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_device_data_bytes",
+      "description": "device_data_bytes Device storage used by this set in bytes, for the data part (does not include index part)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_memory_data_bytes",
+      "description": "Memory used by this set in bytes, for the data part (does not include index part)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_ns",
+      "description": "Namespace name this set belongs to",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_objects",
+      "description": "Total number of objects (master and all replicas) in this set on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_set",
+      "description": "- Removed -",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_tombstones",
+      "description": "Total number of tombstones (master and all replicas) in this set on this node",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_truncate_lut",
+      "description": "'The most covering truncate_lut for this set",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sets_truncating",
+      "description": "Indicates when the set is in the process of being truncated",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_delete_error",
+      "description": "Number of errors while processing a delete transaction for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_delete_success",
+      "description": "Number of successful delete transactions processed for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_entries",
+      "description": "Number of secondary index entries for this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_ibtr_memory_used",
+      "description": "Amount of memory, in bytes, the secondary index is consuming for the keys, as opposed to nbtr_memory_used which is the amount of memory the secondary index is consuming for the entries",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_keys",
+      "description": "Number of secondary keys for this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_load_pct",
+      "description": "Progress in percentage of the creation of secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_load_time",
+      "description": "Time it took for the secondary index to be fully created",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_loadtime",
+      "description": "Time it took for the secondary index to be fully created",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_memory_used",
+      "description": "Amount of memory, in bytes, consumed by the secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_nbtr_memory_used",
+      "description": "Amount of memory, in bytes, the secondary index is consuming for the entries, as opposed to ibtr_memory_used which is the amount of memory the secondary index is consuming for the keys",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_agg",
+      "description": "Number of query aggregations attempted for this secondary index on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_query_agg_avg_rec_count",
+      "description": "Average number of records returned by the aggregations underlying queries against this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_agg_avg_record_size",
+      "description": "Average size of the records returned by the aggregations underlying queries against this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_avg_rec_count",
+      "description": "Average number of records returned by the all queries against this secondary index (combines query_agg_avg_rec_count and query_lookup_avg_rec_count)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_avg_record_size",
+      "description": "Average size of the records returned by all the queries against this secondary index (combines query_agg_avg_record_size and query_lookup_avg_record_size) Introduced - Removed 5",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_basic_abort",
+      "description": "Number of basic queries aborted for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_query_basic_avg_rec_count",
+      "description": "Average number of records returned by the lookup queries against this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_basic_complete",
+      "description": "Number of basic queries completed for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_query_basic_error",
+      "description": "Number of basic queries that returned error for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_query_lookup_avg_rec_count",
+      "description": "Average number of records returned by the lookup queries against this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_lookup_avg_record_size",
+      "description": "Average size of the records returned by the lookup queries against this secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_query_lookups",
+      "description": "Number of lookup queries ever attempted for this secondary index on this node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_query_reqs",
+      "description": "Number of query requests ever attempted for this secondary index on this node (combines query_lookups and query_agg)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_si_accounted_memory",
+      "description": "Amount of memory, in bytes, the secondary index is consuming",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_si_query_long_basic_error",
+      "description": "Number of basic long secondary index queries that returned error for this namespace",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_si_query_short_basic_complete",
+      "description": "Number of basic short secondary index queries completed for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_si_query_short_basic_error",
+      "description": "Number of basic short secondary index queries that returned error for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_si_query_short_basic_timeout",
+      "description": "Short queries are not monitored, so they cannot be aborted",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_stat_gc_recs",
+      "description": "Number of records that have been garbage collected out of the secondary index memory",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_stat_gc_time",
+      "description": "Amount of time spent processing garbage collection for the secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_used_bytes",
+      "description": "Amount of memory, in bytes, consumed by the secondary index",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_sindex_write_error",
+      "description": "Number of errors while processing a write transaction for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_sindex_write_success",
+      "description": "Number of successful write transactions processed for this secondary index",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_users_conns_in_use",
+      "description": "conns_in_use Context users Number of client connections for a given user",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_users_limitless_read_scan_query",
+      "description": "Context users Limitless read query requests per second for a given user",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_users_limitless_write_scan_query",
+      "description": "Context users Limitless write query requests per second for a given user",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_users_read_scan_query_rps",
+      "description": "Context users Read query requests per second for a given user",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_users_read_single_record_tps",
+      "description": "Context users Read transactions per second for a given user",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_users_write_scan_query_rps",
+      "description": "Context users Write query requests per second for a given user",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_users_write_single_record_tps",
+      "description": "Context users Write transactions per second for a given user",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_abandoned",
+      "description": "at the source cluster, when there are outstanding digest log entries and the partition ownership changes by the time they are processed, if the local node does not own master or prole copy of the partition such record belongs to, the node now owning the master copy of the partition would get an incoming digest log entry relogged to it.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_active_failed_node_sessions",
+      "description": "Number of active failed node sessions pending",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_active_link_down_sessions",
+      "description": "Number of active link down sessions pending",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_bytes_shipped",
+      "description": "Number of bytes shipped for a namespace to a DC by XDR",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_compression_ratio",
+      "description": "Running average compression ratio",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_xdr_dc_as_open_conn",
+      "description": "Number of open connection to the Aerospike DC",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_as_size",
+      "description": "The cluster size of the destination Aerospike DC",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_http_good_locations",
+      "description": "Number of URLs that are considered healthy and being used by the change notification system",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_http_locations",
+      "description": "Number of URLs configured for the HTTP destination",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_attempt",
+      "description": "Number of records that have been attempted to be shipped, but could have resulted in either success or error",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_bytes",
+      "description": "Number of bytes shipped for this DC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_delete_success",
+      "description": "Number of delete transactions that have been successfully shipped",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_destination_error",
+      "description": "Number of errors from the remote cluster(s) while shipping records for this DC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_idle_avg",
+      "description": "Average number of ms of sleep for each record being shipped",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_idle_avg_pct",
+      "description": "Representation in percent of total time spent for dc_ship_idle_avg",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_inflight_objects",
+      "description": "Number of records that are inflight (which have been shipped but for which a response from the remote DC has not yet been received)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_latency_avg",
+      "description": "Moving average of shipping latency for the specific DC",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_source_error",
+      "description": "Number of client layer errors while shipping records for this DC",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dc_ship_success",
+      "description": "Number of records that have been successfully shipped",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dc_state",
+      "description": "are the different statuses: CLUSTER_INACTIVE, CLUSTER_UP, CLUSTER_DOWN, CLUSTER_WINDOW_SHIP",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dc_timelag",
+      "description": "Context xdr Time lag for this specific DC",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dlog_free_pct",
+      "description": "Percentage of the digest log free and available for use",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_dlog_logged",
+      "description": "Number of records logged into digest log",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dlog_overwritten_error",
+      "description": "Number of digest log entries that got overwritten",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dlog_processed_link_down",
+      "description": "Number of linkdown that were processed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dlog_processed_main",
+      "description": "Number of records processed on the local Aerospike server",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dlog_processed_replica",
+      "description": "Number of records processed for a node in the cluster that is not the local node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dlog_relogged",
+      "description": "Number of records relogged by this node into the digest log due to temporary issues when attempting to ship",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_dlog_used_objects",
+      "description": "Total number of records slots used in the digest log",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_filtered_out",
+      "description": "watch Context xdr Number of local records that are skipped after having been read but before actual shipment",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_global_lastshiptime",
+      "description": "Minimum last ship time in millisecond (epoch) for XDR for across the cluster",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_hot_keys",
+      "description": "watch Context xdr Number of times a record write is skipped from processing because that record is already pending processing",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_hotkey_fetch",
+      "description": "If there are hot keys in the system (same record updated quite frequently), XDR optimizes by not shipping all the updates",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_hotkey_skip",
+      "description": "Replaces noship_recs_dup_intrabatch and noship_recs_genmismatch",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_in_progress",
+      "description": "watch Context xdr Number of records that are pending completion",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_in_queue",
+      "description": "watch Context xdr Number of records in the in-memory transaction queue still to be processed",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_lag",
+      "description": "critical Context xdr Lag in seconds between the destination and the source datacenters",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_lap_us",
+      "description": "Context xdr Time in microseconds (\u03bcsecs) taken to process records across partitions in one lap (processing cycle)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_latency_ms",
+      "description": "Context xdr Average network latency for the successfully shipped latency",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_local_recs_migration_retry",
+      "description": "Number of records missing in a batch call, generally a result of migrations, but can also be caused by expiration and eviction",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_nodes",
+      "description": "watch Context xdr Number of nodes in the destination DC as seen by XDR",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_not_found",
+      "description": "watch Context xdr Number of local records not found by XDR when attempting to read them",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_queue_overflow_error",
+      "description": "Number of XDR queue overflow errors",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_active_avg_pct",
+      "description": "This statistics reflects how busy the XDR read threads are by calculating, the average time in percent of total time that the XDR read threads spend actually processing something vs",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_error",
+      "description": "Number of read requests initiated by XDR that failed",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_idle_avg_pct",
+      "description": "This is a sister statistic to xdr_read_active_avg_pct and represents the average time in percent of total time that the XDR read threads waits for a new digest log entry to arrive on their queues from the dlogreader / failed node shippers / window shippers",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_latency_avg",
+      "description": "Moving average latency in milliseconds for XDR to read a record",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_notfound",
+      "description": "Number of read requests initiated by XDR that were not found",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_reqq_used",
+      "description": "How many digest log entries are currently in the XDR read threads queues",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_read_reqq_used_pct",
+      "description": "Sister statistic to xdr_read_reqq_used to represent how full in percent the XDR read request queues are",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_read_respq_used",
+      "description": "How many entries are being used in the XDR read response queues",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_read_success",
+      "description": "Number of read requests initiated by XDR that succeeded",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_read_txnq_used",
+      "description": "Number of XDR read commands that are in flight in the local transaction queue",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_read_txnq_used_pct",
+      "description": "Percent used of the XDR read commands that are in flight (out of a maximum allowed of 10,000) in the transaction queue",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_recoveries",
+      "description": "Context xdr Number of partitions that are recovered by reducing the primary index of that partition",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_recoveries_pending",
+      "description": "Context xdr Number of recoveries currently pending",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_relogged_incoming",
+      "description": "at the source cluster, when there are outstanding digest log entries and the partition ownership changes by the time they are processed, if the local node does not own master or prole copy of the partition such record belongs to, the node now owning the master copy of the partition would get an incoming digest log entry relogged to it.",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_relogged_outgoing",
+      "description": "Number of records relogged to another node's digest log",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_retry_conn_reset",
+      "description": "Context xdr Number of records whose shipment is retried due to a reset of the connection to the remote datacenter",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_retry_dest",
+      "description": "Context xdr Number of records retried due to a temporary error returned by destination node",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_retry_no_node",
+      "description": "Context xdr Number of records retried because XDR cannot determine which destination node is the master",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_ship_bytes",
+      "description": "watch Context xdr Estimated number of bytes XDR has shipped to remote clusters",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_ship_compression_avg_pct",
+      "description": "Used to determine how beneficial compression is (higher is better)",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_xdr_ship_delete_success",
+      "description": "Context xdr Number of delete operations that were successfully shipped",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_ship_destination_error",
+      "description": "Number of errors from the remote cluster(s) while shipping records",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_ship_destination_permanent_error",
+      "description": "Number of permanent errors from the remote cluster(s) while shipping records",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_ship_fullrecord",
+      "description": "Number of records that did not take advantage of bin level shipping (see xdr-ship-bins)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_ship_inflight_objects",
+      "description": "Number of objects that are inflight (which have been shipped but for which a response from the remote DC has not yet been received)",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_ship_latency_avg",
+      "description": "Context xdr Moving average latency in milliseconds to ship a record to remote Aerospike clusters",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_ship_outstanding_objects",
+      "description": "Context xdr Number of outstanding records not yet processed",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_ship_source_error",
+      "description": "Number of client layer errors while shipping records",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_ship_success",
+      "description": "Number of records successfully shipped to remote Aerospike clusters (across all datacenters configured, meaning one record successfully shipped to 3 different datacenters will increment this counter by 3)",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_stat_pipe_reads_diginfo",
+      "description": "Number of digest information read from the named pipe",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_success",
+      "description": "Context xdr Number of records successfully shipped to remote datacenters",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_throughput",
+      "description": "watch Context xdr Number of records successfully shipped per second",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_timelag",
+      "description": "Time in seconds it took the latest shipped record from the moment it was first written at the source until it was attempted to be shipped to the destination cluster",
+      "type": "gauge"
+    },
+    {
+      "name": "aerospike_xdr_uncompressed_pct",
+      "description": "Running average percentage of records not compressed because they are below the compression threshold (100) or failed to be compressed at all",
+      "type": "unknown"
+    },
+    {
+      "name": "aerospike_xdr_uninitialized_destination_error",
+      "description": "Number of records in the digest log not shipped because the destination cluster has not been initialized for a DC that is configured for a namespace",
+      "type": "counter"
+    },
+    {
+      "name": "aerospike_xdr_unknown_namespace_error",
+      "description": "Number of records in the digest log not shipped because they belong to an unknown namespace, on the source cluster",
+      "type": "counter"
+    }
+  ]
+}

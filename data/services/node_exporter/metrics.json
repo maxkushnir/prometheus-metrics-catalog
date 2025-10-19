@@ -1,0 +1,114 @@
+[
+  {
+    "name": "node_cpu_seconds_total",
+    "service": "node_exporter",
+    "labels": ["cpu", "mode"],
+    "description": "Seconds the CPUs spent in each mode",
+    "importance": "high",
+    "example_usage": "rate(node_cpu_seconds_total[5m])"
+  },
+  {
+    "name": "node_memory_MemAvailable_bytes",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "Memory information field MemAvailable_bytes",
+    "importance": "high",
+    "example_usage": "node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100"
+  },
+  {
+    "name": "node_memory_MemTotal_bytes",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "Memory information field MemTotal_bytes",
+    "importance": "high",
+    "example_usage": "node_memory_MemTotal_bytes"
+  },
+  {
+    "name": "node_filesystem_avail_bytes",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Filesystem space available to non-root users in bytes",
+    "importance": "high",
+    "example_usage": "node_filesystem_avail_bytes{fstype!=\"tmpfs\"}"
+  },
+  {
+    "name": "node_filesystem_size_bytes",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Filesystem size in bytes",
+    "importance": "high",
+    "example_usage": "node_filesystem_size_bytes{fstype!=\"tmpfs\"}"
+  },
+  {
+    "name": "node_load1",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "1m load average",
+    "importance": "medium",
+    "example_usage": "node_load1"
+  },
+  {
+    "name": "node_load5",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "5m load average",
+    "importance": "medium",
+    "example_usage": "node_load5"
+  },
+  {
+    "name": "node_load15",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "15m load average",
+    "importance": "medium",
+    "example_usage": "node_load15"
+  },
+  {
+    "name": "node_disk_read_bytes_total",
+    "service": "node_exporter",
+    "labels": ["device", "instance"],
+    "description": "The total number of bytes read successfully",
+    "importance": "medium",
+    "example_usage": "rate(node_disk_read_bytes_total[5m])"
+  },
+  {
+    "name": "node_disk_written_bytes_total",
+    "service": "node_exporter",
+    "labels": ["device", "instance"],
+    "description": "The total number of bytes written successfully",
+    "importance": "medium",
+    "example_usage": "rate(node_disk_written_bytes_total[5m])"
+  },
+  {
+    "name": "node_network_receive_bytes_total",
+    "service": "node_exporter",
+    "labels": ["device", "instance"],
+    "description": "Network device statistic receive_bytes",
+    "importance": "medium",
+    "example_usage": "rate(node_network_receive_bytes_total[5m])"
+  },
+  {
+    "name": "node_network_transmit_bytes_total",
+    "service": "node_exporter",
+    "labels": ["device", "instance"],
+    "description": "Network device statistic transmit_bytes",
+    "importance": "medium",
+    "example_usage": "rate(node_network_transmit_bytes_total[5m])"
+  },
+  {
+    "name": "node_boot_time_seconds",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "Node boot time, in unixtime",
+    "importance": "low",
+    "example_usage": "time() - node_boot_time_seconds"
+  },
+  {
+    "name": "node_time_seconds",
+    "service": "node_exporter",
+    "labels": ["instance"],
+    "description": "System time in seconds since epoch (1970)",
+    "importance": "low",
+    "example_usage": "node_time_seconds"
+  }
+]

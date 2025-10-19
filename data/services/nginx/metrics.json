@@ -1,0 +1,82 @@
+[
+  {
+    "name": "nginx_http_requests_total",
+    "service": "nginx",
+    "labels": ["status", "method"],
+    "description": "Total number of HTTP requests",
+    "importance": "high",
+    "example_usage": "rate(nginx_http_requests_total[5m])"
+  },
+  {
+    "name": "nginx_http_request_duration_seconds",
+    "service": "nginx",
+    "labels": ["method", "status"],
+    "description": "HTTP request duration in seconds",
+    "importance": "high",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_http_request_duration_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_up",
+    "service": "nginx",
+    "labels": ["instance"],
+    "description": "Whether nginx is up",
+    "importance": "critical",
+    "example_usage": "nginx_up"
+  },
+  {
+    "name": "nginx_connections_active",
+    "service": "nginx",
+    "labels": ["instance"],
+    "description": "Number of active client connections",
+    "importance": "high",
+    "example_usage": "nginx_connections_active"
+  },
+  {
+    "name": "nginx_connections_accepted",
+    "service": "nginx",
+    "labels": ["instance"],
+    "description": "Total number of accepted client connections",
+    "importance": "medium",
+    "example_usage": "rate(nginx_connections_accepted[5m])"
+  },
+  {
+    "name": "nginx_connections_handled",
+    "service": "nginx",
+    "labels": ["instance"],
+    "description": "Total number of handled connections",
+    "importance": "medium",
+    "example_usage": "rate(nginx_connections_handled[5m])"
+  },
+  {
+    "name": "nginx_http_requests",
+    "service": "nginx",
+    "labels": ["instance"],
+    "description": "Total number of HTTP requests",
+    "importance": "high",
+    "example_usage": "rate(nginx_http_requests[5m])"
+  },
+  {
+    "name": "nginx_http_request_time_seconds",
+    "service": "nginx",
+    "labels": ["instance"],
+    "description": "Average HTTP request time",
+    "importance": "high",
+    "example_usage": "nginx_http_request_time_seconds"
+  },
+  {
+    "name": "nginx_http_upstream_requests_total",
+    "service": "nginx",
+    "labels": ["upstream", "backend"],
+    "description": "Total number of upstream requests",
+    "importance": "medium",
+    "example_usage": "rate(nginx_http_upstream_requests_total[5m])"
+  },
+  {
+    "name": "nginx_http_upstream_response_time_seconds",
+    "service": "nginx",
+    "labels": ["upstream", "backend"],
+    "description": "Average upstream response time",
+    "importance": "high",
+    "example_usage": "nginx_http_upstream_response_time_seconds"
+  }
+]
