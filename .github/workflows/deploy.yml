@@ -36,29 +36,21 @@ jobs:
           cache: 'npm'
           
       - name: Install dependencies
-        run: npm install
-          
-      - name: Debug - Check node modules
         run: |
-          echo "Node version:"
-          node --version
-          echo "NPM version:"
-          npm --version
-          echo "Checking if vite is installed:"
-          ls -la node_modules/.bin/vite || echo "Vite not found in node_modules/.bin/"
-          echo "Checking package.json scripts:"
-          cat package.json | grep -A 10 '"scripts"'
+          echo "Installing dependencies..."
+          npm install --verbose
+          echo "Checking installed packages:"
+          npm list vite
+          echo "Checking node_modules/.bin:"
+          ls -la node_modules/.bin/ | grep vite || echo "Vite not found in .bin"
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Build
         run: |
-          echo "Checking Vite availability:"
-          which vite || echo "Vite not in PATH"
-          ls -la node_modules/.bin/vite || echo "Vite not in node_modules/.bin/"
-          echo "Running build with npx:"
-          npx vite build
+          echo "Running build with locally installed Vite:"
+          ./node_modules/.bin/vite build
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
