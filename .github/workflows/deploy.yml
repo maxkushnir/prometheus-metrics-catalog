@@ -36,7 +36,7 @@ jobs:
           cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci
+        run: npm install
           
       - name: Debug - Check node modules
         run: |
@@ -53,7 +53,12 @@ jobs:
         uses: actions/configure-pages@v4
         
       - name: Build
-        run: npm run build
+        run: |
+          echo "Checking Vite availability:"
+          which vite || echo "Vite not in PATH"
+          ls -la node_modules/.bin/vite || echo "Vite not in node_modules/.bin/"
+          echo "Running build with npx:"
+          npx vite build
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
