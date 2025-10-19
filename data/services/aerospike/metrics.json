@@ -1,0 +1,210 @@
+[
+  {
+    "name": "aerospike_namespace_objects",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of records in this namespace for this node",
+    "importance": "high",
+    "example_usage": "aerospike_namespace_objects{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_client_read_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful client read commands",
+    "importance": "high",
+    "example_usage": "rate(aerospike_namespace_client_read_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_write_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful client write commands",
+    "importance": "high",
+    "example_usage": "rate(aerospike_namespace_client_write_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_read_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of read commands that failed with an error",
+    "importance": "high",
+    "example_usage": "rate(aerospike_namespace_client_read_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_write_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client write commands that failed with an error",
+    "importance": "high",
+    "example_usage": "rate(aerospike_namespace_client_write_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_memory_used_bytes",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Amount of memory occupied by data",
+    "importance": "high",
+    "example_usage": "aerospike_namespace_memory_used_bytes{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_data_used_pct",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Percentage of used storage capacity for this namespace",
+    "importance": "high",
+    "example_usage": "aerospike_namespace_data_used_pct{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_evicted_objects",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of objects evicted from this namespace on this node since the server started",
+    "importance": "medium",
+    "example_usage": "rate(aerospike_namespace_evicted_objects[5m])"
+  },
+  {
+    "name": "aerospike_namespace_stop_writes",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "If true, this namespace is currently not allowing client-originated writes",
+    "importance": "critical",
+    "example_usage": "aerospike_namespace_stop_writes{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_clock_skew_stop_writes",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Critical: Namespace will stop accepting client writes when true",
+    "importance": "critical",
+    "example_usage": "aerospike_namespace_clock_skew_stop_writes{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_node_stats_client_connections",
+    "service": "aerospike",
+    "labels": [],
+    "description": "Number of active client connections to this node",
+    "importance": "medium",
+    "example_usage": "aerospike_node_stats_client_connections"
+  },
+  {
+    "name": "aerospike_node_stats_cluster_size",
+    "service": "aerospike",
+    "labels": [],
+    "description": "Size of the cluster",
+    "importance": "high",
+    "example_usage": "aerospike_node_stats_cluster_size"
+  },
+  {
+    "name": "aerospike_node_stats_cluster_is_member",
+    "service": "aerospike",
+    "labels": [],
+    "description": "When false, indicates that the node is not joined to a cluster; that is, it is an orphan",
+    "importance": "critical",
+    "example_usage": "aerospike_node_stats_cluster_is_member"
+  },
+  {
+    "name": "aerospike_node_stats_system_free_mem_pct",
+    "service": "aerospike",
+    "labels": [],
+    "description": "Percentage of free system memory",
+    "importance": "high",
+    "example_usage": "aerospike_node_stats_system_free_mem_pct"
+  },
+  {
+    "name": "aerospike_node_stats_process_cpu_pct",
+    "service": "aerospike",
+    "labels": [],
+    "description": "Percentage of CPU usage by the asd process",
+    "importance": "medium",
+    "example_usage": "aerospike_node_stats_process_cpu_pct"
+  },
+  {
+    "name": "aerospike_namespace_query_reqs",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of query requests ever attempted on this node",
+    "importance": "medium",
+    "example_usage": "rate(aerospike_namespace_query_reqs[5m])"
+  },
+  {
+    "name": "aerospike_namespace_scan_basic_complete",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of basic scans that completed",
+    "importance": "medium",
+    "example_usage": "rate(aerospike_namespace_scan_basic_complete[5m])"
+  },
+  {
+    "name": "aerospike_namespace_migrate_tx_partitions_active",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of partitions currently emigrating from this node",
+    "importance": "medium",
+    "example_usage": "aerospike_namespace_migrate_tx_partitions_active{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_migrate_rx_partitions_active",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of partitions currently immigrating to this node",
+    "importance": "medium",
+    "example_usage": "aerospike_namespace_migrate_rx_partitions_active{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_xdr_ship_success",
+    "service": "aerospike",
+    "labels": [],
+    "description": "Number of records successfully shipped to remote Aerospike clusters",
+    "importance": "medium",
+    "example_usage": "rate(aerospike_xdr_ship_success[5m])"
+  },
+  {
+    "name": "aerospike_xdr_lag",
+    "service": "aerospike",
+    "labels": [],
+    "description": "Lag in seconds between the destination and the source datacenters",
+    "importance": "high",
+    "example_usage": "aerospike_xdr_lag"
+  },
+  {
+    "name": "aerospike_namespace_hwm_breached",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "If true, Aerospike has breached 'high-water-[disk|memory]-pct' for this namespace",
+    "importance": "critical",
+    "example_usage": "aerospike_namespace_hwm_breached{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_device_available_pct",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Device available percentage - drops below 20% indicate defrag may not keep up with load",
+    "importance": "high",
+    "example_usage": "aerospike_namespace_device_available_pct{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_memory_free_pct",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Percentage of memory capacity free for this namespace",
+    "importance": "high",
+    "example_usage": "aerospike_namespace_memory_free_pct{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_dead_partitions",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of dead partitions for this namespace",
+    "importance": "critical",
+    "example_usage": "aerospike_namespace_dead_partitions{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_unavailable_partitions",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of unavailable partitions for this namespace (when using strong-consistency)",
+    "importance": "critical",
+    "example_usage": "aerospike_namespace_unavailable_partitions{namespace=\"test\"}"
+  }
+]

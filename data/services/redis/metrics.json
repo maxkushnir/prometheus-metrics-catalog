@@ -1,0 +1,98 @@
+[
+  {
+    "name": "redis_connected_clients",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Number of client connections",
+    "importance": "high",
+    "example_usage": "redis_connected_clients"
+  },
+  {
+    "name": "redis_used_memory_bytes",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Total number of bytes allocated by Redis using its allocator",
+    "importance": "high",
+    "example_usage": "redis_used_memory_bytes"
+  },
+  {
+    "name": "redis_commands_processed_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Total number of commands processed by the server",
+    "importance": "medium",
+    "example_usage": "rate(redis_commands_processed_total[5m])"
+  },
+  {
+    "name": "redis_keyspace_hits_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Total number of successful key lookups",
+    "importance": "medium",
+    "example_usage": "rate(redis_keyspace_hits_total[5m])"
+  },
+  {
+    "name": "redis_keyspace_misses_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Total number of failed key lookups",
+    "importance": "medium",
+    "example_usage": "rate(redis_keyspace_misses_total[5m])"
+  },
+  {
+    "name": "redis_evicted_keys_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Total number of evicted keys due to maxmemory limit",
+    "importance": "high",
+    "example_usage": "rate(redis_evicted_keys_total[5m])"
+  },
+  {
+    "name": "redis_expired_keys_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Total number of key expiration events",
+    "importance": "low",
+    "example_usage": "rate(redis_expired_keys_total[5m])"
+  },
+  {
+    "name": "redis_connected_slaves",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Number of connected replicas",
+    "importance": "medium",
+    "example_usage": "redis_connected_slaves"
+  },
+  {
+    "name": "redis_replication_offset",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Current replication offset",
+    "importance": "medium",
+    "example_usage": "redis_replication_offset"
+  },
+  {
+    "name": "redis_uptime_in_seconds",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "Number of seconds since Redis server start",
+    "importance": "low",
+    "example_usage": "redis_uptime_in_seconds"
+  },
+  {
+    "name": "redis_used_cpu_sys_seconds_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "System CPU consumed by the Redis server",
+    "importance": "medium",
+    "example_usage": "rate(redis_used_cpu_sys_seconds_total[5m])"
+  },
+  {
+    "name": "redis_used_cpu_user_seconds_total",
+    "service": "redis",
+    "labels": ["instance"],
+    "description": "User CPU consumed by the Redis server",
+    "importance": "medium",
+    "example_usage": "rate(redis_used_cpu_user_seconds_total[5m])"
+  }
+]
