@@ -1,0 +1,677 @@
+[
+    {
+        "name": "purefa_array_performance_average_bytes",
+        "service": "pure_flasharray",
+        "labels": ["dimension"],
+        "description": "FlashArray array average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_array_performance_average_bytes{dimension=\"bytes_per_op\"}"
+    },
+    {
+        "name": "purefa_array_performance_bandwidth_bytes",
+        "service": "pure_flasharray",
+        "labels": ["dimension"],
+        "description": "FlashArray array bandwidth",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_array_performance_bandwidth_bytes{dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefa_array_performance_latency_usec",
+        "service": "pure_flasharray",
+        "labels": ["dimension"],
+        "description": "FlashArray array latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_array_performance_latency_usec{dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefa_array_performance_queue_depth_ops",
+        "service": "pure_flasharray",
+        "labels": [],
+        "description": "FlashArray array queue depth size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_array_performance_queue_depth_ops"
+    },
+    {
+        "name": "purefa_array_performance_throughput_iops",
+        "service": "pure_flasharray",
+        "labels": ["dimension"],
+        "description": "FlashArray array throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_array_performance_throughput_iops{dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefa_array_space_bytes",
+        "service": "pure_flasharray",
+        "labels": ["space"],
+        "description": "FlashArray array space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_array_space_bytes{space=\"capacity\"}"
+    },
+    {
+        "name": "purefa_array_space_data_reduction_ratio",
+        "service": "pure_flasharray",
+        "labels": [],
+        "description": "FlashArray array space data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_array_space_data_reduction_ratio"
+    },
+    {
+        "name": "purefa_array_space_utilization",
+        "service": "pure_flasharray",
+        "labels": [],
+        "description": "FlashArray array space utilization in percent",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_array_space_utilization"
+    },
+    {
+        "name": "purefa_host_connections_info",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup", "volume"],
+        "description": "FlashArray host volumes connections",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_host_connections_info{host=\"esxi-host\",hostgroup=\"group1\",volume=\"vol1\"}"
+    },
+    {
+        "name": "purefa_host_connectivity_info",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup"],
+        "description": "FlashArray host connectivity information",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_host_connectivity_info{host=\"esxi-host\",hostgroup=\"group1\"}"
+    },
+    {
+        "name": "purefa_host_performance_average_bytes",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup", "dimension"],
+        "description": "FlashArray host average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_host_performance_average_bytes{host=\"esxi-host\",hostgroup=\"group1\",dimension=\"bytes_per_op\"}"
+    },
+    {
+        "name": "purefa_host_performance_bandwidth_bytes",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup", "dimension"],
+        "description": "FlashArray host bandwidth",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_host_performance_bandwidth_bytes{host=\"esxi-host\",hostgroup=\"group1\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefa_host_performance_latency_usec",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup", "dimension"],
+        "description": "FlashArray host latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_host_performance_latency_usec{host=\"esxi-host\",hostgroup=\"group1\",dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefa_host_performance_throughput_iops",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup", "dimension"],
+        "description": "FlashArray host throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_host_performance_throughput_iops{host=\"esxi-host\",hostgroup=\"group1\",dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefa_host_space_bytes",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup", "space"],
+        "description": "FlashArray host space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_host_space_bytes{host=\"esxi-host\",hostgroup=\"group1\",space=\"provisioned\"}"
+    },
+    {
+        "name": "purefa_host_space_data_reduction_ratio",
+        "service": "pure_flasharray",
+        "labels": ["host", "hostgroup"],
+        "description": "FlashArray host space data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_host_space_data_reduction_ratio{host=\"esxi-host\",hostgroup=\"group1\"}"
+    },
+    {
+        "name": "purefa_hw_component_status",
+        "service": "pure_flasharray",
+        "labels": ["component_name", "component_type"],
+        "description": "FlashArray hardware component status",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_hw_component_status{component_name=\"fan1\",component_type=\"fan\"}"
+    },
+    {
+        "name": "purefa_hw_component_temperature_celsius",
+        "service": "pure_flasharray",
+        "labels": ["component_name", "component_type"],
+        "description": "FlashArray hardware component temperature in Celsius",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_hw_component_temperature_celsius{component_name=\"cpu1\",component_type=\"cpu\"}"
+    },
+    {
+        "name": "purefa_hw_component_voltage_volt",
+        "service": "pure_flasharray",
+        "labels": ["component_name", "component_type"],
+        "description": "FlashArray hardware component voltage in volts",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_hw_component_voltage_volt{component_name=\"psu1\",component_type=\"power_supply\"}"
+    },
+    {
+        "name": "purefa_info",
+        "service": "pure_flasharray",
+        "labels": ["version", "model"],
+        "description": "FlashArray information including version and model",
+        "importance": "low",
+        "type": "gauge",
+        "example_usage": "purefa_info{version=\"6.1.0\",model=\"FA-X20r2\"}"
+    },
+    {
+        "name": "purefa_network_interface_performance_bandwidth_bytes",
+        "service": "pure_flasharray",
+        "labels": ["interface_name", "dimension"],
+        "description": "FlashArray network interface bandwidth",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_network_interface_performance_bandwidth_bytes{interface_name=\"eth0\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefa_network_interface_performance_errors",
+        "service": "pure_flasharray",
+        "labels": ["interface_name", "dimension"],
+        "description": "FlashArray network interface errors",
+        "importance": "high",
+        "type": "counter",
+        "example_usage": "purefa_network_interface_performance_errors{interface_name=\"eth0\",dimension=\"rx_errors\"}"
+    },
+    {
+        "name": "purefa_network_interface_performance_throughput_pkts",
+        "service": "pure_flasharray",
+        "labels": ["interface_name", "dimension"],
+        "description": "FlashArray network interface throughput in packets",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_network_interface_performance_throughput_pkts{interface_name=\"eth0\",dimension=\"rx_pkts_per_sec\"}"
+    },
+    {
+        "name": "purefa_volume_performance_average_bytes",
+        "service": "pure_flasharray",
+        "labels": ["volume", "dimension"],
+        "description": "FlashArray volume average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_volume_performance_average_bytes{volume=\"vol1\",dimension=\"bytes_per_op\"}"
+    },
+    {
+        "name": "purefa_volume_performance_bandwidth_bytes",
+        "service": "pure_flasharray",
+        "labels": ["volume", "dimension"],
+        "description": "FlashArray volume bandwidth",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_volume_performance_bandwidth_bytes{volume=\"vol1\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefa_volume_performance_latency_usec",
+        "service": "pure_flasharray",
+        "labels": ["volume", "dimension"],
+        "description": "FlashArray volume latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_volume_performance_latency_usec{volume=\"vol1\",dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefa_volume_performance_throughput_iops",
+        "service": "pure_flasharray",
+        "labels": ["volume", "dimension"],
+        "description": "FlashArray volume throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_volume_performance_throughput_iops{volume=\"vol1\",dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefa_volume_space_bytes",
+        "service": "pure_flasharray",
+        "labels": ["volume", "space"],
+        "description": "FlashArray volume space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefa_volume_space_bytes{volume=\"vol1\",space=\"provisioned\"}"
+    },
+    {
+        "name": "purefa_volume_space_data_reduction_ratio",
+        "service": "pure_flasharray",
+        "labels": ["volume"],
+        "description": "FlashArray volume space data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefa_volume_space_data_reduction_ratio{volume=\"vol1\"}"
+    },
+    {
+        "name": "purefb_alerts_open",
+        "service": "pure_flashblade",
+        "labels": ["action", "code", "component_name", "component_type", "created", "kburl", "severity", "summary"],
+        "description": "FlashBlade open alert events",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_alerts_open{severity=\"critical\"}"
+    },
+    {
+        "name": "purefb_array_http_specific_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array HTTP specific latency",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_array_http_specific_performance_latency_usec{dimension=\"usec_per_read_file_op\"}"
+    },
+    {
+        "name": "purefb_array_http_specific_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array HTTP specific throughput",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_array_http_specific_performance_throughput_iops{dimension=\"read_files_per_sec\"}"
+    },
+    {
+        "name": "purefb_array_nfs_specific_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array NFS specific latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_nfs_specific_performance_latency_usec{dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefb_array_nfs_specific_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array NFS specific throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_nfs_specific_performance_throughput_iops{dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefb_array_performance_average_bytes",
+        "service": "pure_flashblade",
+        "labels": ["dimension", "protocol"],
+        "description": "FlashBlade array average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_array_performance_average_bytes{dimension=\"bytes_per_op\",protocol=\"NFS\"}"
+    },
+    {
+        "name": "purefb_array_performance_bandwidth_bytes",
+        "service": "pure_flashblade",
+        "labels": ["dimension", "protocol"],
+        "description": "FlashBlade array throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_performance_bandwidth_bytes{dimension=\"read_bytes_per_sec\",protocol=\"NFS\"}"
+    },
+    {
+        "name": "purefb_array_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["dimension", "protocol"],
+        "description": "FlashBlade array latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_performance_latency_usec{dimension=\"usec_per_read_op\",protocol=\"NFS\"}"
+    },
+    {
+        "name": "purefb_array_performance_replication",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array replication throughput",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_array_performance_replication{dimension=\"transmitted_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefb_array_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["dimension", "protocol"],
+        "description": "FlashBlade array throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_performance_throughput_iops{dimension=\"reads_per_sec\",protocol=\"NFS\"}"
+    },
+    {
+        "name": "purefb_array_s3_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array S3 latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_s3_performance_latency_usec{dimension=\"usec_per_read_object_op\"}"
+    },
+    {
+        "name": "purefb_array_s3_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["dimension"],
+        "description": "FlashBlade array S3 throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_s3_performance_throughput_iops{dimension=\"read_objects_per_sec\"}"
+    },
+    {
+        "name": "purefb_array_space_bytes",
+        "service": "pure_flashblade",
+        "labels": ["space", "type"],
+        "description": "FlashBlade space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_space_bytes{space=\"capacity\",type=\"array\"}"
+    },
+    {
+        "name": "purefb_array_space_data_reduction_ratio",
+        "service": "pure_flashblade",
+        "labels": ["type"],
+        "description": "FlashBlade space data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_array_space_data_reduction_ratio{type=\"array\"}"
+    },
+    {
+        "name": "purefb_array_space_parity",
+        "service": "pure_flashblade",
+        "labels": ["type"],
+        "description": "FlashBlade space parity",
+        "importance": "low",
+        "type": "gauge",
+        "example_usage": "purefb_array_space_parity{type=\"array\"}"
+    },
+    {
+        "name": "purefb_array_space_utilization",
+        "service": "pure_flashblade",
+        "labels": ["type"],
+        "description": "FlashBlade array space utilization in percent",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_array_space_utilization{type=\"array\"}"
+    },
+    {
+        "name": "purefb_buckets_object_count",
+        "service": "pure_flashblade",
+        "labels": ["account", "name"],
+        "description": "FlashBlade buckets object count",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_object_count{account=\"user1\",name=\"bucket1\"}"
+    },
+    {
+        "name": "purefb_buckets_performance_average_bytes",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "dimension"],
+        "description": "FlashBlade buckets average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_performance_average_bytes{account=\"user1\",name=\"bucket1\",dimension=\"bytes_per_op\"}"
+    },
+    {
+        "name": "purefb_buckets_performance_bandwidth_bytes",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "dimension"],
+        "description": "FlashBlade buckets bandwidth",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_performance_bandwidth_bytes{account=\"user1\",name=\"bucket1\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefb_buckets_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "dimension"],
+        "description": "FlashBlade buckets latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_performance_latency_usec{account=\"user1\",name=\"bucket1\",dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefb_buckets_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "dimension"],
+        "description": "FlashBlade buckets throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_performance_throughput_iops{account=\"user1\",name=\"bucket1\",dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefb_buckets_quota_space_bytes",
+        "service": "pure_flashblade",
+        "labels": ["account", "name"],
+        "description": "FlashBlade buckets quota space in bytes",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_quota_space_bytes{account=\"user1\",name=\"bucket1\"}"
+    },
+    {
+        "name": "purefb_buckets_s3_specific_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "dimension"],
+        "description": "FlashBlade buckets S3 specific latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_s3_specific_performance_latency_usec{account=\"user1\",name=\"bucket1\",dimension=\"usec_per_read_object_op\"}"
+    },
+    {
+        "name": "purefb_buckets_s3_specific_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "dimension"],
+        "description": "FlashBlade buckets S3 specific throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_s3_specific_performance_throughput_iops{account=\"user1\",name=\"bucket1\",dimension=\"read_objects_per_sec\"}"
+    },
+    {
+        "name": "purefb_buckets_space_bytes",
+        "service": "pure_flashblade",
+        "labels": ["account", "name", "space"],
+        "description": "FlashBlade buckets space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_space_bytes{account=\"user1\",name=\"bucket1\",space=\"provisioned\"}"
+    },
+    {
+        "name": "purefb_buckets_space_data_reduction_ratio",
+        "service": "pure_flashblade",
+        "labels": ["account", "name"],
+        "description": "FlashBlade buckets space data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_space_data_reduction_ratio{account=\"user1\",name=\"bucket1\"}"
+    },
+    {
+        "name": "purefb_clients_performance_average_bytes",
+        "service": "pure_flashblade",
+        "labels": ["client", "dimension"],
+        "description": "FlashBlade clients average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_buckets_performance_average_bytes{client=\"client1\",dimension=\"bytes_per_op\"}"
+    },
+    {
+        "name": "purefb_clients_performance_bandwidth_bytes",
+        "service": "pure_flashblade",
+        "labels": ["client", "dimension"],
+        "description": "FlashBlade clients bandwidth",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_clients_performance_bandwidth_bytes{client=\"client1\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefb_clients_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["client", "dimension"],
+        "description": "FlashBlade clients latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_clients_performance_latency_usec{client=\"client1\",dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefb_clients_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["client", "dimension"],
+        "description": "FlashBlade clients throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_clients_performance_throughput_iops{client=\"client1\",dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefb_file_system_usage_groups_bytes",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "group"],
+        "description": "FlashBlade file system usage by groups in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_file_system_usage_groups_bytes{filesystem=\"fs1\",group=\"group1\"}"
+    },
+    {
+        "name": "purefb_file_system_usage_users_bytes",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "user"],
+        "description": "FlashBlade file system usage by users in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_file_system_usage_users_bytes{filesystem=\"fs1\",user=\"user1\"}"
+    },
+    {
+        "name": "purefb_file_systems_performance_average_bytes",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "dimension"],
+        "description": "FlashBlade file systems average operations size",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_file_systems_performance_average_bytes{filesystem=\"fs1\",dimension=\"bytes_per_op\"}"
+    },
+    {
+        "name": "purefb_file_systems_performance_bandwidth_bytes",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "dimension"],
+        "description": "FlashBlade file systems bandwidth",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_file_systems_performance_bandwidth_bytes{filesystem=\"fs1\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefb_file_systems_performance_latency_usec",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "dimension"],
+        "description": "FlashBlade file systems latency",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_file_systems_performance_latency_usec{filesystem=\"fs1\",dimension=\"usec_per_read_op\"}"
+    },
+    {
+        "name": "purefb_file_systems_performance_throughput_iops",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "dimension"],
+        "description": "FlashBlade file systems throughput",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_file_systems_performance_throughput_iops{filesystem=\"fs1\",dimension=\"reads_per_sec\"}"
+    },
+    {
+        "name": "purefb_file_systems_space_bytes",
+        "service": "pure_flashblade",
+        "labels": ["filesystem", "space"],
+        "description": "FlashBlade file systems space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_file_systems_space_bytes{filesystem=\"fs1\",space=\"provisioned\"}"
+    },
+    {
+        "name": "purefb_file_systems_space_data_reduction_ratio",
+        "service": "pure_flashblade",
+        "labels": ["filesystem"],
+        "description": "FlashBlade file systems space data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_file_systems_space_data_reduction_ratio{filesystem=\"fs1\"}"
+    },
+    {
+        "name": "purefb_hardware_connectors_performance_bandwidth_bytes",
+        "service": "pure_flashblade",
+        "labels": ["connector", "dimension"],
+        "description": "FlashBlade hardware connectors bandwidth",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_hardware_connectors_performance_bandwidth_bytes{connector=\"connector1\",dimension=\"read_bytes_per_sec\"}"
+    },
+    {
+        "name": "purefb_hardware_connectors_performance_errors",
+        "service": "pure_flashblade",
+        "labels": ["connector", "dimension"],
+        "description": "FlashBlade hardware connectors errors",
+        "importance": "high",
+        "type": "counter",
+        "example_usage": "purefb_hardware_connectors_performance_errors{connector=\"connector1\",dimension=\"rx_errors\"}"
+    },
+    {
+        "name": "purefb_hardware_connectors_performance_throughput_pkts",
+        "service": "pure_flashblade",
+        "labels": ["connector", "dimension"],
+        "description": "FlashBlade hardware connectors throughput in packets",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_hardware_connectors_performance_throughput_pkts{connector=\"connector1\",dimension=\"rx_pkts_per_sec\"}"
+    },
+    {
+        "name": "purefb_hardware_health",
+        "service": "pure_flashblade",
+        "labels": [],
+        "description": "FlashBlade hardware health status",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_hardware_health"
+    },
+    {
+        "name": "purefb_info",
+        "service": "pure_flashblade",
+        "labels": ["version", "model"],
+        "description": "FlashBlade information including version and model",
+        "importance": "low",
+        "type": "gauge",
+        "example_usage": "purefb_info{version=\"3.1.0\",model=\"FB-520\"}"
+    },
+    {
+        "name": "purefb_object_store_accounts_data_reduction_ratio",
+        "service": "pure_flashblade",
+        "labels": ["account"],
+        "description": "FlashBlade object store accounts data reduction",
+        "importance": "medium",
+        "type": "gauge",
+        "example_usage": "purefb_object_store_accounts_data_reduction_ratio{account=\"user1\"}"
+    },
+    {
+        "name": "purefb_object_store_accounts_object_count",
+        "service": "pure_flashblade",
+        "labels": ["account"],
+        "description": "FlashBlade object store accounts object count",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_object_store_accounts_object_count{account=\"user1\"}"
+    },
+    {
+        "name": "purefb_object_store_accounts_space_bytes",
+        "service": "pure_flashblade",
+        "labels": ["account", "space"],
+        "description": "FlashBlade object store accounts space in bytes",
+        "importance": "high",
+        "type": "gauge",
+        "example_usage": "purefb_object_store_accounts_space_bytes{account=\"user1\",space=\"provisioned\"}"
+    }
+]

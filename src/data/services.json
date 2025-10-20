@@ -27,6 +27,13 @@
       "description": "In-memory data structure store metrics",
       "path": "/data/services/redis/metrics.json",
       "color": "red"
+    },
+    {
+      "name": "pure",
+      "displayName": "Pure Storage",
+      "description": "FlashArray and FlashBlade storage metrics",
+      "path": "/data/services/pure/metrics.json",
+      "color": "purple"
     }
   ]
 }
