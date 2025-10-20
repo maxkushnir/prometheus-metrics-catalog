@@ -20,27 +20,34 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header with banner image */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="relative">
-          {/* Banner Image */}
-          <div className="w-full h-48 md:h-56 lg:h-64 bg-gradient-to-r from-primary-500 to-primary-700 flex items-center justify-center relative overflow-hidden">
-            <img 
-              src={`${import.meta.env.BASE_URL}banner.png`} 
-              alt="Prometheus Metrics Catalog" 
-              className="h-full w-full object-cover"
-              onError={(e) => {
-                // Fallback to gradient background if image fails to load
-                e.target.style.display = 'none';
-                e.target.parentElement.className = 'w-full h-48 md:h-56 lg:h-64 bg-gradient-to-r from-primary-500 to-primary-700 flex items-center justify-center';
-              }}
-            />
-            {/* Overlay content */}
-            <div className="absolute inset-0 bg-black bg-opacity-20">
-              <div className="absolute bottom-4 right-4 text-white">
-                <p className="text-lg md:text-xl opacity-90">
-                  {metrics.length} metrics across {availableServices.length} services
-                </p>
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center">
+            {/* Prometheus Logo */}
+            <div className="mb-6">
+              <svg className="w-20 h-20 mx-auto text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            
+            {/* Title */}
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+              Prometheus Metrics Catalog
+            </h1>
+            
+            {/* Subtitle */}
+            <p className="text-xl text-white mb-8">
+              Collection of Prometheus metrics from various services
+            </p>
+            
+            {/* Stats */}
+            <div className="flex justify-center space-x-12 text-base text-white">
+              <div>
+                <span className="font-semibold">{metrics.length}</span> metrics
+              </div>
+              <div>
+                <span className="font-semibold">{availableServices.length}</span> services
               </div>
             </div>
           </div>
