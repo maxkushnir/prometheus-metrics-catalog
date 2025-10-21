@@ -1,12 +1,23 @@
 import React from 'react';
 import MetricCard from './MetricCard';
 
-const MetricList = ({ metrics, searchTerm, importanceFilter, serviceFilter }) => {
+const MetricList = ({ metrics, searchTerm, importanceFilter, serviceFilter, services }) => {
   const filteredMetrics = metrics.filter(metric => {
     const matchesSearch = metric.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          metric.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesImportance = !importanceFilter || metric.importance === importanceFilter;
-    const matchesService = !serviceFilter || metric.service === serviceFilter;
+    
+    // Handle service filtering for both regular services and service groups
+    let matchesService = !serviceFilter || metric.service === serviceFilter;
+    
+    if (serviceFilter && services) {
+      const serviceInfo = services.find(s => s.name === serviceFilter);
+      if (serviceInfo && serviceInfo.isGroup && serviceInfo.subservices) {
+        // For service groups, match any subservice
+        matchesService = serviceInfo.subservices.some(sub => sub.name === metric.service);
+      }
+    }
+    
     return matchesSearch && matchesImportance && matchesService;
   });
 

@@ -129,6 +129,7 @@ function App() {
               searchTerm={searchTerm}
               importanceFilter={importanceFilter}
               serviceFilter={serviceFilter}
+              services={services}
             />
           </div>
         </div>
