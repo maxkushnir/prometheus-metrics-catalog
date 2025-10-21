@@ -5,35 +5,72 @@
       "displayName": "Aerospike",
       "description": "NoSQL database metrics",
       "path": "/data/services/aerospike/metrics.json",
-      "color": "blue"
+      "color": "blue",
+      "exporter": {
+        "name": "aerospike-prometheus-exporter",
+        "link": "https://github.com/NewRelic/aerospike-prometheus-exporter"
+      }
     },
     {
       "name": "node_exporter",
       "displayName": "Node Exporter",
       "description": "System and hardware metrics",
       "path": "/data/services/node_exporter/metrics.json",
-      "color": "green"
+      "color": "green",
+      "exporter": {
+        "name": "node_exporter",
+        "link": "https://github.com/prometheus/node_exporter"
+      }
     },
     {
       "name": "nginx",
       "displayName": "Nginx",
       "description": "Web server and reverse proxy metrics",
       "path": "/data/services/nginx/metrics.json",
-      "color": "orange"
+      "color": "orange",
+      "exporter": {
+        "name": "nginx-prometheus-exporter",
+        "link": "https://github.com/nginxinc/nginx-prometheus-exporter"
+      }
     },
     {
       "name": "redis",
       "displayName": "Redis",
       "description": "In-memory data structure store metrics",
       "path": "/data/services/redis/metrics.json",
-      "color": "red"
+      "color": "red",
+      "exporter": {
+        "name": "redis_exporter",
+        "link": "https://github.com/oliver006/redis_exporter"
+      }
     },
     {
       "name": "pure",
       "displayName": "Pure Storage",
       "description": "FlashArray and FlashBlade storage metrics",
       "path": "/data/services/pure/metrics.json",
-      "color": "purple"
+      "color": "purple",
+      "isGroup": true,
+      "subservices": [
+        {
+          "name": "pure_flasharray",
+          "displayName": "FlashArray",
+          "description": "FlashArray storage metrics",
+          "exporter": {
+            "name": "pure-fa-openmetrics-exporter",
+            "link": "https://github.com/PureStorage-OpenConnect/pure-fa-openmetrics-exporter"
+          }
+        },
+        {
+          "name": "pure_flashblade", 
+          "displayName": "FlashBlade",
+          "description": "FlashBlade storage metrics",
+          "exporter": {
+            "name": "pure-fb-openmetrics-exporter",
+            "link": "https://github.com/PureStorage-OpenConnect/pure-fb-openmetrics-exporter"
+          }
+        }
+      ]
     }
   ]
 }

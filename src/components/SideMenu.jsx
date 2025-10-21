@@ -53,37 +53,100 @@ const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
             <div className="space-y-1">
               {serviceNames.map(serviceName => {
                 const serviceInfo = getServiceInfo(serviceName);
-                const metricsCount = getMetricsCount(serviceName);
                 const isSelected = selectedService === serviceName;
                 
-                return (
-                  <button
-                    key={serviceName}
-                    onClick={() => onServiceSelect(serviceName)}
-                    className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isSelected 
-                        ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-500' 
-                        : 'text-gray-700 hover:bg-gray-100'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div 
-                          className={`w-3 h-3 rounded-full mr-2 ${
-                            serviceInfo.color === 'blue' ? 'bg-blue-500' :
-                            serviceInfo.color === 'green' ? 'bg-green-500' :
-                            serviceInfo.color === 'orange' ? 'bg-orange-500' :
-                            serviceInfo.color === 'red' ? 'bg-red-500' :
-                            serviceInfo.color === 'purple' ? 'bg-purple-500' :
-                            'bg-gray-500'
-                          }`}
-                        />
-                        <span>{serviceInfo.displayName}</span>
+                // Check if this is a service group
+                if (serviceInfo.isGroup && serviceInfo.subservices) {
+                  const totalMetricsCount = serviceInfo.subservices.reduce((total, sub) => total + getMetricsCount(sub.name), 0);
+                  
+                  return (
+                    <div key={serviceName}>
+                      {/* Main Service Group Button */}
+                      <button
+                        onClick={() => onServiceSelect(serviceName)}
+                        className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                          isSelected 
+                            ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-500' 
+                            : 'text-gray-700 hover:bg-gray-100'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div 
+                              className={`w-3 h-3 rounded-full mr-2 ${
+                                serviceInfo.color === 'blue' ? 'bg-blue-500' :
+                                serviceInfo.color === 'green' ? 'bg-green-500' :
+                                serviceInfo.color === 'orange' ? 'bg-orange-500' :
+                                serviceInfo.color === 'red' ? 'bg-red-500' :
+                                serviceInfo.color === 'purple' ? 'bg-purple-500' :
+                                'bg-gray-500'
+                              }`}
+                            />
+                            <span>{serviceInfo.displayName}</span>
+                          </div>
+                          <span className="text-xs text-gray-500">{totalMetricsCount}</span>
+                        </div>
+                      </button>
+                      
+                      {/* Subservices */}
+                      <div className="ml-4 mt-1 space-y-1">
+                        {serviceInfo.subservices.map((subservice) => {
+                          const subMetricsCount = getMetricsCount(subservice.name);
+                          const isSubSelected = selectedService === subservice.name;
+                          
+                          return (
+                            <button
+                              key={subservice.name}
+                              onClick={() => onServiceSelect(subservice.name)}
+                              className={`w-full text-left px-3 py-1 rounded-md text-xs font-medium transition-colors ${
+                                isSubSelected
+                                  ? 'bg-blue-50 text-blue-600 border-l-2 border-blue-400'
+                                  : 'text-gray-600 hover:bg-gray-50'
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span>{subservice.displayName}</span>
+                                <span className="text-xs text-gray-400">{subMetricsCount}</span>
+                              </div>
+                            </button>
+                          );
+                        })}
                       </div>
-                      <span className="text-xs text-gray-500">{metricsCount}</span>
                     </div>
-                  </button>
-                );
+                  );
+                } else {
+                  // Regular service
+                  const metricsCount = getMetricsCount(serviceName);
+                  
+                  return (
+                    <button
+                      key={serviceName}
+                      onClick={() => onServiceSelect(serviceName)}
+                      className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                        isSelected 
+                          ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-500' 
+                          : 'text-gray-700 hover:bg-gray-100'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div 
+                            className={`w-3 h-3 rounded-full mr-2 ${
+                              serviceInfo.color === 'blue' ? 'bg-blue-500' :
+                              serviceInfo.color === 'green' ? 'bg-green-500' :
+                              serviceInfo.color === 'orange' ? 'bg-orange-500' :
+                              serviceInfo.color === 'red' ? 'bg-red-500' :
+                              serviceInfo.color === 'purple' ? 'bg-purple-500' :
+                              'bg-gray-500'
+                            }`}
+                          />
+                          <span>{serviceInfo.displayName}</span>
+                        </div>
+                        <span className="text-xs text-gray-500">{metricsCount}</span>
+                      </div>
+                    </button>
+                  );
+                }
               })}
             </div>
           </div>
