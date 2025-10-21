@@ -27,21 +27,10 @@ const MetricList = ({ metrics, searchTerm, importanceFilter, serviceFilter }) =>
   }
 
   return (
-    <div>
-      <div className="bg-white rounded-lg shadow-soft border border-gray-200 p-4 mb-6">
-        <div>
-          <h2 className="text-lg font-semibold text-gray-900">Metrics</h2>
-          <p className="text-sm text-gray-600">
-            Showing {filteredMetrics.length} of {metrics.length} metrics
-          </p>
-        </div>
-      </div>
-      
-      <div className="space-y-6">
-        {filteredMetrics.map((metric, index) => (
-          <MetricCard key={`${metric.name}-${index}`} metric={metric} />
-        ))}
-      </div>
+    <div className="space-y-6">
+      {filteredMetrics.map((metric, index) => (
+        <MetricCard key={`${metric.name}-${index}`} metric={metric} />
+      ))}
     </div>
   );
 };
