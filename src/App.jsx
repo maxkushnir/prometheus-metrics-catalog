@@ -13,10 +13,21 @@ function App() {
   const [serviceFilter, setServiceFilter] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Load metrics from embedded data
     setMetrics(allMetrics);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Get unique services from metrics
@@ -31,55 +42,78 @@ function App() {
   };
 
   return (
-    <div className="h-screen bg-gray-50 flex flex-col">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
-          {/* Mobile menu button */}
-          <div className="lg:hidden mb-4">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          
-          <div className="text-center">
-            {/* Prometheus Logo */}
-            <div className="mb-3 lg:mb-6">
-              <svg className="w-10 h-10 lg:w-20 lg:h-20 mx-auto text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
+    <div className="bg-gray-50">
+      {/* Sticky Header */}
+      <header className={`sticky top-0 z-30 bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200 transition-all duration-300 ${
+        isScrolled ? 'lg:py-6 lg:py-12' : 'py-6 lg:py-12'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Mobile collapsed header when scrolled */}
+          {isScrolled && (
+            <div className="lg:hidden flex items-center justify-between py-2">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <h1 className="text-lg font-bold text-white">Prometheus Metrics</h1>
+              <div className="w-6"></div> {/* Spacer for centering */}
             </div>
-            
-            {/* Title */}
-            <h1 className="text-2xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 lg:mb-4">
-              Prometheus Metrics Catalog
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="text-sm lg:text-xl text-white mb-4 lg:mb-8">
-              Collection of Prometheus metrics from various services
-            </p>
-            
-            {/* Stats */}
-            <div className="flex justify-center space-x-6 lg:space-x-12 text-sm lg:text-base text-white">
-              <div>
-                <span className="font-semibold">{metrics.length}</span> metrics
+          )}
+
+          {/* Full header when not scrolled */}
+          {!isScrolled && (
+            <>
+              {/* Mobile menu button */}
+              <div className="lg:hidden mb-4">
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200"
+                >
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
               </div>
-              <div>
-                <span className="font-semibold">{availableServices.length}</span> services
+              
+              <div className="text-center">
+                {/* Prometheus Logo */}
+                <div className="mb-3 lg:mb-6">
+                  <svg className="w-10 h-10 lg:w-20 lg:h-20 mx-auto text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                
+                {/* Title */}
+                <h1 className="text-2xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 lg:mb-4">
+                  Prometheus Metrics Catalog
+                </h1>
+                
+                {/* Subtitle */}
+                <p className="text-sm lg:text-xl text-white mb-4 lg:mb-8">
+                  Collection of Prometheus metrics from various services
+                </p>
+                
+                {/* Stats */}
+                <div className="flex justify-center space-x-6 lg:space-x-12 text-sm lg:text-base text-white">
+                  <div>
+                    <span className="font-semibold">{metrics.length}</span> metrics
+                  </div>
+                  <div>
+                    <span className="font-semibold">{availableServices.length}</span> services
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </header>
 
       {/* Main content area with side menu */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex min-h-screen">
         {/* Mobile overlay */}
         {isMobileMenuOpen && (
           <div 
