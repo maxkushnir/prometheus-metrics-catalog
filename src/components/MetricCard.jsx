@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const MetricCard = ({ metric }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
   const getImportanceColor = (importance) => {
     switch (importance) {
       case 'critical': return 'border-red-500 bg-red-50';
@@ -64,7 +75,33 @@ const MetricCard = ({ metric }) => {
       
       {/* Example Usage */}
       <div className="bg-gray-50 rounded-md p-4 border border-gray-200">
-        <h4 className="text-sm font-semibold text-gray-900 mb-2">Example Usage</h4>
+        <div className="flex justify-between items-center mb-2">
+          <h4 className="text-sm font-semibold text-gray-900">Example Usage</h4>
+          <button
+            onClick={() => copyToClipboard(metric.example_usage)}
+            className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium transition-colors ${
+              copied 
+                ? 'bg-green-100 text-green-800' 
+                : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+            }`}
+          >
+            {copied ? (
+              <>
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Copied!
+              </>
+            ) : (
+              <>
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Copy
+              </>
+            )}
+          </button>
+        </div>
         <div className="bg-gray-900 rounded-md p-3 overflow-x-auto">
           <code className="text-sm text-green-400 font-mono">{metric.example_usage}</code>
         </div>
