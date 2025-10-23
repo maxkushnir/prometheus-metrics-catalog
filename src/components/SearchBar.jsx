@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFilter, services, serviceFilter, importanceFilter }) => {
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
+  const [isImportanceOpen, setIsImportanceOpen] = useState(false);
+  const serviceRef = useRef(null);
+  const importanceRef = useRef(null);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (serviceRef.current && !serviceRef.current.contains(event.target)) {
+        setIsServiceOpen(false);
+      }
+      if (importanceRef.current && !importanceRef.current.contains(event.target)) {
+        setIsImportanceOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="bg-white rounded-lg shadow-soft border border-gray-200 p-6 mb-8">
       <div className="flex flex-col lg:flex-row gap-4">
@@ -29,40 +51,133 @@ const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFi
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="sm:w-48">
-            <label htmlFor="service-filter" className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Service
             </label>
-            <select
-              id="service-filter"
-              value={serviceFilter}
-              onChange={(e) => onServiceFilter(e.target.value)}
-              className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
-            >
-              <option value="">All Services</option>
-              {services.map(service => (
-                <option key={service} value={service}>
-                  {service}
-                </option>
-              ))}
-            </select>
+            <div className="relative" ref={serviceRef}>
+              <button
+                type="button"
+                onClick={() => setIsServiceOpen(!isServiceOpen)}
+                className="w-full px-3 py-2 text-left border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
+              >
+                {serviceFilter || 'All Services'}
+                <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+              
+              {isServiceOpen && (
+                <div className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto">
+                  <button
+                    onClick={() => {
+                      onServiceFilter('');
+                      setIsServiceOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                      !serviceFilter ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                    }`}
+                  >
+                    All Services
+                  </button>
+                  {services.map(service => (
+                    <button
+                      key={service}
+                      onClick={() => {
+                        onServiceFilter(service);
+                        setIsServiceOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                        serviceFilter === service ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                      }`}
+                    >
+                      {service}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           
           <div className="sm:w-48">
-            <label htmlFor="importance-filter" className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Importance
             </label>
-            <select
-              id="importance-filter"
-              value={importanceFilter}
-              onChange={(e) => onImportanceFilter(e.target.value)}
-              className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
-            >
-              <option value="">All Importance</option>
-              <option value="critical">Critical</option>
-              <option value="high">High</option>
-              <option value="medium">Medium</option>
-              <option value="low">Low</option>
-            </select>
+            <div className="relative" ref={importanceRef}>
+              <button
+                type="button"
+                onClick={() => setIsImportanceOpen(!isImportanceOpen)}
+                className="w-full px-3 py-2 text-left border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
+              >
+                {importanceFilter || 'All Importance'}
+                <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+              
+              {isImportanceOpen && (
+                <div className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto">
+                  <button
+                    onClick={() => {
+                      onImportanceFilter('');
+                      setIsImportanceOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                      !importanceFilter ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                    }`}
+                  >
+                    All Importance
+                  </button>
+                  <button
+                    onClick={() => {
+                      onImportanceFilter('critical');
+                      setIsImportanceOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                      importanceFilter === 'critical' ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                    }`}
+                  >
+                    Critical
+                  </button>
+                  <button
+                    onClick={() => {
+                      onImportanceFilter('high');
+                      setIsImportanceOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                      importanceFilter === 'high' ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                    }`}
+                  >
+                    High
+                  </button>
+                  <button
+                    onClick={() => {
+                      onImportanceFilter('medium');
+                      setIsImportanceOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                      importanceFilter === 'medium' ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                    }`}
+                  >
+                    Medium
+                  </button>
+                  <button
+                    onClick={() => {
+                      onImportanceFilter('low');
+                      setIsImportanceOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-lg lg:text-sm hover:bg-gray-100 ${
+                      importanceFilter === 'low' ? 'bg-blue-50 text-blue-700' : 'text-gray-900'
+                    }`}
+                  >
+                    Low
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
