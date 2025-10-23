@@ -1,0 +1,29 @@
+name: Validate Branch Name
+
+on:
+  create:
+    branches:
+      - '*'
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name
+        run: |
+          branch_name="${GITHUB_REF#refs/heads/}"
+          echo "Branch name: $branch_name"
+          if [[ ! "$branch_name" =~ ^(feature|fix|docs|chore)/[a-z0-9._-]+$ ]]; then
+            echo "❌ Invalid branch name: '$branch_name'"
+            echo "✅ Expected pattern: feature/, fix/, docs/, or chore/ + lowercase words separated by dashes"
+            echo ""
+            echo "Examples of valid branch names:"
+            echo "  feature/add-mysql-metrics"
+            echo "  fix/mobile-layout-issue"
+            echo "  docs/update-readme"
+            echo "  chore/update-dependencies"
+            echo ""
+            echo "Please rename your branch and try again."
+            exit 1
+          fi
+          echo "✅ Branch name accepted: '$branch_name'"

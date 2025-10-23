@@ -21,6 +21,25 @@ git checkout -b fix/mobile-layout-issue
 git checkout -b docs/update-readme
 ```
 
+### 🏷️ Branch Naming Convention
+
+Please create branches using one of these prefixes:
+- `feature/<short-description>` — for new features or metrics
+- `fix/<short-description>` — for bug fixes
+- `docs/<short-description>` — for documentation updates
+- `chore/<short-description>` — for maintenance tasks
+
+**Examples:**
+- `feature/add-mysql-metrics`
+- `fix/mobile-layout-issue`
+- `docs/update-readme`
+- `chore/update-dependencies`
+
+**Rules:**
+- Use lowercase letters and hyphens only
+- Be descriptive but concise
+- GitHub Actions will validate branch names automatically
+
 ### 3. Make Your Changes
 - Add new metrics to `/src/data/services/`
 - Fix bugs or improve existing features
