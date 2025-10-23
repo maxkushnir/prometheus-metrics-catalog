@@ -21,7 +21,7 @@ const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFi
               placeholder="Search by metric name or description..."
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+              className="block w-full pl-10 pr-3 py-3 lg:py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-base lg:text-sm"
             />
           </div>
         </div>
@@ -36,7 +36,7 @@ const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFi
               id="service-filter"
               value={serviceFilter}
               onChange={(e) => onServiceFilter(e.target.value)}
-              className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+              className="block w-full px-3 py-3 lg:py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-base lg:text-sm"
             >
               <option value="">All Services</option>
               {services.map(service => (
@@ -54,7 +54,7 @@ const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFi
             <select
               id="importance-filter"
               onChange={(e) => onImportanceFilter(e.target.value)}
-              className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+              className="block w-full px-3 py-3 lg:py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-base lg:text-sm"
             >
               <option value="">All Importance</option>
               <option value="critical">Critical</option>
