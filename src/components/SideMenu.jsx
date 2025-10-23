@@ -25,7 +25,7 @@ const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
   };
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 h-full overflow-y-auto custom-scrollbar shadow-lg lg:shadow-none">
+    <div className="w-64 bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto custom-scrollbar shadow-lg lg:shadow-none">
       <div className="p-4">
         {/* All Services */}
         <div className="mb-6">
