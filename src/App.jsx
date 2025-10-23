@@ -21,13 +21,29 @@ function App() {
   }, []);
 
   useEffect(() => {
+    let timeoutId;
+    
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      // Clear previous timeout
+      clearTimeout(timeoutId);
+      
+      // Debounce the scroll event
+      timeoutId = setTimeout(() => {
+        const scrollTop = window.scrollY;
+        // Use a larger threshold and add hysteresis to prevent flickering
+        const threshold = 100;
+        const newIsScrolled = scrollTop > threshold;
+        
+        // Only update state if it actually changed
+        setIsScrolled(prev => prev !== newIsScrolled ? newIsScrolled : prev);
+      }, 10); // 10ms debounce
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   // Get unique services from metrics
