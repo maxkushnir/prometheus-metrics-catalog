@@ -1,0 +1,40 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Build and test job for PRs
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          npm install --verbose
+          echo "Checking installed packages:"
+          npm list vite
+          echo "Checking node_modules/.bin:"
+          ls -la node_modules/.bin/ | grep vite || echo "Vite not found in .bin"
+          
+      - name: Build (PR Validation)
+        run: |
+          echo "Running build validation for PR:"
+          ./node_modules/.bin/vite build
+          echo "Build successful! PR is ready for review."
+        
+      - name: Check build output
+        run: |
+          echo "Build output contents:"
+          ls -la dist/
+          echo "Build validation complete."

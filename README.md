@@ -97,20 +97,44 @@ Replace `public/banner.png` with your own banner image. Recommended size: 1200x4
 
 ## 🚀 Deployment
 
-This project is configured for automatic deployment to GitHub Pages:
+This project uses a branch-based contribution flow with automatic deployment:
 
-1. Push to the `main` branch
-2. GitHub Actions will automatically build and deploy
-3. The site will be available at `https://maxkushnir.github.io/prometheus-metrics-catalog/`
+1. **Contributors**: Create feature branches and submit pull requests
+2. **Maintainers**: Review and merge PRs to the `main` branch
+3. **GitHub Actions**: Automatically builds and deploys when PRs are merged
+4. **Live Site**: Available at `https://maxkushnir.github.io/prometheus-metrics-catalog/`
 
 ## 📝 Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes
-4. Commit your changes: `git commit -m 'Add some feature'`
-5. Push to the branch: `git push origin feature-name`
-6. Submit a pull request
+We welcome contributions! Please follow our contribution guidelines:
+
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/add-mysql-metrics`
+3. **Make** your changes and test them locally
+4. **Commit** with clear messages: `git commit -m "Add MySQL Exporter metrics"`
+5. **Push** to your fork: `git push origin feature/add-mysql-metrics`
+6. **Submit** a pull request with a detailed description
+
+### Development Workflow
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+### Adding New Metrics
+
+- Add new service metrics to `/src/data/services/SERVICE_NAME/metrics.json`
+- Update `/src/data/services.json` to include the new service
+- Follow the existing JSON schema and naming conventions
+
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 📄 License
 
