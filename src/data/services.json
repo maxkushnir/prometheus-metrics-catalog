@@ -1,15 +1,32 @@
 {
   "services": [
     {
-      "name": "aerospike",
-      "displayName": "Aerospike",
-      "description": "NoSQL database metrics",
-      "path": "/data/services/aerospike/metrics.json",
+      "name": "databases",
+      "displayName": "Databases",
+      "description": "Database and data store metrics",
+      "path": "/data/services/databases/metrics.json",
       "color": "blue",
-      "exporter": {
-        "name": "aerospike-prometheus-exporter",
-        "link": "https://github.com/NewRelic/aerospike-prometheus-exporter"
-      }
+      "isGroup": true,
+      "subservices": [
+        {
+          "name": "aerospike",
+          "displayName": "Aerospike",
+          "description": "NoSQL database metrics",
+          "exporter": {
+            "name": "aerospike-prometheus-exporter",
+            "link": "https://github.com/NewRelic/aerospike-prometheus-exporter"
+          }
+        },
+        {
+          "name": "redis",
+          "displayName": "Redis",
+          "description": "In-memory data structure store metrics",
+          "exporter": {
+            "name": "redis_exporter",
+            "link": "https://github.com/oliver006/redis_exporter"
+          }
+        }
+      ]
     },
     {
       "name": "node_exporter",
@@ -31,17 +48,6 @@
       "exporter": {
         "name": "nginx-prometheus-exporter",
         "link": "https://github.com/nginxinc/nginx-prometheus-exporter"
-      }
-    },
-    {
-      "name": "redis",
-      "displayName": "Redis",
-      "description": "In-memory data structure store metrics",
-      "path": "/data/services/redis/metrics.json",
-      "color": "red",
-      "exporter": {
-        "name": "redis_exporter",
-        "link": "https://github.com/oliver006/redis_exporter"
       }
     },
     {

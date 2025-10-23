@@ -3,8 +3,8 @@ import React from 'react';
 const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
   // Group services by category based on the services.json configuration
   const serviceCategories = {
-    'Basic resource monitoring': ['aerospike', 'node_exporter'],
-    'Databases and brokers': ['redis'],
+    'Basic resource monitoring': ['node_exporter'],
+    'Databases and brokers': ['databases'],
     'Reverse proxies and load balancers': ['nginx'],
     'Network, security and storage': ['pure']
   };
