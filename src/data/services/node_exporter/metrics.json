@@ -1,27 +1,192 @@
 [
   {
+    "name": "fstrim_timer",
+    "service": "node_exporter",
+    "labels": ["hostname", "trigger_time"],
+    "description": "Metric read from /var/lib/node_exporter/fstrim.prom",
+    "importance": "low",
+    "type": "untyped",
+    "example_usage": "fstrim_timer{hostname=\"server1\"}"
+  },
+  {
+    "name": "node_arp_entries",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "ARP entries by device",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_arp_entries{device=\"eth0\"}"
+  },
+  {
+    "name": "node_boot_time_seconds",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Node boot time, in unixtime",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_boot_time_seconds"
+  },
+  {
+    "name": "node_context_switches_total",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Total number of context switches",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(node_context_switches_total[5m])"
+  },
+  {
+    "name": "node_cooling_device_cur_state",
+    "service": "node_exporter",
+    "labels": ["name", "type"],
+    "description": "Current throttle state of the cooling device",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_cooling_device_cur_state{type=\"Processor\"}"
+  },
+  {
+    "name": "node_cooling_device_max_state",
+    "service": "node_exporter",
+    "labels": ["name", "type"],
+    "description": "Maximum throttle state of the cooling device",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_cooling_device_max_state{type=\"Processor\"}"
+  },
+  {
+    "name": "node_cpu_guest_seconds_total",
+    "service": "node_exporter",
+    "labels": ["cpu", "mode"],
+    "description": "CPU seconds spent in guest mode",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(node_cpu_guest_seconds_total[5m])"
+  },
+  {
     "name": "node_cpu_seconds_total",
     "service": "node_exporter",
     "labels": ["cpu", "mode"],
     "description": "Seconds the CPUs spent in each mode",
     "importance": "high",
-    "example_usage": "rate(node_cpu_seconds_total[5m])"
+    "type": "counter",
+    "example_usage": "rate(node_cpu_seconds_total{mode=\"idle\"}[5m])"
   },
   {
-    "name": "node_memory_MemAvailable_bytes",
+    "name": "node_disk_io_now",
     "service": "node_exporter",
-    "labels": ["instance"],
-    "description": "Memory information field MemAvailable_bytes",
+    "labels": ["device"],
+    "description": "The number of I/Os currently in progress",
     "importance": "high",
-    "example_usage": "node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100"
+    "type": "gauge",
+    "example_usage": "node_disk_io_now{device=\"sda\"}"
   },
   {
-    "name": "node_memory_MemTotal_bytes",
+    "name": "node_disk_io_time_seconds_total",
     "service": "node_exporter",
-    "labels": ["instance"],
-    "description": "Memory information field MemTotal_bytes",
+    "labels": ["device"],
+    "description": "Total seconds spent doing I/Os",
     "importance": "high",
-    "example_usage": "node_memory_MemTotal_bytes"
+    "type": "counter",
+    "example_usage": "rate(node_disk_io_time_seconds_total[5m])"
+  },
+  {
+    "name": "node_disk_io_time_weighted_seconds_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The weighted number of seconds spent doing I/Os",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_io_time_weighted_seconds_total[5m])"
+  },
+  {
+    "name": "node_disk_read_bytes_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of bytes read successfully",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_read_bytes_total[5m])"
+  },
+  {
+    "name": "node_disk_read_errors_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of read errors",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(node_disk_read_errors_total[5m])"
+  },
+  {
+    "name": "node_disk_read_time_seconds_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of seconds spent by all reads",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_read_time_seconds_total[5m])"
+  },
+  {
+    "name": "node_disk_reads_completed_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of reads completed successfully",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_reads_completed_total[5m])"
+  },
+  {
+    "name": "node_disk_reads_merged_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of reads merged",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(node_disk_reads_merged_total[5m])"
+  },
+  {
+    "name": "node_disk_write_bytes_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of bytes written successfully",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_write_bytes_total[5m])"
+  },
+  {
+    "name": "node_disk_write_errors_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of write errors",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(node_disk_write_errors_total[5m])"
+  },
+  {
+    "name": "node_disk_write_time_seconds_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of seconds spent by all writes",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_write_time_seconds_total[5m])"
+  },
+  {
+    "name": "node_disk_writes_completed_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The total number of writes completed successfully",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_disk_writes_completed_total[5m])"
+  },
+  {
+    "name": "node_disk_writes_merged_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "The number of writes merged",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(node_disk_writes_merged_total[5m])"
   },
   {
     "name": "node_filesystem_avail_bytes",
@@ -29,7 +194,53 @@
     "labels": ["device", "fstype", "mountpoint"],
     "description": "Filesystem space available to non-root users in bytes",
     "importance": "high",
-    "example_usage": "node_filesystem_avail_bytes{fstype!=\"tmpfs\"}"
+    "type": "gauge",
+    "example_usage": "node_filesystem_avail_bytes{mountpoint=\"/\"}"
+  },
+  {
+    "name": "node_filesystem_device_error",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Whether an error occurred while getting statistics for the given device",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "node_filesystem_device_error{mountpoint=\"/\"}"
+  },
+  {
+    "name": "node_filesystem_files",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Filesystem total file nodes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_filesystem_files{mountpoint=\"/\"}"
+  },
+  {
+    "name": "node_filesystem_files_free",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Filesystem total free file nodes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_filesystem_files_free{mountpoint=\"/\"}"
+  },
+  {
+    "name": "node_filesystem_free_bytes",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Filesystem free space in bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_filesystem_free_bytes{mountpoint=\"/\"}"
+  },
+  {
+    "name": "node_filesystem_readonly",
+    "service": "node_exporter",
+    "labels": ["device", "fstype", "mountpoint"],
+    "description": "Filesystem read-only status",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_filesystem_readonly{mountpoint=\"/\"}"
   },
   {
     "name": "node_filesystem_size_bytes",
@@ -37,78 +248,1555 @@
     "labels": ["device", "fstype", "mountpoint"],
     "description": "Filesystem size in bytes",
     "importance": "high",
-    "example_usage": "node_filesystem_size_bytes{fstype!=\"tmpfs\"}"
+    "type": "gauge",
+    "example_usage": "node_filesystem_size_bytes{mountpoint=\"/\"}"
   },
   {
     "name": "node_load1",
     "service": "node_exporter",
-    "labels": ["instance"],
+    "labels": [],
     "description": "1m load average",
-    "importance": "medium",
+    "importance": "high",
+    "type": "gauge",
     "example_usage": "node_load1"
-  },
-  {
-    "name": "node_load5",
-    "service": "node_exporter",
-    "labels": ["instance"],
-    "description": "5m load average",
-    "importance": "medium",
-    "example_usage": "node_load5"
   },
   {
     "name": "node_load15",
     "service": "node_exporter",
-    "labels": ["instance"],
+    "labels": [],
     "description": "15m load average",
-    "importance": "medium",
+    "importance": "high",
+    "type": "gauge",
     "example_usage": "node_load15"
   },
   {
-    "name": "node_disk_read_bytes_total",
+    "name": "node_load5",
     "service": "node_exporter",
-    "labels": ["device", "instance"],
-    "description": "The total number of bytes read successfully",
-    "importance": "medium",
-    "example_usage": "rate(node_disk_read_bytes_total[5m])"
+    "labels": [],
+    "description": "5m load average",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_load5"
   },
   {
-    "name": "node_disk_written_bytes_total",
+    "name": "node_memory_Active_anon_bytes",
     "service": "node_exporter",
-    "labels": ["device", "instance"],
-    "description": "The total number of bytes written successfully",
+    "labels": [],
+    "description": "Memory information field Active_anon_bytes",
     "importance": "medium",
-    "example_usage": "rate(node_disk_written_bytes_total[5m])"
+    "type": "gauge",
+    "example_usage": "node_memory_Active_anon_bytes"
+  },
+  {
+    "name": "node_memory_Active_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Active_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_Active_bytes"
+  },
+  {
+    "name": "node_memory_Active_file_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Active_file_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Active_file_bytes"
+  },
+  {
+    "name": "node_memory_AnonHugePages_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field AnonHugePages_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_AnonHugePages_bytes"
+  },
+  {
+    "name": "node_memory_AnonPages_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field AnonPages_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_AnonPages_bytes"
+  },
+  {
+    "name": "node_memory_Bounce_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Bounce_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_Bounce_bytes"
+  },
+  {
+    "name": "node_memory_Buffers_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Buffers_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Buffers_bytes"
+  },
+  {
+    "name": "node_memory_Cached_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Cached_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_Cached_bytes"
+  },
+  {
+    "name": "node_memory_CommitLimit_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field CommitLimit_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_CommitLimit_bytes"
+  },
+  {
+    "name": "node_memory_Committed_AS_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Committed_AS_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_Committed_AS_bytes"
+  },
+  {
+    "name": "node_memory_DirectMap1G_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field DirectMap1G_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_DirectMap1G_bytes"
+  },
+  {
+    "name": "node_memory_DirectMap2M_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field DirectMap2M_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_DirectMap2M_bytes"
+  },
+  {
+    "name": "node_memory_DirectMap4k_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field DirectMap4k_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_DirectMap4k_bytes"
+  },
+  {
+    "name": "node_memory_Dirty_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Dirty_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Dirty_bytes"
+  },
+  {
+    "name": "node_memory_HardwareCorrupted_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field HardwareCorrupted_bytes",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "node_memory_HardwareCorrupted_bytes"
+  },
+  {
+    "name": "node_memory_HugePages_Free",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field HugePages_Free",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_HugePages_Free"
+  },
+  {
+    "name": "node_memory_HugePages_Rsvd",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field HugePages_Rsvd",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_HugePages_Rsvd"
+  },
+  {
+    "name": "node_memory_HugePages_Surp",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field HugePages_Surp",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_HugePages_Surp"
+  },
+  {
+    "name": "node_memory_HugePages_Total",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field HugePages_Total",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_HugePages_Total"
+  },
+  {
+    "name": "node_memory_Hugepagesize_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Hugepagesize_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_Hugepagesize_bytes"
+  },
+  {
+    "name": "node_memory_Inactive_anon_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Inactive_anon_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Inactive_anon_bytes"
+  },
+  {
+    "name": "node_memory_Inactive_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Inactive_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Inactive_bytes"
+  },
+  {
+    "name": "node_memory_Inactive_file_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Inactive_file_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Inactive_file_bytes"
+  },
+  {
+    "name": "node_memory_KReclaimable_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field KReclaimable_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_KReclaimable_bytes"
+  },
+  {
+    "name": "node_memory_KernelStack_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field KernelStack_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_KernelStack_bytes"
+  },
+  {
+    "name": "node_memory_Mapped_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Mapped_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Mapped_bytes"
+  },
+  {
+    "name": "node_memory_MemAvailable_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field MemAvailable_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_MemAvailable_bytes"
+  },
+  {
+    "name": "node_memory_MemFree_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field MemFree_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_MemFree_bytes"
+  },
+  {
+    "name": "node_memory_MemTotal_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field MemTotal_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_MemTotal_bytes"
+  },
+  {
+    "name": "node_memory_Mlocked_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Mlocked_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_Mlocked_bytes"
+  },
+  {
+    "name": "node_memory_NFS_Unstable_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field NFS_Unstable_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_NFS_Unstable_bytes"
+  },
+  {
+    "name": "node_memory_PageTables_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field PageTables_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_PageTables_bytes"
+  },
+  {
+    "name": "node_memory_SReclaimable_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field SReclaimable_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_SReclaimable_bytes"
+  },
+  {
+    "name": "node_memory_SUnreclaim_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field SUnreclaim_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_SUnreclaim_bytes"
+  },
+  {
+    "name": "node_memory_Shmem_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Shmem_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Shmem_bytes"
+  },
+  {
+    "name": "node_memory_Slab_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Slab_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Slab_bytes"
+  },
+  {
+    "name": "node_memory_SwapCached_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field SwapCached_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_SwapCached_bytes"
+  },
+  {
+    "name": "node_memory_SwapFree_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field SwapFree_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_SwapFree_bytes"
+  },
+  {
+    "name": "node_memory_SwapTotal_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field SwapTotal_bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_memory_SwapTotal_bytes"
+  },
+  {
+    "name": "node_memory_Unevictable_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Unevictable_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_Unevictable_bytes"
+  },
+  {
+    "name": "node_memory_VmallocChunk_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field VmallocChunk_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_VmallocChunk_bytes"
+  },
+  {
+    "name": "node_memory_VmallocTotal_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field VmallocTotal_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_VmallocTotal_bytes"
+  },
+  {
+    "name": "node_memory_VmallocUsed_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field VmallocUsed_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_VmallocUsed_bytes"
+  },
+  {
+    "name": "node_memory_Writeback_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field Writeback_bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_memory_Writeback_bytes"
+  },
+  {
+    "name": "node_memory_WritebackTmp_bytes",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Memory information field WritebackTmp_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_memory_WritebackTmp_bytes"
   },
   {
     "name": "node_network_receive_bytes_total",
     "service": "node_exporter",
-    "labels": ["device", "instance"],
+    "labels": ["device"],
     "description": "Network device statistic receive_bytes",
-    "importance": "medium",
+    "importance": "high",
+    "type": "counter",
     "example_usage": "rate(node_network_receive_bytes_total[5m])"
+  },
+  {
+    "name": "node_network_receive_compressed_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_compressed",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_compressed_total[5m])"
+  },
+  {
+    "name": "node_network_receive_drop_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_drop",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_drop_total[5m])"
+  },
+  {
+    "name": "node_network_receive_errs_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_errs",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_errs_total[5m])"
+  },
+  {
+    "name": "node_network_receive_fifo_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_fifo",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_fifo_total[5m])"
+  },
+  {
+    "name": "node_network_receive_frame_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_frame",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_frame_total[5m])"
+  },
+  {
+    "name": "node_network_receive_multicast_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_multicast",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_multicast_total[5m])"
+  },
+  {
+    "name": "node_network_receive_packets_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic receive_packets",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_network_receive_packets_total[5m])"
   },
   {
     "name": "node_network_transmit_bytes_total",
     "service": "node_exporter",
-    "labels": ["device", "instance"],
+    "labels": ["device"],
     "description": "Network device statistic transmit_bytes",
-    "importance": "medium",
+    "importance": "high",
+    "type": "counter",
     "example_usage": "rate(node_network_transmit_bytes_total[5m])"
   },
   {
-    "name": "node_boot_time_seconds",
+    "name": "node_network_transmit_compressed_total",
     "service": "node_exporter",
-    "labels": ["instance"],
-    "description": "Node boot time, in unixtime",
+    "labels": ["device"],
+    "description": "Network device statistic transmit_compressed",
     "importance": "low",
-    "example_usage": "time() - node_boot_time_seconds"
+    "type": "counter",
+    "example_usage": "rate(node_network_transmit_compressed_total[5m])"
+  },
+  {
+    "name": "node_network_transmit_drop_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic transmit_drop",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_network_transmit_drop_total[5m])"
+  },
+  {
+    "name": "node_network_transmit_errs_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic transmit_errs",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(node_network_transmit_errs_total[5m])"
+  },
+  {
+    "name": "node_network_transmit_fifo_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic transmit_fifo",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(node_network_transmit_fifo_total[5m])"
+  },
+  {
+    "name": "node_network_transmit_packets_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic transmit_packets",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(node_network_transmit_packets_total[5m])"
+  },
+  {
+    "name": "node_network_transmit_queue_total",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Network device statistic transmit_queue",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(node_network_transmit_queue_total[5m])"
+  },
+  {
+    "name": "node_network_up",
+    "service": "node_exporter",
+    "labels": ["device"],
+    "description": "Value is 1 if operstate is 'up', 0 otherwise",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "node_network_up{device=\"eth0\"}"
+  },
+  {
+    "name": "node_procs_blocked",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of processes blocked waiting for I/O to complete",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_procs_blocked"
+  },
+  {
+    "name": "node_procs_running",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of processes in runnable state",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_procs_running"
+  },
+  {
+    "name": "node_scrape_collector_duration_seconds",
+    "service": "node_exporter",
+    "labels": ["collector"],
+    "description": "node_exporter: Duration of a collector scrape",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_scrape_collector_duration_seconds{collector=\"cpu\"}"
+  },
+  {
+    "name": "node_scrape_collector_success",
+    "service": "node_exporter",
+    "labels": ["collector"],
+    "description": "node_exporter: Whether a collector succeeded",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_scrape_collector_success{collector=\"cpu\"}"
+  },
+  {
+    "name": "node_sockstat_FRAG_inuse",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of FRAG sockets in state inuse",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_FRAG_inuse"
+  },
+  {
+    "name": "node_sockstat_FRAG_memory",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of FRAG sockets in state memory",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_FRAG_memory"
+  },
+  {
+    "name": "node_sockstat_FRAG_orphans",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of FRAG sockets in state orphans",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_FRAG_orphans"
+  },
+  {
+    "name": "node_sockstat_FRAG_tw",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of FRAG sockets in state tw",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_FRAG_tw"
+  },
+  {
+    "name": "node_sockstat_RAW_inuse",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of RAW sockets in state inuse",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_RAW_inuse"
+  },
+  {
+    "name": "node_sockstat_RAW_memory",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of RAW sockets in state memory",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_RAW_memory"
+  },
+  {
+    "name": "node_sockstat_RAW_orphans",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of RAW sockets in state orphans",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_RAW_orphans"
+  },
+  {
+    "name": "node_sockstat_RAW_tw",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of RAW sockets in state tw",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_RAW_tw"
+  },
+  {
+    "name": "node_sockstat_TCP_alloc",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of TCP sockets in state alloc",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_TCP_alloc"
+  },
+  {
+    "name": "node_sockstat_TCP_inuse",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of TCP sockets in state inuse",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_sockstat_TCP_inuse"
+  },
+  {
+    "name": "node_sockstat_TCP_mem",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of TCP sockets in state mem",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_TCP_mem"
+  },
+  {
+    "name": "node_sockstat_TCP_orphans",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of TCP sockets in state orphans",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_sockstat_TCP_orphans"
+  },
+  {
+    "name": "node_sockstat_TCP_tw",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of TCP sockets in state tw",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_TCP_tw"
+  },
+  {
+    "name": "node_sockstat_UDP_inuse",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDP sockets in state inuse",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDP_inuse"
+  },
+  {
+    "name": "node_sockstat_UDP_mem",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDP sockets in state mem",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDP_mem"
+  },
+  {
+    "name": "node_sockstat_UDP_orphans",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDP sockets in state orphans",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDP_orphans"
+  },
+  {
+    "name": "node_sockstat_UDP_tw",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDP sockets in state tw",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDP_tw"
+  },
+  {
+    "name": "node_sockstat_sockets_alloc",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of sockets of type sockets in state alloc",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_sockets_alloc"
+  },
+  {
+    "name": "node_sockstat_sockets_inuse",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of sockets of type sockets in state inuse",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_sockstat_sockets_inuse"
+  },
+  {
+    "name": "node_sockstat_sockets_mem",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of sockets of type sockets in state mem",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_sockets_mem"
+  },
+  {
+    "name": "node_sockstat_sockets_orphans",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of sockets of type sockets in state orphans",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_sockstat_sockets_orphans"
+  },
+  {
+    "name": "node_sockstat_sockets_tw",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of sockets of type sockets in state tw",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_sockstat_sockets_tw"
+  },
+  {
+    "name": "node_sockstat_UDPLITE_inuse",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDPLITE sockets in state inuse",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDPLITE_inuse"
+  },
+  {
+    "name": "node_sockstat_UDPLITE_mem",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDPLITE sockets in state mem",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDPLITE_mem"
+  },
+  {
+    "name": "node_sockstat_UDPLITE_orphans",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDPLITE sockets in state orphans",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDPLITE_orphans"
+  },
+  {
+    "name": "node_sockstat_UDPLITE_tw",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of UDPLITE sockets in state tw",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_sockstat_UDPLITE_tw"
+  },
+  {
+    "name": "node_textfile_scrape_error",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "1 if there was an error opening or reading a file, 0 otherwise",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_textfile_scrape_error"
   },
   {
     "name": "node_time_seconds",
     "service": "node_exporter",
-    "labels": ["instance"],
+    "labels": [],
     "description": "System time in seconds since epoch (1970)",
     "importance": "low",
+    "type": "gauge",
     "example_usage": "node_time_seconds"
+  },
+  {
+    "name": "node_uname_info",
+    "service": "node_exporter",
+    "labels": ["domainname", "machine", "nodename", "release", "sysname", "version"],
+    "description": "Labeled system information as provided by the uname system call",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_uname_info{sysname=\"Linux\"}"
+  },
+  {
+    "name": "node_vmstat_balloon_deflate",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Balloon pages deflated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_balloon_deflate"
+  },
+  {
+    "name": "node_vmstat_balloon_inflate",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Balloon pages inflated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_balloon_inflate"
+  },
+  {
+    "name": "node_vmstat_compact_fail",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of failed memory compaction attempts",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_compact_fail"
+  },
+  {
+    "name": "node_vmstat_compact_success",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of successful memory compaction attempts",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_compact_success"
+  },
+  {
+    "name": "node_vmstat_compact_stall",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of times compaction was stalled",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_compact_stall"
+  },
+  {
+    "name": "node_vmstat_drop_pagecache",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages dropped from page cache",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_drop_pagecache"
+  },
+  {
+    "name": "node_vmstat_drop_slab",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages dropped from slab cache",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_drop_slab"
+  },
+  {
+    "name": "node_vmstat_htlb_buddy_alloc",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages allocated from high order buddy allocator",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_htlb_buddy_alloc"
+  },
+  {
+    "name": "node_vmstat_htlb_buddy_alloc_fail",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of failed high order buddy allocator allocations",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_htlb_buddy_alloc_fail"
+  },
+  {
+    "name": "node_vmstat_nr_active_anon",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of active anonymous pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_active_anon"
+  },
+  {
+    "name": "node_vmstat_nr_active_file",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of active file pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_active_file"
+  },
+  {
+    "name": "node_vmstat_nr_alloc_batch",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages allocated in batch",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_alloc_batch"
+  },
+  {
+    "name": "node_vmstat_nr_anon_pages",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of anonymous pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_anon_pages"
+  },
+  {
+    "name": "node_vmstat_nr_bounce",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of bounce pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_bounce"
+  },
+  {
+    "name": "node_vmstat_nr_dirty",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of dirty pages",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_dirty"
+  },
+  {
+    "name": "node_vmstat_nr_file_pages",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of file pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_file_pages"
+  },
+  {
+    "name": "node_vmstat_nr_free_pages",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of free pages",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_free_pages"
+  },
+  {
+    "name": "node_vmstat_nr_inactive_anon",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of inactive anonymous pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_inactive_anon"
+  },
+  {
+    "name": "node_vmstat_nr_inactive_file",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of inactive file pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_inactive_file"
+  },
+  {
+    "name": "node_vmstat_nr_isolated_anon",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of isolated anonymous pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_isolated_anon"
+  },
+  {
+    "name": "node_vmstat_nr_isolated_file",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of isolated file pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_isolated_file"
+  },
+  {
+    "name": "node_vmstat_nr_kernel_stack",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of kernel stack pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_kernel_stack"
+  },
+  {
+    "name": "node_vmstat_nr_mapped",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of mapped pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_mapped"
+  },
+  {
+    "name": "node_vmstat_nr_mlock",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of mlock pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_mlock"
+  },
+  {
+    "name": "node_vmstat_nr_page_table_pages",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of page table pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_page_table_pages"
+  },
+  {
+    "name": "node_vmstat_nr_shmem",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of shared memory pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_shmem"
+  },
+  {
+    "name": "node_vmstat_nr_slab_reclaimable",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of reclaimable slab pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_slab_reclaimable"
+  },
+  {
+    "name": "node_vmstat_nr_slab_unreclaimable",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unreclaimable slab pages",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_slab_unreclaimable"
+  },
+  {
+    "name": "node_vmstat_nr_unevictable",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unevictable pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_unevictable"
+  },
+  {
+    "name": "node_vmstat_nr_unstable",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unstable pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_unstable"
+  },
+  {
+    "name": "node_vmstat_nr_vmscan_immediate_reclaim",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages reclaimed immediately",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_vmscan_immediate_reclaim"
+  },
+  {
+    "name": "node_vmstat_nr_vmscan_write",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages written by vmscan",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_vmscan_write"
+  },
+  {
+    "name": "node_vmstat_nr_writeback",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages in writeback",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_writeback"
+  },
+  {
+    "name": "node_vmstat_nr_writeback_temp",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of temporary writeback pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_nr_writeback_temp"
+  },
+  {
+    "name": "node_vmstat_oom_kill",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of processes killed by OOM killer",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "node_vmstat_oom_kill"
+  },
+  {
+    "name": "node_vmstat_pgactivate",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages activated",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgactivate"
+  },
+  {
+    "name": "node_vmstat_pgalloc_dma",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages allocated in DMA zone",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgalloc_dma"
+  },
+  {
+    "name": "node_vmstat_pgalloc_dma32",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages allocated in DMA32 zone",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgalloc_dma32"
+  },
+  {
+    "name": "node_vmstat_pgalloc_movable",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages allocated in movable zone",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgalloc_movable"
+  },
+  {
+    "name": "node_vmstat_pgalloc_normal",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages allocated in normal zone",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgalloc_normal"
+  },
+  {
+    "name": "node_vmstat_pgdeactivate",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages deactivated",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgdeactivate"
+  },
+  {
+    "name": "node_vmstat_pgfault",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of page faults",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgfault"
+  },
+  {
+    "name": "node_vmstat_pgfree",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages freed",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgfree"
+  },
+  {
+    "name": "node_vmstat_pginodesteal",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages stolen from inode cache",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pginodesteal"
+  },
+  {
+    "name": "node_vmstat_pglazyfreed",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages lazy freed",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pglazyfreed"
+  },
+  {
+    "name": "node_vmstat_pgmajfault",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of major page faults",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgmajfault"
+  },
+  {
+    "name": "node_vmstat_pgmigrate",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages migrated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgmigrate"
+  },
+  {
+    "name": "node_vmstat_pgpgin",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages paged in",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgpgin"
+  },
+  {
+    "name": "node_vmstat_pgpgout",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages paged out",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgpgout"
+  },
+  {
+    "name": "node_vmstat_pgrefill",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages refilled",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgrefill"
+  },
+  {
+    "name": "node_vmstat_pgrotated",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages rotated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgrotated"
+  },
+  {
+    "name": "node_vmstat_pgscan_direct",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages scanned directly",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgscan_direct"
+  },
+  {
+    "name": "node_vmstat_pgscan_kswapd",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages scanned by kswapd",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgscan_kswapd"
+  },
+  {
+    "name": "node_vmstat_pgsteal_direct",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages stolen directly",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgsteal_direct"
+  },
+  {
+    "name": "node_vmstat_pgsteal_kswapd",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages stolen by kswapd",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pgsteal_kswapd"
+  },
+  {
+    "name": "node_vmstat_pswpin",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages swapped in",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pswpin"
+  },
+  {
+    "name": "node_vmstat_pswpout",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages swapped out",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "node_vmstat_pswpout"
+  },
+  {
+    "name": "node_vmstat_slabs_scanned",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of slab pages scanned",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_slabs_scanned"
+  },
+  {
+    "name": "node_vmstat_thp_collapse_alloc",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of THP pages allocated by collapsing",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_thp_collapse_alloc"
+  },
+  {
+    "name": "node_vmstat_thp_collapse_alloc_failed",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of failed THP page allocations by collapsing",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_thp_collapse_alloc_failed"
+  },
+  {
+    "name": "node_vmstat_thp_deferred_split",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of THP pages deferred split",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_thp_deferred_split"
+  },
+  {
+    "name": "node_vmstat_thp_fault_alloc",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of THP pages allocated by fault",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_thp_fault_alloc"
+  },
+  {
+    "name": "node_vmstat_thp_fault_fallback",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of THP pages allocated by fallback",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_thp_fault_fallback"
+  },
+  {
+    "name": "node_vmstat_thp_split",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of THP pages split",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_thp_split"
+  },
+  {
+    "name": "node_vmstat_unevictable_pgs_culled",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unevictable pages culled",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_unevictable_pgs_culled"
+  },
+  {
+    "name": "node_vmstat_unevictable_pgs_mlocked",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unevictable pages mlocked",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_unevictable_pgs_mlocked"
+  },
+  {
+    "name": "node_vmstat_unevictable_pgs_munlocked",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unevictable pages munlocked",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_unevictable_pgs_munlocked"
+  },
+  {
+    "name": "node_vmstat_unevictable_pgs_rescued",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unevictable pages rescued",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_unevictable_pgs_rescued"
+  },
+  {
+    "name": "node_vmstat_unevictable_pgs_scanned",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of unevictable pages scanned",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_unevictable_pgs_scanned"
+  },
+  {
+    "name": "node_vmstat_workingset_activate",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages activated in workingset",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_workingset_activate"
+  },
+  {
+    "name": "node_vmstat_workingset_nodereclaim",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages not reclaimed in workingset",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_workingset_nodereclaim"
+  },
+  {
+    "name": "node_vmstat_workingset_refault",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages refaulted in workingset",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_workingset_refault"
+  },
+  {
+    "name": "node_vmstat_workingset_restore",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of pages restored in workingset",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_workingset_restore"
+  },
+  {
+    "name": "node_vmstat_zspage_hit",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of zspage hits",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_zspage_hit"
+  },
+  {
+    "name": "node_vmstat_zspage_miss",
+    "service": "node_exporter",
+    "labels": [],
+    "description": "Number of zspage misses",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "node_vmstat_zspage_miss"
   }
 ]
