@@ -65,13 +65,26 @@ function App() {
             </p>
             
             {/* Stats */}
-            <div className="flex justify-center space-x-6 lg:space-x-12 text-sm lg:text-base text-white">
+            <div className="flex justify-center space-x-6 lg:space-x-12 text-sm lg:text-base text-white mb-4 lg:mb-6">
               <div>
                 <span className="font-semibold">{metrics.length}</span> metrics
               </div>
               <div>
                 <span className="font-semibold">{availableServices.length}</span> services
               </div>
+            </div>
+            
+            {/* Badges */}
+            <div className="flex justify-center space-x-2 lg:space-x-4 flex-wrap">
+              <a href="https://prometheus-metrics-catalog.github.io" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/website?url=https%3A%2F%2Fprometheus-metrics-catalog.github.io" alt="Website" className="h-5 lg:h-6" />
+              </a>
+              <a href="https://github.com/maxkushnir/prometheus-metrics-catalog" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/github/stars/maxkushnir/prometheus-metrics-catalog" alt="GitHub stars" className="h-5 lg:h-6" />
+              </a>
+              <a href="https://github.com/maxkushnir/prometheus-metrics-catalog" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/badge/contributions-welcome-brightgreen" alt="Contributions welcome" className="h-5 lg:h-6" />
+              </a>
             </div>
           </div>
         </div>
