@@ -1,29 +1,515 @@
 [
   {
-    "name": "kafka_broker_info",
+    "name": "kminion_broker_info",
     "service": "kafka",
-    "labels": ["broker_id", "version"],
-    "description": "Kafka broker information",
+    "labels": ["broker_id", "address", "rack_id", "controller"],
+    "description": "Information about Kafka brokers, including broker ID, address, and rack ID",
     "importance": "high",
     "type": "gauge",
-    "example_usage": "kafka_broker_info{broker_id=\"1\",version=\"3.5.0\"}"
+    "example_usage": "kminion_broker_info{broker_id=\"0\"}"
   },
   {
-    "name": "kafka_topic_partitions",
+    "name": "kminion_consumer_group_lag",
     "service": "kafka",
-    "labels": ["topic", "partition"],
-    "description": "Number of partitions per topic",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "kafka_topic_partitions{topic=\"my-topic\",partition=\"0\"}"
-  },
-  {
-    "name": "kafka_consumer_lag",
-    "service": "kafka",
-    "labels": ["topic", "partition", "consumer_group"],
-    "description": "Consumer lag for topic partitions",
+    "labels": ["consumer_group", "topic", "partition"],
+    "description": "Lag of consumer groups per partition, indicating the number of messages a consumer group is behind the latest offset",
     "importance": "critical",
     "type": "gauge",
-    "example_usage": "kafka_consumer_lag{topic=\"my-topic\",partition=\"0\",consumer_group=\"my-group\"}"
+    "example_usage": "kminion_consumer_group_lag{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_log_dir_size",
+    "service": "kafka",
+    "labels": ["broker_id", "log_dir"],
+    "description": "Size of log directories per broker",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_log_dir_size{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_end_to_end_latency",
+    "service": "kafka",
+    "labels": ["topic"],
+    "description": "End-to-end latency of messages sent and consumed by KMinion for monitoring purposes",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(kminion_end_to_end_latency_bucket[5m]))"
+  },
+  {
+    "name": "kminion_offset_commit_latency",
+    "service": "kafka",
+    "labels": ["consumer_group"],
+    "description": "Latency of offset commit operations for consumer groups",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(kminion_offset_commit_latency_bucket[5m]))"
+  },
+  {
+    "name": "kminion_topic_info",
+    "service": "kafka",
+    "labels": ["topic", "partition_count", "replication_factor"],
+    "description": "Information about Kafka topics including partition count and replication factor",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_topic_info{topic=\"my-topic\"}"
+  },
+  {
+    "name": "kminion_partition_info",
+    "service": "kafka",
+    "labels": ["topic", "partition", "leader", "replicas", "isr"],
+    "description": "Information about Kafka partitions including leader, replicas, and in-sync replicas",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_partition_info{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_partition_offset",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Current offset of partitions",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_partition_offset{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_consumer_group_offset",
+    "service": "kafka",
+    "labels": ["consumer_group", "topic", "partition"],
+    "description": "Current offset of consumer groups per partition",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_offset{consumer_group=\"my-group\", topic=\"my-topic\"}"
+  },
+  {
+    "name": "kminion_consumer_group_members",
+    "service": "kafka",
+    "labels": ["consumer_group"],
+    "description": "Number of members in consumer groups",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_members{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_consumer_group_coordinator",
+    "service": "kafka",
+    "labels": ["consumer_group", "coordinator_id"],
+    "description": "Coordinator broker for consumer groups",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_coordinator{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_topic_partition_count",
+    "service": "kafka",
+    "labels": ["topic"],
+    "description": "Number of partitions per topic",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_topic_partition_count{topic=\"my-topic\"}"
+  },
+  {
+    "name": "kminion_topic_replication_factor",
+    "service": "kafka",
+    "labels": ["topic"],
+    "description": "Replication factor per topic",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_topic_replication_factor{topic=\"my-topic\"}"
+  },
+  {
+    "name": "kminion_broker_controller",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Indicates if a broker is the cluster controller",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_broker_controller{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_broker_rack",
+    "service": "kafka",
+    "labels": ["broker_id", "rack_id"],
+    "description": "Rack information for brokers",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_broker_rack{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_partition_leader",
+    "service": "kafka",
+    "labels": ["topic", "partition", "leader_id"],
+    "description": "Leader broker for each partition",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_partition_leader{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_partition_replicas",
+    "service": "kafka",
+    "labels": ["topic", "partition", "replica_id"],
+    "description": "Replica brokers for each partition",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_partition_replicas{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_partition_isr",
+    "service": "kafka",
+    "labels": ["topic", "partition", "isr_id"],
+    "description": "In-sync replica brokers for each partition",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "kminion_partition_isr{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_partition_under_replicated",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Indicates if a partition is under-replicated",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "kminion_partition_under_replicated{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_partition_offline",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Indicates if a partition is offline",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "kminion_partition_offline{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_consumer_group_state",
+    "service": "kafka",
+    "labels": ["consumer_group", "state"],
+    "description": "State of consumer groups (Empty, Dead, Stable, PreparingRebalance, CompletingRebalance)",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_state{consumer_group=\"my-group\", state=\"Stable\"}"
+  },
+  {
+    "name": "kminion_consumer_group_protocol",
+    "service": "kafka",
+    "labels": ["consumer_group", "protocol"],
+    "description": "Protocol used by consumer groups",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_protocol{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_consumer_group_protocol_type",
+    "service": "kafka",
+    "labels": ["consumer_group", "protocol_type"],
+    "description": "Protocol type used by consumer groups",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_protocol_type{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_consumer_group_member_count",
+    "service": "kafka",
+    "labels": ["consumer_group"],
+    "description": "Number of members in consumer groups",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_member_count{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_consumer_group_assignment_count",
+    "service": "kafka",
+    "labels": ["consumer_group"],
+    "description": "Number of partition assignments per consumer group",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_consumer_group_assignment_count{consumer_group=\"my-group\"}"
+  },
+  {
+    "name": "kminion_topic_size_bytes",
+    "service": "kafka",
+    "labels": ["topic"],
+    "description": "Total size of topics in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_topic_size_bytes{topic=\"my-topic\"}"
+  },
+  {
+    "name": "kminion_partition_size_bytes",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Size of individual partitions in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_partition_size_bytes{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_log_segment_count",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Number of log segments per partition",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_log_segment_count{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_log_segment_size_bytes",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Size of log segments per partition",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_log_segment_size_bytes{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_compression_ratio",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Compression ratio of partitions",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_compression_ratio{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_message_count",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Number of messages in partitions",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_message_count{topic=\"my-topic\", partition=\"0\"}"
+  },
+  {
+    "name": "kminion_message_rate",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Rate of messages per second in partitions",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_message_count{topic=\"my-topic\", partition=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_bytes_in_rate",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Rate of bytes in per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_bytes_in{topic=\"my-topic\", partition=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_bytes_out_rate",
+    "service": "kafka",
+    "labels": ["topic", "partition"],
+    "description": "Rate of bytes out per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_bytes_out{topic=\"my-topic\", partition=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_producer_request_rate",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Rate of producer requests per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_producer_requests{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_consumer_request_rate",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Rate of consumer requests per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_consumer_requests{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_fetch_request_rate",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Rate of fetch requests per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_fetch_requests{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_produce_request_rate",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Rate of produce requests per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "rate(kminion_produce_requests{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_request_latency",
+    "service": "kafka",
+    "labels": ["broker_id", "request_type"],
+    "description": "Latency of requests to brokers",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(kminion_request_latency_bucket[5m]))"
+  },
+  {
+    "name": "kminion_response_latency",
+    "service": "kafka",
+    "labels": ["broker_id", "response_type"],
+    "description": "Latency of responses from brokers",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(kminion_response_latency_bucket[5m]))"
+  },
+  {
+    "name": "kminion_error_rate",
+    "service": "kafka",
+    "labels": ["broker_id", "error_type"],
+    "description": "Rate of errors per second",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "rate(kminion_errors{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_network_io_rate",
+    "service": "kafka",
+    "labels": ["broker_id", "direction"],
+    "description": "Rate of network I/O per second",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "rate(kminion_network_io{broker_id=\"0\", direction=\"in\"}[5m])"
+  },
+  {
+    "name": "kminion_disk_io_rate",
+    "service": "kafka",
+    "labels": ["broker_id", "log_dir"],
+    "description": "Rate of disk I/O per second",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "rate(kminion_disk_io{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_jvm_heap_used",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "JVM heap memory used by brokers",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_jvm_heap_used{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_jvm_heap_max",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Maximum JVM heap memory for brokers",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_jvm_heap_max{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_jvm_gc_time",
+    "service": "kafka",
+    "labels": ["broker_id", "gc_type"],
+    "description": "Time spent in garbage collection",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(kminion_jvm_gc_time{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_jvm_gc_count",
+    "service": "kafka",
+    "labels": ["broker_id", "gc_type"],
+    "description": "Number of garbage collection cycles",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(kminion_jvm_gc_count{broker_id=\"0\"}[5m])"
+  },
+  {
+    "name": "kminion_thread_count",
+    "service": "kafka",
+    "labels": ["broker_id", "thread_type"],
+    "description": "Number of threads per broker",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_thread_count{broker_id=\"0\", thread_type=\"network\"}"
+  },
+  {
+    "name": "kminion_connection_count",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Number of active connections per broker",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_connection_count{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_socket_count",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Number of open sockets per broker",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_socket_count{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_file_descriptor_count",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Number of open file descriptors per broker",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_file_descriptor_count{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_cpu_usage",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "CPU usage percentage per broker",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_cpu_usage{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_memory_usage",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Memory usage percentage per broker",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "kminion_memory_usage{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_disk_usage",
+    "service": "kafka",
+    "labels": ["broker_id", "log_dir"],
+    "description": "Disk usage percentage per log directory",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "kminion_disk_usage{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_uptime",
+    "service": "kafka",
+    "labels": ["broker_id"],
+    "description": "Uptime of brokers in seconds",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "kminion_uptime{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_version",
+    "service": "kafka",
+    "labels": ["broker_id", "version"],
+    "description": "Kafka version running on brokers",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_version{broker_id=\"0\"}"
+  },
+  {
+    "name": "kminion_config",
+    "service": "kafka",
+    "labels": ["broker_id", "config_key", "config_value"],
+    "description": "Configuration values for brokers",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "kminion_config{broker_id=\"0\", config_key=\"log.retention.hours\"}"
   }
 ]
