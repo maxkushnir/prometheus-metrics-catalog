@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SearchBar from './components/SearchBar';
 import MetricList from './components/MetricList';
 import SideMenu from './components/SideMenu';
@@ -14,6 +14,8 @@ function App() {
   const [selectedService, setSelectedService] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const scrollTimeoutRef = useRef(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     // Load metrics from embedded data
@@ -21,30 +23,40 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let timeoutId;
-    
     const handleScroll = () => {
-      // Clear previous timeout
-      clearTimeout(timeoutId);
+      const scrollTop = window.scrollY;
+      const threshold = 150; // Increased threshold for more stability
       
-      // Debounce the scroll event
-      timeoutId = setTimeout(() => {
-        const scrollTop = window.scrollY;
-        // Use a larger threshold and add hysteresis to prevent flickering
-        const threshold = 100;
+      // Clear any existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      // Only update if we've scrolled a significant amount
+      const scrollDelta = Math.abs(scrollTop - lastScrollY.current);
+      if (scrollDelta < 10) return; // Ignore small scroll movements
+      
+      scrollTimeoutRef.current = setTimeout(() => {
         const newIsScrolled = scrollTop > threshold;
         
-        // Only update state if it actually changed
-        setIsScrolled(prev => prev !== newIsScrolled ? newIsScrolled : prev);
-      }, 10); // 10ms debounce
+        // Only update state if the value actually changed
+        if (newIsScrolled !== isScrolled) {
+          setIsScrolled(newIsScrolled);
+        }
+        
+        lastScrollY.current = scrollTop;
+      }, 50); // Increased debounce time
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timeoutId);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
-  }, []);
+  }, [isScrolled]); // Add isScrolled to dependencies
 
   // Get unique services from metrics
   const availableServices = [...new Set(metrics.map(metric => metric.service))].sort();
