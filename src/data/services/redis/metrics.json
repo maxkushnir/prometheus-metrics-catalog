@@ -1,98 +1,911 @@
 [
   {
-    "name": "redis_connected_clients",
+    "name": "endpoint_client_connections",
     "service": "redis",
-    "labels": ["instance"],
+    "labels": ["cluster", "db"],
+    "description": "Number of client connection establishment events",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_connections[5m])"
+  },
+  {
+    "name": "endpoint_client_disconnections",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of client disconnections initiated by the client",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_disconnections[5m])"
+  },
+  {
+    "name": "endpoint_client_connection_expired",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Total number of client connections with expired TTL (Time To Live)",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_connection_expired[5m])"
+  },
+  {
+    "name": "endpoint_client_establishment_failures",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of client connections that failed to establish properly",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_establishment_failures[5m])"
+  },
+  {
+    "name": "endpoint_client_expiration_refresh",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of expiration time changes of clients",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_expiration_refresh[5m])"
+  },
+  {
+    "name": "endpoint_client_tracking_off_requests",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Total number of CLIENT TRACKING OFF requests",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_tracking_off_requests[5m])"
+  },
+  {
+    "name": "endpoint_client_tracking_on_requests",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Total number of CLIENT TRACKING ON requests",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(endpoint_client_tracking_on_requests[5m])"
+  },
+  {
+    "name": "endpoint_disconnected_cba_client",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of certificate-based clients disconnected",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_disconnected_cba_client[5m])"
+  },
+  {
+    "name": "endpoint_disconnected_ldap_client",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of LDAP clients disconnected",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_disconnected_ldap_client[5m])"
+  },
+  {
+    "name": "endpoint_disconnected_user_password_client",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of user&password clients disconnected",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_disconnected_user_password_client[5m])"
+  },
+  {
+    "name": "endpoint_disposed_commands_after_client_caching",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Total number of client caching commands that were disposed due to misuse",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_disposed_commands_after_client_caching[5m])"
+  },
+  {
+    "name": "endpoint_egress",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of egress bytes",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_egress[5m])"
+  },
+  {
+    "name": "endpoint_egress_pending",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of send-pending bytes",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "endpoint_egress_pending"
+  },
+  {
+    "name": "endpoint_egress_pending_discarded",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of send-pending bytes that were discarded due to disconnection",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_egress_pending_discarded[5m])"
+  },
+  {
+    "name": "endpoint_failed_cba_authentication",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of clients that failed certificate-based authentication",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(endpoint_failed_cba_authentication[5m])"
+  },
+  {
+    "name": "endpoint_failed_ldap_authentication",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of clients that failed LDAP authentication",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(endpoint_failed_ldap_authentication[5m])"
+  },
+  {
+    "name": "endpoint_failed_user_password_authentication",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of clients that failed user password authentication",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(endpoint_failed_user_password_authentication[5m])"
+  },
+  {
+    "name": "endpoint_ingress",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of ingress bytes",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_ingress[5m])"
+  },
+  {
+    "name": "endpoint_longest_pipeline_histogram",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Tracks the distribution of longest observed pipeline lengths",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(endpoint_longest_pipeline_histogram_bucket[5m]))"
+  },
+  {
+    "name": "endpoint_other_requests",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of other requests",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_other_requests[5m])"
+  },
+  {
+    "name": "endpoint_other_requests_latency_histogram",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Latency histogram of other commands",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(endpoint_other_requests_latency_histogram_bucket[5m]))"
+  },
+  {
+    "name": "endpoint_other_responses",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of other responses",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_other_responses[5m])"
+  },
+  {
+    "name": "endpoint_proxy_disconnections",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of client disconnections initiated by the proxy",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_proxy_disconnections[5m])"
+  },
+  {
+    "name": "endpoint_read_requests",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of read requests",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_read_requests[5m])"
+  },
+  {
+    "name": "endpoint_read_requests_latency_histogram",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Latency histogram of read commands",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(endpoint_read_requests_latency_histogram_bucket[5m]))"
+  },
+  {
+    "name": "endpoint_read_responses",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of read responses",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_read_responses[5m])"
+  },
+  {
+    "name": "endpoint_successful_cba_authentication",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of clients that successfully authenticated with certificate-based authentication",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_successful_cba_authentication[5m])"
+  },
+  {
+    "name": "endpoint_successful_ldap_authentication",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of clients that successfully authenticated with LDAP",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_successful_ldap_authentication[5m])"
+  },
+  {
+    "name": "endpoint_successful_user_password_authentication",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of clients that successfully authenticated with user password",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(endpoint_successful_user_password_authentication[5m])"
+  },
+  {
+    "name": "endpoint_write_requests",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of write requests",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_write_requests[5m])"
+  },
+  {
+    "name": "endpoint_write_requests_latency_histogram",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Latency histogram of write commands",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(endpoint_write_requests_latency_histogram_bucket[5m]))"
+  },
+  {
+    "name": "endpoint_write_responses",
+    "service": "redis",
+    "labels": ["cluster", "db"],
+    "description": "Number of write responses",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(endpoint_write_responses[5m])"
+  },
+  {
+    "name": "redis_server_connected_clients",
+    "service": "redis",
+    "labels": ["cluster", "node"],
     "description": "Number of client connections",
     "importance": "high",
-    "example_usage": "redis_connected_clients"
+    "type": "gauge",
+    "example_usage": "redis_server_connected_clients"
   },
   {
-    "name": "redis_used_memory_bytes",
+    "name": "redis_server_used_memory",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "Total number of bytes allocated by Redis using its allocator",
+    "labels": ["cluster", "node"],
+    "description": "Total number of bytes allocated by Redis",
     "importance": "high",
-    "example_usage": "redis_used_memory_bytes"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory"
   },
   {
-    "name": "redis_commands_processed_total",
+    "name": "redis_server_used_memory_peak",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "Total number of commands processed by the server",
-    "importance": "medium",
-    "example_usage": "rate(redis_commands_processed_total[5m])"
-  },
-  {
-    "name": "redis_keyspace_hits_total",
-    "service": "redis",
-    "labels": ["instance"],
-    "description": "Total number of successful key lookups",
-    "importance": "medium",
-    "example_usage": "rate(redis_keyspace_hits_total[5m])"
-  },
-  {
-    "name": "redis_keyspace_misses_total",
-    "service": "redis",
-    "labels": ["instance"],
-    "description": "Total number of failed key lookups",
-    "importance": "medium",
-    "example_usage": "rate(redis_keyspace_misses_total[5m])"
-  },
-  {
-    "name": "redis_evicted_keys_total",
-    "service": "redis",
-    "labels": ["instance"],
-    "description": "Total number of evicted keys due to maxmemory limit",
+    "labels": ["cluster", "node"],
+    "description": "Peak memory consumed by Redis",
     "importance": "high",
-    "example_usage": "rate(redis_evicted_keys_total[5m])"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_peak"
   },
   {
-    "name": "redis_expired_keys_total",
+    "name": "redis_server_used_memory_rss",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "Total number of key expiration events",
+    "labels": ["cluster", "node"],
+    "description": "Number of bytes that Redis allocated as seen by the operating system",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_rss"
+  },
+  {
+    "name": "redis_server_used_memory_lua",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Number of bytes used by the Lua engine",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_lua"
+  },
+  {
+    "name": "redis_server_used_memory_scripts",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Number of bytes used by cached Lua scripts",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_scripts"
+  },
+  {
+    "name": "redis_server_used_memory_dataset",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of the dataset",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_dataset"
+  },
+  {
+    "name": "redis_server_used_memory_overhead",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of the overhead",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_overhead"
+  },
+  {
+    "name": "redis_server_used_memory_startup",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Initial amount of memory consumed by Redis at startup",
     "importance": "low",
-    "example_usage": "rate(redis_expired_keys_total[5m])"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_startup"
   },
   {
-    "name": "redis_connected_slaves",
+    "name": "redis_server_used_memory_clone",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "Number of connected replicas",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of the copy-on-write memory",
     "importance": "medium",
-    "example_usage": "redis_connected_slaves"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_clone"
   },
   {
-    "name": "redis_replication_offset",
+    "name": "redis_server_used_memory_replication_backlog",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "Current replication offset",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of the replication backlog",
     "importance": "medium",
-    "example_usage": "redis_replication_offset"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_replication_backlog"
   },
   {
-    "name": "redis_uptime_in_seconds",
+    "name": "redis_server_used_memory_clients",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "Number of seconds since Redis server start",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of client output buffers",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_clients"
+  },
+  {
+    "name": "redis_server_used_memory_aof",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of the AOF file",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_aof"
+  },
+  {
+    "name": "redis_server_used_memory_aof_rewrite",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of the AOF rewrite buffer",
     "importance": "low",
-    "example_usage": "redis_uptime_in_seconds"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_aof_rewrite"
   },
   {
-    "name": "redis_used_cpu_sys_seconds_total",
+    "name": "redis_server_used_memory_module",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "System CPU consumed by the Redis server",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of memory used by modules",
     "importance": "medium",
-    "example_usage": "rate(redis_used_cpu_sys_seconds_total[5m])"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_module"
   },
   {
-    "name": "redis_used_cpu_user_seconds_total",
+    "name": "redis_server_used_memory_functions",
     "service": "redis",
-    "labels": ["instance"],
-    "description": "User CPU consumed by the Redis server",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of memory used by functions",
     "importance": "medium",
-    "example_usage": "rate(redis_used_cpu_user_seconds_total[5m])"
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_functions"
+  },
+  {
+    "name": "redis_server_used_memory_functions_caches",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The size in bytes of memory used by functions caches",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_functions_caches"
+  },
+  {
+    "name": "redis_server_used_memory_total",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Total memory consumed by Redis",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_total"
+  },
+  {
+    "name": "redis_server_maxmemory",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Maximum memory Redis can use",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "redis_server_maxmemory"
+  },
+  {
+    "name": "redis_server_maxmemory_policy",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The value of the maxmemory-policy configuration directive",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_maxmemory_policy"
+  },
+  {
+    "name": "redis_server_allocator_active",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Total number of bytes allocated by the allocator",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_active"
+  },
+  {
+    "name": "redis_server_allocator_allocated",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Total number of bytes allocated by the allocator",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_allocated"
+  },
+  {
+    "name": "redis_server_allocator_resident",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Total number of bytes in resident memory pages",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_resident"
+  },
+  {
+    "name": "redis_server_allocator_fragmentation_ratio",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Ratio of used_memory_rss to used_memory",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_fragmentation_ratio"
+  },
+  {
+    "name": "redis_server_allocator_fragmentation_bytes",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The difference in bytes between used_memory_rss and used_memory",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_fragmentation_bytes"
+  },
+  {
+    "name": "redis_server_allocator_rss_extra",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The difference in bytes between allocator_resident and allocator_allocated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_extra"
+  },
+  {
+    "name": "redis_server_allocator_frag_ratio",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The ratio of allocator_active to allocator_allocated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_frag_ratio"
+  },
+  {
+    "name": "redis_server_allocator_frag_bytes",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The difference in bytes between allocator_active and allocator_allocated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_frag_bytes"
+  },
+  {
+    "name": "redis_server_allocator_rss_ratio",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The ratio of allocator_resident to allocator_active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_ratio"
+  },
+  {
+    "name": "redis_server_allocator_rss_bytes",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The difference in bytes between allocator_resident and allocator_active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_bytes"
+  },
+  {
+    "name": "redis_server_total_system_memory",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Total amount of memory that the Redis host has",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "redis_server_total_system_memory"
+  },
+  {
+    "name": "redis_server_total_system_memory_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of total_system_memory",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_total_system_memory_human"
+  },
+  {
+    "name": "redis_server_used_memory_percentage",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The percentage of used memory",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_percentage"
+  },
+  {
+    "name": "redis_server_used_memory_dataset_percentage",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "The percentage of used memory dataset",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_dataset_percentage"
+  },
+  {
+    "name": "redis_server_maxmemory_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of maxmemory",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_maxmemory_human"
+  },
+  {
+    "name": "redis_server_used_memory_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_human"
+  },
+  {
+    "name": "redis_server_used_memory_peak_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_peak",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_peak_human"
+  },
+  {
+    "name": "redis_server_used_memory_rss_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_rss",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_rss_human"
+  },
+  {
+    "name": "redis_server_used_memory_lua_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_lua",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_lua_human"
+  },
+  {
+    "name": "redis_server_used_memory_scripts_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_scripts",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_scripts_human"
+  },
+  {
+    "name": "redis_server_used_memory_dataset_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_dataset",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_dataset_human"
+  },
+  {
+    "name": "redis_server_used_memory_overhead_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_overhead",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_overhead_human"
+  },
+  {
+    "name": "redis_server_used_memory_startup_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_startup",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_startup_human"
+  },
+  {
+    "name": "redis_server_used_memory_clone_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_clone",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_clone_human"
+  },
+  {
+    "name": "redis_server_used_memory_replication_backlog_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_replication_backlog",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_replication_backlog_human"
+  },
+  {
+    "name": "redis_server_used_memory_clients_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_clients",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_clients_human"
+  },
+  {
+    "name": "redis_server_used_memory_aof_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_aof",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_aof_human"
+  },
+  {
+    "name": "redis_server_used_memory_aof_rewrite_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_aof_rewrite",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_aof_rewrite_human"
+  },
+  {
+    "name": "redis_server_used_memory_module_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_module",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_module_human"
+  },
+  {
+    "name": "redis_server_used_memory_functions_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_functions",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_functions_human"
+  },
+  {
+    "name": "redis_server_used_memory_functions_caches_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_functions_caches",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_functions_caches_human"
+  },
+  {
+    "name": "redis_server_used_memory_total_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of used_memory_total",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_used_memory_total_human"
+  },
+  {
+    "name": "redis_server_allocator_active_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_active_human"
+  },
+  {
+    "name": "redis_server_allocator_allocated_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_allocated",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_allocated_human"
+  },
+  {
+    "name": "redis_server_allocator_resident_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_resident",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_resident_human"
+  },
+  {
+    "name": "redis_server_allocator_fragmentation_bytes_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_fragmentation_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_fragmentation_bytes_human"
+  },
+  {
+    "name": "redis_server_allocator_rss_extra_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_rss_extra",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_extra_human"
+  },
+  {
+    "name": "redis_server_allocator_frag_bytes_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_frag_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_frag_bytes_human"
+  },
+  {
+    "name": "redis_server_allocator_rss_bytes_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_rss_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_bytes_human"
+  },
+  {
+    "name": "redis_server_allocator_fragmentation_ratio_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_fragmentation_ratio",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_fragmentation_ratio_human"
+  },
+  {
+    "name": "redis_server_allocator_frag_ratio_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_frag_ratio",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_frag_ratio_human"
+  },
+  {
+    "name": "redis_server_allocator_rss_ratio_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_rss_ratio",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_ratio_human"
+  },
+  {
+    "name": "redis_server_allocator_fragmentation_bytes_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_fragmentation_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_fragmentation_bytes_human"
+  },
+  {
+    "name": "redis_server_allocator_rss_extra_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_rss_extra",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_extra_human"
+  },
+  {
+    "name": "redis_server_allocator_frag_bytes_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_frag_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_frag_bytes_human"
+  },
+  {
+    "name": "redis_server_allocator_rss_bytes_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_rss_bytes",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_bytes_human"
+  },
+  {
+    "name": "redis_server_allocator_fragmentation_ratio_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_fragmentation_ratio",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_fragmentation_ratio_human"
+  },
+  {
+    "name": "redis_server_allocator_frag_ratio_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_frag_ratio",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_frag_ratio_human"
+  },
+  {
+    "name": "redis_server_allocator_rss_ratio_human",
+    "service": "redis",
+    "labels": ["cluster", "node"],
+    "description": "Human readable representation of allocator_rss_ratio",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "redis_server_allocator_rss_ratio_human"
   }
 ]

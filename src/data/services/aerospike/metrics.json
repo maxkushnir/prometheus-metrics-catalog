@@ -1,27 +1,435 @@
 [
   {
-    "name": "aerospike_namespace_objects",
+    "name": "aerospike_namespace_appeals_records_exonerated",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Number of records in this namespace for this node",
-    "importance": "high",
-    "example_usage": "aerospike_namespace_objects{namespace=\"test\"}"
+    "description": "Number of partition appeals records exonerated",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "aerospike_namespace_appeals_records_exonerated{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_namespace_client_read_success",
+    "name": "aerospike_namespace_appeals_rx_active",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Number of successful client read commands",
-    "importance": "high",
-    "example_usage": "rate(aerospike_namespace_client_read_success[5m])"
+    "description": "Number of partition appeals currently being received",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_appeals_rx_active{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_namespace_client_write_success",
+    "name": "aerospike_namespace_appeals_tx_active",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Number of successful client write commands",
+    "description": "Number of partition appeals currently being sent",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_appeals_tx_active{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_appeals_tx_remaining",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of partition appeals not yet sent",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_appeals_tx_remaining{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_auto_revived_partitions",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of partitions that the auto-revive feature revived at startup",
     "importance": "high",
-    "example_usage": "rate(aerospike_namespace_client_write_success[5m])"
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_auto_revived_partitions{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_available_bin_names",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Remaining number of unique bins that the user can create for this namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_available_bin_names{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_delete_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index delete sub-batches that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_delete_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_delete_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index delete sub-batches that did not happen because the record was filtered out with Filter Expressions",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_delete_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_delete_not_found",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index delete sub-batches that resulted in not found",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_delete_not_found[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_delete_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of records successfully deleted by batch-index sub-batches",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_delete_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_delete_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index delete sub-batches that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_delete_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_lang_delete_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful batch-index UDF delete sub-batches",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_lang_delete_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_lang_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of language (Lua) batch-index errors for UDF sub-transactions",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_lang_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_lang_read_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful batch-index UDF read sub-batches",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_lang_read_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_lang_write_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful batch-index UDF write sub-batches",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_lang_write_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_proxy_complete",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of proxied batch-index sub-batches that completed",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_proxy_complete[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_proxy_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of proxied batch-index sub transactions that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_proxy_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_proxy_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of proxied batch-index sub-batches that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_proxy_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_read_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index read subtransaction that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_read_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_read_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index read sub-batches that were skipped because the record was filtered out with Filter Expressions",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_read_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_read_not_found",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index read subtransaction that resulted in not found",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_read_not_found[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_read_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of records successfully read by batch-index sub-batches",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_read_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_read_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index read sub-batches that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_read_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_tsvc_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index sub-batches that failed with an error in the transaction service, before attempting to handle the transaction",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_tsvc_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_tsvc_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index sub-batches that timed out in the transaction service, before attempting to handle the transaction",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_tsvc_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_udf_complete",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of completed batch-index UDF sub-batches for scan/query background UDF jobs",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_udf_complete[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_udf_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of failed batch-index UDF sub-batches for scan/query background UDF jobs",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_udf_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_udf_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index UDF sub-batches that did not happen because the record was filtered out with Filter Expressions",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_udf_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_udf_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index UDF sub-batches that timed out for scan/query background UDF jobs",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_udf_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_write_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index write sub-batches that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_write_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_write_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index write sub-batches that did not happen because the record was filtered out with Filter Expressions",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_write_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_write_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of records successfully written by batch-index sub-batches",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_write_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_batch_sub_write_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of batch-index write sub-batches that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_batch_sub_write_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_bin_names",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of bin names used for the namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_bin_names{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_bin_names_quota",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Bin names quota for the namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_bin_names_quota{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_cache_read_pct",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Cache read percentage for the namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_cache_read_pct{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_client_delete_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client delete commands that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_delete_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_delete_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client delete commands that did not happen because the record was filtered out with Filter Expression",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_delete_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_delete_not_found",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client delete commands that resulted in a not found",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_delete_not_found[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_delete_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful client delete commands",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_delete_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_delete_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client delete commands that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_delete_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_lang_delete_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of UDF commands that successfully deleted a record",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_lang_delete_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_lang_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of UDF commands that failed with a language (Lua) error during UDF execution",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_lang_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_lang_read_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful record reads caused by a UDF command",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_lang_read_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_lang_write_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful record writes caused by a UDF command",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_lang_write_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_proxy_complete",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client commands proxied to another node",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_proxy_complete[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_proxy_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client commands that failed to proxy to another node",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_proxy_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_proxy_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client commands that timed out while being proxied to another node",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_proxy_timeout[5m])"
   },
   {
     "name": "aerospike_namespace_client_read_error",
@@ -29,7 +437,98 @@
     "labels": ["namespace"],
     "description": "Number of read commands that failed with an error",
     "importance": "high",
+    "type": "counter",
     "example_usage": "rate(aerospike_namespace_client_read_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_read_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of read commands that did not happen because they were filtered out",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_read_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_read_not_found",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client read commands that resulted in not found",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_read_not_found[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_read_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful client read commands",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_read_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_read_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client read commands that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_read_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_tsvc_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client commands that failed in the transaction service, before attempting to handle the transaction",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_tsvc_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_tsvc_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client commands that timed out while in the transaction service, before attempting to handle the command",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_tsvc_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_udf_complete",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of completed UDF commands initiated by the client",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_udf_complete[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_udf_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of failed UDF commands initiated by the client",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_udf_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_udf_filtered_out",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client UDF commands that did not happen because the record was filtered out with Filter Expressions",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_udf_filtered_out[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_udf_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of UDF commands initiated by the client that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_udf_timeout[5m])"
   },
   {
     "name": "aerospike_namespace_client_write_error",
@@ -37,39 +536,35 @@
     "labels": ["namespace"],
     "description": "Number of client write commands that failed with an error",
     "importance": "high",
+    "type": "counter",
     "example_usage": "rate(aerospike_namespace_client_write_error[5m])"
   },
   {
-    "name": "aerospike_namespace_memory_used_bytes",
+    "name": "aerospike_namespace_client_write_filtered_out",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Amount of memory occupied by data",
-    "importance": "high",
-    "example_usage": "aerospike_namespace_memory_used_bytes{namespace=\"test\"}"
-  },
-  {
-    "name": "aerospike_namespace_data_used_pct",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Percentage of used storage capacity for this namespace",
-    "importance": "high",
-    "example_usage": "aerospike_namespace_data_used_pct{namespace=\"test\"}"
-  },
-  {
-    "name": "aerospike_namespace_evicted_objects",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Number of objects evicted from this namespace on this node since the server started",
+    "description": "Number of client write commands that did not happen because the record was filtered out with Filter Expressions",
     "importance": "medium",
-    "example_usage": "rate(aerospike_namespace_evicted_objects[5m])"
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_write_filtered_out[5m])"
   },
   {
-    "name": "aerospike_namespace_stop_writes",
+    "name": "aerospike_namespace_client_write_success",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "If true, this namespace is currently not allowing client-originated writes",
-    "importance": "critical",
-    "example_usage": "aerospike_namespace_stop_writes{namespace=\"test\"}"
+    "description": "Number of successful client write commands",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_write_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_client_write_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client write commands that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_client_write_timeout[5m])"
   },
   {
     "name": "aerospike_namespace_clock_skew_stop_writes",
@@ -77,134 +572,403 @@
     "labels": ["namespace"],
     "description": "Critical: Namespace will stop accepting client writes when true",
     "importance": "critical",
+    "type": "gauge",
     "example_usage": "aerospike_namespace_clock_skew_stop_writes{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_node_stats_client_connections",
+    "name": "aerospike_namespace_current_time",
     "service": "aerospike",
-    "labels": [],
-    "description": "Number of active client connections to this node",
-    "importance": "medium",
-    "example_usage": "aerospike_node_stats_client_connections"
+    "labels": ["namespace"],
+    "description": "Current time represented as Aerospike epoch time",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_current_time{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_node_stats_cluster_size",
+    "name": "aerospike_namespace_data_avail_pct",
     "service": "aerospike",
-    "labels": [],
-    "description": "Size of the cluster",
+    "labels": ["namespace"],
+    "description": "Data availability percentage for the namespace",
     "importance": "high",
-    "example_usage": "aerospike_node_stats_cluster_size"
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_data_avail_pct{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_node_stats_cluster_is_member",
+    "name": "aerospike_namespace_data_compression_ratio",
     "service": "aerospike",
-    "labels": [],
-    "description": "When false, indicates that the node is not joined to a cluster; that is, it is an orphan",
-    "importance": "critical",
-    "example_usage": "aerospike_node_stats_cluster_is_member"
+    "labels": ["namespace"],
+    "description": "Data compression ratio for the namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_data_compression_ratio{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_node_stats_system_free_mem_pct",
+    "name": "aerospike_namespace_data_total_bytes",
     "service": "aerospike",
-    "labels": [],
-    "description": "Percentage of free system memory",
+    "labels": ["namespace"],
+    "description": "Total allocated storage for the namespace",
     "importance": "high",
-    "example_usage": "aerospike_node_stats_system_free_mem_pct"
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_data_total_bytes{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_node_stats_process_cpu_pct",
-    "service": "aerospike",
-    "labels": [],
-    "description": "Percentage of CPU usage by the asd process",
-    "importance": "medium",
-    "example_usage": "aerospike_node_stats_process_cpu_pct"
-  },
-  {
-    "name": "aerospike_namespace_query_reqs",
+    "name": "aerospike_namespace_data_used_bytes",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Number of query requests ever attempted on this node",
-    "importance": "medium",
-    "example_usage": "rate(aerospike_namespace_query_reqs[5m])"
-  },
-  {
-    "name": "aerospike_namespace_scan_basic_complete",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Number of basic scans that completed",
-    "importance": "medium",
-    "example_usage": "rate(aerospike_namespace_scan_basic_complete[5m])"
-  },
-  {
-    "name": "aerospike_namespace_migrate_tx_partitions_active",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Number of partitions currently emigrating from this node",
-    "importance": "medium",
-    "example_usage": "aerospike_namespace_migrate_tx_partitions_active{namespace=\"test\"}"
-  },
-  {
-    "name": "aerospike_namespace_migrate_rx_partitions_active",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Number of partitions currently immigrating to this node",
-    "importance": "medium",
-    "example_usage": "aerospike_namespace_migrate_rx_partitions_active{namespace=\"test\"}"
-  },
-  {
-    "name": "aerospike_xdr_ship_success",
-    "service": "aerospike",
-    "labels": [],
-    "description": "Number of records successfully shipped to remote Aerospike clusters",
-    "importance": "medium",
-    "example_usage": "rate(aerospike_xdr_ship_success[5m])"
-  },
-  {
-    "name": "aerospike_xdr_lag",
-    "service": "aerospike",
-    "labels": [],
-    "description": "Lag in seconds between the destination and the source datacenters",
+    "description": "Total storage used by the namespace including user data and record overhead",
     "importance": "high",
-    "example_usage": "aerospike_xdr_lag"
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_data_used_bytes{namespace=\"test\"}"
   },
   {
-    "name": "aerospike_namespace_hwm_breached",
+    "name": "aerospike_namespace_data_used_pct",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "If true, Aerospike has breached 'high-water-[disk|memory]-pct' for this namespace",
-    "importance": "critical",
-    "example_usage": "aerospike_namespace_hwm_breached{namespace=\"test\"}"
-  },
-  {
-    "name": "aerospike_namespace_device_available_pct",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Device available percentage - drops below 20% indicate defrag may not keep up with load",
+    "description": "Percentage of used storage capacity for this namespace",
     "importance": "high",
-    "example_usage": "aerospike_namespace_device_available_pct{namespace=\"test\"}"
-  },
-  {
-    "name": "aerospike_namespace_memory_free_pct",
-    "service": "aerospike",
-    "labels": ["namespace"],
-    "description": "Percentage of memory capacity free for this namespace",
-    "importance": "high",
-    "example_usage": "aerospike_namespace_memory_free_pct{namespace=\"test\"}"
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_data_used_pct{namespace=\"test\"}"
   },
   {
     "name": "aerospike_namespace_dead_partitions",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Number of dead partitions for this namespace",
+    "description": "Number of dead partitions in the namespace",
     "importance": "critical",
+    "type": "gauge",
     "example_usage": "aerospike_namespace_dead_partitions{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_deleted_last_bin",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of objects deleted because their last bin was deleted",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_deleted_last_bin[5m])"
+  },
+  {
+    "name": "aerospike_namespace_device_available_pct",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Device available percentage for the namespace",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_device_available_pct{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_device_compression_ratio",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Device compression ratio for the namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_device_compression_ratio{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_device_free_pct",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Device free percentage for the namespace",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_device_free_pct{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_device_total_bytes",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Total bytes of disk space allocated to this namespace on this node",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_device_total_bytes{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_device_used_bytes",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Total bytes of disk space used by this namespace on this node",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_device_used_bytes{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_dup_res_ask",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of duplicate resolution requests made by the node to other individual nodes",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_dup_res_ask[5m])"
+  },
+  {
+    "name": "aerospike_namespace_dup_res_respond_no_read",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of duplicate resolution requests handled by the node without reading the record",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_dup_res_respond_no_read[5m])"
+  },
+  {
+    "name": "aerospike_namespace_dup_res_respond_read",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of duplicate resolution requests handled by the node where the record was read",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_dup_res_respond_read[5m])"
+  },
+  {
+    "name": "aerospike_namespace_effective_active_rack",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "The effective active-rack for the namespace",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_effective_active_rack{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_effective_is_quiesced",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Reports 'true' when the namespace has rebalanced after previously receiving a quiesce info request",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_effective_is_quiesced{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_effective_prefer_uniform_balance",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Effective prefer uniform balance setting for the namespace",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_effective_prefer_uniform_balance{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_effective_replication_factor",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Effective replication factor for the namespace",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_effective_replication_factor{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_evict_ttl",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "The current eviction depth, or the highest ttl of records that have been evicted, in seconds",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_evict_ttl{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_evict_void_time",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "The current eviction depth, expressed as a void time in seconds since 1 January 2010 UTC",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_evict_void_time{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_evicted_objects",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of objects evicted from this namespace on this node since the server started",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_evicted_objects[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_client_lost_conflict",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of client commands that failed due to lost conflict",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_client_lost_conflict[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_generation",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of read/write commands failed on generation check",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_generation[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_key_busy",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of commands that failed due to key being busy",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_key_busy[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_mrt_blocked",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of transactions or read/write commands blocked by an ongoing transaction",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_fail_mrt_blocked{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_fail_mrt_version_mismatch",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of version mismatches - usually in verify reads, but also individual commands where version checks occur",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_fail_mrt_version_mismatch{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_fail_record_too_big",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of write commands that failed because a record was larger than max-record-size",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_record_too_big[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_xdr_forbidden",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR write commands that failed because XDR writes are forbidden",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_xdr_forbidden[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_xdr_key_busy",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR write commands that failed due to key being busy",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_xdr_key_busy[5m])"
+  },
+  {
+    "name": "aerospike_namespace_fail_xdr_lost_conflict",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR write commands that did not succeed in updating all the attempted bins",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_fail_xdr_lost_conflict[5m])"
+  },
+  {
+    "name": "aerospike_namespace_objects",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of records in this namespace for this node",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_objects{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_objects_quota",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Object quota for the namespace",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_objects_quota{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_quota_exceeded",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Whether the namespace quota has been exceeded",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_quota_exceeded{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_stop_writes",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Whether the namespace has stopped accepting writes",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "aerospike_namespace_stop_writes{namespace=\"test\"}"
   },
   {
     "name": "aerospike_namespace_unavailable_partitions",
     "service": "aerospike",
     "labels": ["namespace"],
-    "description": "Number of unavailable partitions for this namespace (when using strong-consistency)",
+    "description": "Number of unavailable partitions in the namespace",
     "importance": "critical",
+    "type": "gauge",
     "example_usage": "aerospike_namespace_unavailable_partitions{namespace=\"test\"}"
+  },
+  {
+    "name": "aerospike_namespace_xdr_read_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR read commands that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_read_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_xdr_read_not_found",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR read commands that resulted in not found",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_read_not_found[5m])"
+  },
+  {
+    "name": "aerospike_namespace_xdr_read_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful XDR read commands",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_read_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_xdr_read_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR read commands that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_read_timeout[5m])"
+  },
+  {
+    "name": "aerospike_namespace_xdr_write_error",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR write commands that failed with an error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_write_error[5m])"
+  },
+  {
+    "name": "aerospike_namespace_xdr_write_success",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of successful XDR write commands",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_write_success[5m])"
+  },
+  {
+    "name": "aerospike_namespace_xdr_write_timeout",
+    "service": "aerospike",
+    "labels": ["namespace"],
+    "description": "Number of XDR write commands that timed out",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(aerospike_namespace_xdr_write_timeout[5m])"
   }
 ]
