@@ -34,38 +34,38 @@
       "description": "Apache Kafka streaming platform metrics",
       "path": "/data/services/kafka/metrics.json",
       "color": "indigo",
+      "exporter": {
+        "name": "kminion",
+        "link": "https://github.com/cloudhut/kminion"
+      }
+    },
+    {
+      "name": "monitoring",
+      "displayName": "System Monitoring",
+      "description": "System and application monitoring metrics",
+      "path": "/data/services/monitoring/metrics.json",
+      "color": "green",
       "isGroup": true,
       "subservices": [
         {
-          "name": "kafka_kminion",
-          "displayName": "KMinion",
-          "description": "Kafka metrics via KMinion exporter",
+          "name": "node_exporter",
+          "displayName": "Node Exporter",
+          "description": "System and hardware metrics",
           "exporter": {
-            "name": "kminion",
-            "link": "https://github.com/cloudhut/kminion"
+            "name": "node_exporter",
+            "link": "https://github.com/prometheus/node_exporter"
           }
         },
         {
-          "name": "kafka_jmx",
-          "displayName": "JMX",
-          "description": "Kafka metrics via JMX exporter",
+          "name": "jmx_exporter",
+          "displayName": "JMX Exporter",
+          "description": "Java application metrics via JMX",
           "exporter": {
             "name": "jmx_exporter",
             "link": "https://github.com/prometheus/jmx_exporter"
           }
         }
       ]
-    },
-    {
-      "name": "node_exporter",
-      "displayName": "Node Exporter",
-      "description": "System and hardware metrics",
-      "path": "/data/services/node_exporter/metrics.json",
-      "color": "green",
-      "exporter": {
-        "name": "node_exporter",
-        "link": "https://github.com/prometheus/node_exporter"
-      }
     },
     {
       "name": "nginx",

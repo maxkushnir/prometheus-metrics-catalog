@@ -5,6 +5,7 @@ import nginxMetrics from './services/nginx/metrics.json';
 import redisMetrics from './services/redis/metrics.json';
 import pureMetrics from './services/pure/metrics.json';
 import kafkaMetrics from './services/kafka/metrics.json';
+import monitoringMetrics from './services/monitoring/metrics.json';
 import servicesConfig from './services.json';
 
 // Combine all metrics
@@ -14,7 +15,8 @@ export const allMetrics = [
   ...nginxMetrics,
   ...redisMetrics,
   ...pureMetrics,
-  ...kafkaMetrics
+  ...kafkaMetrics,
+  ...monitoringMetrics
 ];
 
 // Export services configuration

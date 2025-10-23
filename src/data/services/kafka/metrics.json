@@ -1,7 +1,7 @@
 [
   {
     "name": "kafka_broker_info",
-    "service": "kafka_kminion",
+    "service": "kafka",
     "labels": ["broker_id", "version"],
     "description": "Kafka broker information",
     "importance": "high",
@@ -10,7 +10,7 @@
   },
   {
     "name": "kafka_topic_partitions",
-    "service": "kafka_kminion",
+    "service": "kafka",
     "labels": ["topic", "partition"],
     "description": "Number of partitions per topic",
     "importance": "high",
@@ -19,38 +19,11 @@
   },
   {
     "name": "kafka_consumer_lag",
-    "service": "kafka_kminion",
+    "service": "kafka",
     "labels": ["topic", "partition", "consumer_group"],
     "description": "Consumer lag for topic partitions",
     "importance": "critical",
     "type": "gauge",
     "example_usage": "kafka_consumer_lag{topic=\"my-topic\",partition=\"0\",consumer_group=\"my-group\"}"
-  },
-  {
-    "name": "kafka_broker_uptime",
-    "service": "kafka_jmx",
-    "labels": ["broker_id"],
-    "description": "Kafka broker uptime in milliseconds",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "kafka_broker_uptime{broker_id=\"1\"}"
-  },
-  {
-    "name": "kafka_log_size",
-    "service": "kafka_jmx",
-    "labels": ["topic", "partition"],
-    "description": "Log size for topic partitions",
-    "importance": "medium",
-    "type": "gauge",
-    "example_usage": "kafka_log_size{topic=\"my-topic\",partition=\"0\"}"
-  },
-  {
-    "name": "kafka_messages_in_per_sec",
-    "service": "kafka_jmx",
-    "labels": ["topic"],
-    "description": "Messages in per second for topics",
-    "importance": "medium",
-    "type": "gauge",
-    "example_usage": "kafka_messages_in_per_sec{topic=\"my-topic\"}"
   }
 ]
