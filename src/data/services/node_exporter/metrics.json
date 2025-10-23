@@ -1,14 +1,5 @@
 [
   {
-    "name": "fstrim_timer",
-    "service": "node_exporter",
-    "labels": ["hostname", "trigger_time"],
-    "description": "Metric read from /var/lib/node_exporter/fstrim.prom",
-    "importance": "low",
-    "type": "untyped",
-    "example_usage": "fstrim_timer{hostname=\"server1\"}"
-  },
-  {
     "name": "node_arp_entries",
     "service": "node_exporter",
     "labels": ["device"],

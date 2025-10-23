@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200 py-5 lg:py-11">
+      <header className="bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200 py-4 lg:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mobile menu button */}
           <div className="lg:hidden mb-4">
