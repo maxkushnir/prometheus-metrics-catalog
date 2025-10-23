@@ -29,14 +29,14 @@ const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFi
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="sm:w-48">
-            <label htmlFor="service-filter" className="block text-base lg:text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="service-filter" className="block text-sm font-medium text-gray-700 mb-2">
               Service
             </label>
             <select
               id="service-filter"
               value={serviceFilter}
               onChange={(e) => onServiceFilter(e.target.value)}
-              className="block w-full px-3 py-4 lg:py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
+              className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
             >
               <option value="">All Services</option>
               {services.map(service => (
@@ -48,13 +48,13 @@ const SearchBar = ({ searchTerm, onSearchChange, onImportanceFilter, onServiceFi
           </div>
           
           <div className="sm:w-48">
-            <label htmlFor="importance-filter" className="block text-base lg:text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="importance-filter" className="block text-sm font-medium text-gray-700 mb-2">
               Importance
             </label>
             <select
               id="importance-filter"
               onChange={(e) => onImportanceFilter(e.target.value)}
-              className="block w-full px-3 py-4 lg:py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
+              className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 text-lg lg:text-sm"
             >
               <option value="">All Importance</option>
               <option value="critical">Critical</option>
