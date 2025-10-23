@@ -56,13 +56,13 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
           <p className="text-sm text-blue-800 mb-1">
             <span className="font-medium">Exporter:</span> {serviceInfo.exporter.name}
           </p>
-          <p className="text-sm text-blue-800">
+          <p className="text-sm text-blue-800 break-all">
             <span className="font-medium">Link:</span> 
             <a 
               href={serviceInfo.exporter.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="ml-1 text-blue-600 hover:text-blue-800 underline"
+              className="ml-1 text-blue-600 hover:text-blue-800 underline break-all"
             >
               {serviceInfo.exporter.link}
             </a>
@@ -111,13 +111,13 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
                       <p className="text-xs text-blue-800 mb-1">
                         <span className="font-medium">Exporter:</span> {subservice.exporter.name}
                       </p>
-                      <p className="text-xs text-blue-800">
+                      <p className="text-xs text-blue-800 break-all">
                         <span className="font-medium">Link:</span> 
                         <a 
                           href={subservice.exporter.link} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="ml-1 text-blue-600 hover:text-blue-800 underline"
+                          className="ml-1 text-blue-600 hover:text-blue-800 underline break-all"
                         >
                           {subservice.exporter.link}
                         </a>
