@@ -75,9 +75,9 @@ function App() {
             </div>
             
             {/* Badges */}
-            <div className="flex justify-center space-x-2 lg:space-x-4 flex-wrap">
-              <a href="https://prometheus-metrics-catalog.github.io" target="_blank" rel="noopener noreferrer">
-                <img src="https://img.shields.io/website?url=https%3A%2F%2Fprometheus-metrics-catalog.github.io" alt="Website" className="h-5 lg:h-6" />
+            <div className="flex justify-center space-x-2 lg:space-x-4">
+              <a href="https://maxkushnir.github.io/prometheus-metrics-catalog/" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/website?url=https://maxkushnir.github.io/prometheus-metrics-catalog" alt="Website" className="h-5 lg:h-6" />
               </a>
               <a href="https://github.com/maxkushnir/prometheus-metrics-catalog" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/github/stars/maxkushnir/prometheus-metrics-catalog" alt="GitHub stars" className="h-5 lg:h-6" />
