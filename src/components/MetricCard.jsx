@@ -36,8 +36,8 @@ const MetricCard = ({ metric }) => {
     <div className={`bg-white rounded-lg shadow-soft border-l-4 p-6 mb-6 hover:shadow-medium transition-shadow duration-200 ${getImportanceColor(metric.importance)}`}>
       {/* Header */}
       <div className="flex justify-between items-start mb-4">
-        <div className="flex-1">
-          <h3 className="text-xl font-mono font-bold text-gray-900 mb-2">{metric.name}</h3>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-lg lg:text-xl font-mono font-bold text-gray-900 mb-2 break-all">{metric.name}</h3>
           <div className="flex items-center gap-2">
             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getServiceColor(metric.service)}`}>
               {metric.service}
@@ -103,7 +103,7 @@ const MetricCard = ({ metric }) => {
           </button>
         </div>
         <div className="bg-gray-900 rounded-md p-3 overflow-x-auto">
-          <code className="text-sm text-green-400 font-mono">{metric.example_usage}</code>
+          <code className="text-sm text-green-400 font-mono break-all whitespace-pre-wrap">{metric.example_usage}</code>
         </div>
       </div>
     </div>
