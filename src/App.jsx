@@ -132,6 +132,7 @@ function App() {
                 onServiceFilter={setServiceFilter}
                 services={availableServices}
                 serviceFilter={serviceFilter}
+                importanceFilter={importanceFilter}
               />
             </div>
             
