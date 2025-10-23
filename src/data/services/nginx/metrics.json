@@ -1,82 +1,551 @@
 [
   {
-    "name": "nginx_http_requests_total",
-    "service": "nginx",
-    "labels": ["status", "method"],
-    "description": "Total number of HTTP requests",
-    "importance": "high",
-    "example_usage": "rate(nginx_http_requests_total[5m])"
-  },
-  {
-    "name": "nginx_http_request_duration_seconds",
-    "service": "nginx",
-    "labels": ["method", "status"],
-    "description": "HTTP request duration in seconds",
-    "importance": "high",
-    "example_usage": "histogram_quantile(0.95, rate(nginx_http_request_duration_seconds_bucket[5m]))"
-  },
-  {
     "name": "nginx_up",
     "service": "nginx",
-    "labels": ["instance"],
-    "description": "Whether nginx is up",
+    "labels": [],
+    "description": "Indicates if NGINX is up (1 for up, 0 for down)",
     "importance": "critical",
+    "type": "gauge",
     "example_usage": "nginx_up"
   },
   {
     "name": "nginx_connections_active",
     "service": "nginx",
-    "labels": ["instance"],
+    "labels": [],
     "description": "Number of active client connections",
     "importance": "high",
+    "type": "gauge",
     "example_usage": "nginx_connections_active"
   },
   {
     "name": "nginx_connections_accepted",
     "service": "nginx",
-    "labels": ["instance"],
+    "labels": [],
     "description": "Total number of accepted client connections",
-    "importance": "medium",
+    "importance": "high",
+    "type": "counter",
     "example_usage": "rate(nginx_connections_accepted[5m])"
   },
   {
     "name": "nginx_connections_handled",
     "service": "nginx",
-    "labels": ["instance"],
+    "labels": [],
     "description": "Total number of handled connections",
-    "importance": "medium",
+    "importance": "high",
+    "type": "counter",
     "example_usage": "rate(nginx_connections_handled[5m])"
   },
   {
-    "name": "nginx_http_requests",
+    "name": "nginx_connections_reading",
     "service": "nginx",
-    "labels": ["instance"],
-    "description": "Total number of HTTP requests",
-    "importance": "high",
-    "example_usage": "rate(nginx_http_requests[5m])"
+    "labels": [],
+    "description": "Number of connections where NGINX is reading the request header",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_connections_reading"
   },
   {
-    "name": "nginx_http_request_time_seconds",
+    "name": "nginx_connections_writing",
     "service": "nginx",
-    "labels": ["instance"],
-    "description": "Average HTTP request time",
+    "labels": [],
+    "description": "Number of connections where NGINX is writing the response back to the client",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_connections_writing"
+  },
+  {
+    "name": "nginx_connections_waiting",
+    "service": "nginx",
+    "labels": [],
+    "description": "Number of idle client connections waiting for a request",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_connections_waiting"
+  },
+  {
+    "name": "nginx_http_requests_total",
+    "service": "nginx",
+    "labels": [],
+    "description": "Total number of client requests",
     "importance": "high",
-    "example_usage": "nginx_http_request_time_seconds"
+    "type": "counter",
+    "example_usage": "rate(nginx_http_requests_total[5m])"
+  },
+  {
+    "name": "nginx_http_requests_current",
+    "service": "nginx",
+    "labels": [],
+    "description": "Number of current client requests",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "nginx_http_requests_current"
+  },
+  {
+    "name": "nginx_http_requests_duration_seconds",
+    "service": "nginx",
+    "labels": ["method", "status"],
+    "description": "Histogram of request processing time in seconds",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_http_requests_duration_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_http_requests_size_bytes",
+    "service": "nginx",
+    "labels": ["method", "status"],
+    "description": "Histogram of request sizes in bytes",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_http_requests_size_bytes_bucket[5m]))"
+  },
+  {
+    "name": "nginx_http_responses_total",
+    "service": "nginx",
+    "labels": ["status"],
+    "description": "Total number of responses, labeled by status code",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_http_responses_total{status=\"200\"}[5m])"
+  },
+  {
+    "name": "nginx_http_responses_size_bytes",
+    "service": "nginx",
+    "labels": ["method", "status"],
+    "description": "Histogram of response sizes in bytes",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_http_responses_size_bytes_bucket[5m]))"
   },
   {
     "name": "nginx_http_upstream_requests_total",
     "service": "nginx",
-    "labels": ["upstream", "backend"],
+    "labels": ["upstream"],
     "description": "Total number of upstream requests",
-    "importance": "medium",
+    "importance": "high",
+    "type": "counter",
     "example_usage": "rate(nginx_http_upstream_requests_total[5m])"
+  },
+  {
+    "name": "nginx_http_upstream_responses_total",
+    "service": "nginx",
+    "labels": ["upstream", "status"],
+    "description": "Total number of upstream responses, labeled by status code",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_http_upstream_responses_total{status=\"200\"}[5m])"
   },
   {
     "name": "nginx_http_upstream_response_time_seconds",
     "service": "nginx",
-    "labels": ["upstream", "backend"],
-    "description": "Average upstream response time",
+    "labels": ["upstream"],
+    "description": "Histogram of upstream response times in seconds",
     "importance": "high",
-    "example_usage": "nginx_http_upstream_response_time_seconds"
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_http_upstream_response_time_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_http_upstream_response_length_bytes",
+    "service": "nginx",
+    "labels": ["upstream"],
+    "description": "Histogram of upstream response sizes in bytes",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_http_upstream_response_length_bytes_bucket[5m]))"
+  },
+  {
+    "name": "nginx_stream_upstream_connections_total",
+    "service": "nginx",
+    "labels": ["upstream"],
+    "description": "Total number of stream upstream connections",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_stream_upstream_connections_total[5m])"
+  },
+  {
+    "name": "nginx_stream_upstream_connect_time_seconds",
+    "service": "nginx",
+    "labels": ["upstream"],
+    "description": "Histogram of stream upstream connect times in seconds",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_stream_upstream_connect_time_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_stream_upstream_first_byte_time_seconds",
+    "service": "nginx",
+    "labels": ["upstream"],
+    "description": "Histogram of stream upstream first byte times in seconds",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_stream_upstream_first_byte_time_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_stream_upstream_response_time_seconds",
+    "service": "nginx",
+    "labels": ["upstream"],
+    "description": "Histogram of stream upstream response times in seconds",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_stream_upstream_response_time_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_cache_hits_total",
+    "service": "nginx",
+    "labels": ["cache_zone"],
+    "description": "Total number of cache hits",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_cache_hits_total[5m])"
+  },
+  {
+    "name": "nginx_cache_misses_total",
+    "service": "nginx",
+    "labels": ["cache_zone"],
+    "description": "Total number of cache misses",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_cache_misses_total[5m])"
+  },
+  {
+    "name": "nginx_cache_bypass_total",
+    "service": "nginx",
+    "labels": ["cache_zone"],
+    "description": "Total number of cache bypasses",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_cache_bypass_total[5m])"
+  },
+  {
+    "name": "nginx_cache_stale_total",
+    "service": "nginx",
+    "labels": ["cache_zone"],
+    "description": "Total number of stale cache responses served",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_cache_stale_total[5m])"
+  },
+  {
+    "name": "nginx_cache_updating_total",
+    "service": "nginx",
+    "labels": ["cache_zone"],
+    "description": "Total number of cache updating responses",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(nginx_cache_updating_total[5m])"
+  },
+  {
+    "name": "nginx_cache_revalidated_total",
+    "service": "nginx",
+    "labels": ["cache_zone"],
+    "description": "Total number of cache revalidations",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "rate(nginx_cache_revalidated_total[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_response_time_seconds",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Response time from upstream servers",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_upstream_server_response_time_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_upstream_server_requests_total",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Total number of requests to upstream servers",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_upstream_server_requests_total[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_bytes_sent_total",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Total bytes sent to upstream servers",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_upstream_server_bytes_sent_total[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_bytes_received_total",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Total bytes received from upstream servers",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_upstream_server_bytes_received_total[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_state",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "State of upstream servers (1 for up, 0 for down)",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_state{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_weight",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Weight of upstream servers",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_weight{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_max_conns",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Maximum connections for upstream servers",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_max_conns{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_active",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Number of active connections to upstream servers",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_active{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_requests",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Number of requests to upstream servers",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_requests{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_responses_total",
+    "service": "nginx",
+    "labels": ["upstream", "server", "status"],
+    "description": "Total responses from upstream servers by status code",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_upstream_server_responses_total{status=\"200\"}[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_bytes_sent",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Bytes sent to upstream servers",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_bytes_sent{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_bytes_received",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Bytes received from upstream servers",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_upstream_server_bytes_received{upstream=\"backend\"}"
+  },
+  {
+    "name": "nginx_upstream_server_fails_total",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Total number of failed requests to upstream servers",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(nginx_upstream_server_fails_total[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_unavailable_total",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Total number of times upstream servers were unavailable",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(nginx_upstream_server_unavailable_total[5m])"
+  },
+  {
+    "name": "nginx_upstream_server_header_time_seconds",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Time to receive the first byte of response header from upstream servers",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_upstream_server_header_time_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_upstream_server_response_length_bytes",
+    "service": "nginx",
+    "labels": ["upstream", "server"],
+    "description": "Response length from upstream servers in bytes",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_upstream_server_response_length_bytes_bucket[5m]))"
+  },
+  {
+    "name": "nginx_slab_pages_used",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Number of pages used in shared memory zones",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_slab_pages_used{zone=\"http\"}"
+  },
+  {
+    "name": "nginx_slab_pages_free",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Number of free pages in shared memory zones",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_slab_pages_free{zone=\"http\"}"
+  },
+  {
+    "name": "nginx_slab_pages_total",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Total number of pages in shared memory zones",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "nginx_slab_pages_total{zone=\"http\"}"
+  },
+  {
+    "name": "nginx_slab_slot_used",
+    "service": "nginx",
+    "labels": ["zone", "slot"],
+    "description": "Number of used slots in shared memory zones",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "nginx_slab_slot_used{zone=\"http\", slot=\"requests\"}"
+  },
+  {
+    "name": "nginx_slab_slot_free",
+    "service": "nginx",
+    "labels": ["zone", "slot"],
+    "description": "Number of free slots in shared memory zones",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "nginx_slab_slot_free{zone=\"http\", slot=\"requests\"}"
+  },
+  {
+    "name": "nginx_slab_slot_total",
+    "service": "nginx",
+    "labels": ["zone", "slot"],
+    "description": "Total number of slots in shared memory zones",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "nginx_slab_slot_total{zone=\"http\", slot=\"requests\"}"
+  },
+  {
+    "name": "nginx_limit_req_zone_requests_total",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Total number of requests processed by rate limiting zones",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_limit_req_zone_requests_total[5m])"
+  },
+  {
+    "name": "nginx_limit_req_zone_delayed_total",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Total number of requests delayed by rate limiting zones",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_limit_req_zone_delayed_total[5m])"
+  },
+  {
+    "name": "nginx_limit_req_zone_rejected_total",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Total number of requests rejected by rate limiting zones",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_limit_req_zone_rejected_total[5m])"
+  },
+  {
+    "name": "nginx_limit_conn_zone_connections_total",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Total number of connections processed by connection limiting zones",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_limit_conn_zone_connections_total[5m])"
+  },
+  {
+    "name": "nginx_limit_conn_zone_rejected_total",
+    "service": "nginx",
+    "labels": ["zone"],
+    "description": "Total number of connections rejected by connection limiting zones",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_limit_conn_zone_rejected_total[5m])"
+  },
+  {
+    "name": "nginx_stream_connections_total",
+    "service": "nginx",
+    "labels": [],
+    "description": "Total number of stream connections",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_stream_connections_total[5m])"
+  },
+  {
+    "name": "nginx_stream_connections_active",
+    "service": "nginx",
+    "labels": [],
+    "description": "Number of active stream connections",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "nginx_stream_connections_active"
+  },
+  {
+    "name": "nginx_stream_connections_handled",
+    "service": "nginx",
+    "labels": [],
+    "description": "Total number of handled stream connections",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_stream_connections_handled[5m])"
+  },
+  {
+    "name": "nginx_stream_sessions_total",
+    "service": "nginx",
+    "labels": ["status"],
+    "description": "Total number of stream sessions by status",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(nginx_stream_sessions_total{status=\"200\"}[5m])"
+  },
+  {
+    "name": "nginx_stream_sessions_duration_seconds",
+    "service": "nginx",
+    "labels": [],
+    "description": "Histogram of stream session duration in seconds",
+    "importance": "medium",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(nginx_stream_sessions_duration_seconds_bucket[5m]))"
+  },
+  {
+    "name": "nginx_stream_bytes_sent_total",
+    "service": "nginx",
+    "labels": [],
+    "description": "Total bytes sent in stream connections",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_stream_bytes_sent_total[5m])"
+  },
+  {
+    "name": "nginx_stream_bytes_received_total",
+    "service": "nginx",
+    "labels": [],
+    "description": "Total bytes received in stream connections",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(nginx_stream_bytes_received_total[5m])"
   }
 ]
