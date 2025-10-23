@@ -4,7 +4,7 @@ const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
   // Group services by category based on the services.json configuration
   const serviceCategories = {
     'Basic resource monitoring': ['node_exporter'],
-    'Databases and brokers': ['databases'],
+    'Databases and brokers': ['databases', 'kafka'],
     'Reverse proxies and load balancers': ['nginx'],
     'Network, security and storage': ['pure']
   };

@@ -29,6 +29,34 @@
       ]
     },
     {
+      "name": "kafka",
+      "displayName": "Kafka",
+      "description": "Apache Kafka streaming platform metrics",
+      "path": "/data/services/kafka/metrics.json",
+      "color": "indigo",
+      "isGroup": true,
+      "subservices": [
+        {
+          "name": "kafka_kminion",
+          "displayName": "KMinion",
+          "description": "Kafka metrics via KMinion exporter",
+          "exporter": {
+            "name": "kminion",
+            "link": "https://github.com/cloudhut/kminion"
+          }
+        },
+        {
+          "name": "kafka_jmx",
+          "displayName": "JMX",
+          "description": "Kafka metrics via JMX exporter",
+          "exporter": {
+            "name": "jmx_exporter",
+            "link": "https://github.com/prometheus/jmx_exporter"
+          }
+        }
+      ]
+    },
+    {
       "name": "node_exporter",
       "displayName": "Node Exporter",
       "description": "System and hardware metrics",
