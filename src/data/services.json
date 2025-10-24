@@ -70,7 +70,6 @@
       "name": "monitoring",
       "displayName": "System Monitoring",
       "description": "System and application monitoring metrics",
-      "path": "/data/services/monitoring/metrics.json",
       "color": "green",
       "isGroup": true,
       "subservices": [

@@ -5,7 +5,6 @@ import nginxMetrics from './services/nginx/metrics.json';
 import redisMetrics from './services/redis/metrics.json';
 import pureMetrics from './services/pure/metrics.json';
 import kafkaMetrics from './services/kafka/metrics.json';
-import monitoringMetrics from './services/monitoring/metrics.json';
 import mysqlMetrics from './services/mysql/metrics.json';
 import mongodbMetrics from './services/mongodb/metrics.json';
 import postgresqlMetrics from './services/postgresql/metrics.json';
@@ -19,7 +18,6 @@ export const allMetrics = [
   ...redisMetrics,
   ...pureMetrics,
   ...kafkaMetrics,
-  ...monitoringMetrics,
   ...mysqlMetrics,
   ...mongodbMetrics,
   ...postgresqlMetrics
