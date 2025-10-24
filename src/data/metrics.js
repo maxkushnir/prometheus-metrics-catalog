@@ -6,6 +6,9 @@ import redisMetrics from './services/redis/metrics.json';
 import pureMetrics from './services/pure/metrics.json';
 import kafkaMetrics from './services/kafka/metrics.json';
 import monitoringMetrics from './services/monitoring/metrics.json';
+import mysqlMetrics from './services/mysql/metrics.json';
+import mongodbMetrics from './services/mongodb/metrics.json';
+import postgresqlMetrics from './services/postgresql/metrics.json';
 import servicesConfig from './services.json';
 
 // Combine all metrics
@@ -16,7 +19,10 @@ export const allMetrics = [
   ...redisMetrics,
   ...pureMetrics,
   ...kafkaMetrics,
-  ...monitoringMetrics
+  ...monitoringMetrics,
+  ...mysqlMetrics,
+  ...mongodbMetrics,
+  ...postgresqlMetrics
 ];
 
 // Export services configuration

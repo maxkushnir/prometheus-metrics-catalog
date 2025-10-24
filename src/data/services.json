@@ -25,6 +25,33 @@
             "name": "redis_exporter",
             "link": "https://github.com/oliver006/redis_exporter"
           }
+        },
+        {
+          "name": "mysql",
+          "displayName": "MySQL",
+          "description": "MySQL database server metrics",
+          "exporter": {
+            "name": "mysqld_exporter",
+            "link": "https://github.com/prometheus/mysqld_exporter"
+          }
+        },
+        {
+          "name": "mongodb",
+          "displayName": "MongoDB",
+          "description": "MongoDB database server metrics",
+          "exporter": {
+            "name": "mongodb_exporter",
+            "link": "https://github.com/percona/mongodb_exporter"
+          }
+        },
+        {
+          "name": "postgresql",
+          "displayName": "PostgreSQL",
+          "description": "PostgreSQL database server metrics",
+          "exporter": {
+            "name": "postgres_exporter",
+            "link": "https://github.com/prometheus-community/postgres_exporter"
+          }
         }
       ]
     },
