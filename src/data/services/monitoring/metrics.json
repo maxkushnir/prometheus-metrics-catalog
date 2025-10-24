@@ -1,0 +1,29 @@
+[
+  {
+    "name": "jmx_exporter_up",
+    "service": "jmx_exporter",
+    "labels": [],
+    "description": "JMX Exporter is up",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "jmx_exporter_up"
+  },
+  {
+    "name": "jmx_memory_heap_used_bytes",
+    "service": "jmx_exporter",
+    "labels": ["area"],
+    "description": "JVM heap memory used in bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "jmx_memory_heap_used_bytes{area=\"eden\"}"
+  },
+  {
+    "name": "jmx_thread_count",
+    "service": "jmx_exporter",
+    "labels": [],
+    "description": "Total number of live threads",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "jmx_thread_count"
+  }
+]
