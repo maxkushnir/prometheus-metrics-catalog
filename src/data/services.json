@@ -81,15 +81,6 @@
             "name": "node_exporter",
             "link": "https://github.com/prometheus/node_exporter"
           }
-        },
-        {
-          "name": "jmx_exporter",
-          "displayName": "JMX Exporter",
-          "description": "Java application metrics via JMX",
-          "exporter": {
-            "name": "jmx_exporter",
-            "link": "https://github.com/prometheus/jmx_exporter"
-          }
         }
       ]
     },
