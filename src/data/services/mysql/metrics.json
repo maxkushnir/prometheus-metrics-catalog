@@ -1,0 +1,1136 @@
+[
+    {
+      "name": "mysql_up",
+      "service": "mysql",
+      "labels": [],
+      "description": "Whether the MySQL server is up",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "mysql_up"
+    },
+    {
+      "name": "mysql_global_status_connections",
+      "service": "mysql",
+      "labels": [],
+      "description": "Total number of connection attempts to the MySQL server",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_connections[5m])"
+    },
+    {
+      "name": "mysql_global_status_max_used_connections",
+      "service": "mysql",
+      "labels": [],
+      "description": "Maximum number of connections that have been in use simultaneously",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_max_used_connections"
+    },
+    {
+      "name": "mysql_global_status_threads_connected",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of currently open connections",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_threads_connected"
+    },
+    {
+      "name": "mysql_global_status_threads_running",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of threads that are not sleeping",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_threads_running"
+    },
+    {
+      "name": "mysql_global_status_queries",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of statements executed by the server",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_queries[5m])"
+    },
+    {
+      "name": "mysql_global_status_questions",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of statements executed by the server",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_questions[5m])"
+    },
+    {
+      "name": "mysql_global_status_slow_queries",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of queries that have taken more than long_query_time seconds",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_slow_queries[5m])"
+    },
+    {
+      "name": "mysql_global_status_aborted_connects",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of failed attempts to connect to the MySQL server",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_aborted_connects[5m])"
+    },
+    {
+      "name": "mysql_global_status_aborted_clients",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of connections that were aborted because the client died without closing the connection properly",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_aborted_clients[5m])"
+    },
+    {
+      "name": "mysql_global_status_bytes_received",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of bytes received from all clients",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_bytes_received[5m])"
+    },
+    {
+      "name": "mysql_global_status_bytes_sent",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of bytes sent to all clients",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_bytes_sent[5m])"
+    },
+    {
+      "name": "mysql_global_status_created_tmp_disk_tables",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of temporary tables created on disk",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_created_tmp_disk_tables[5m])"
+    },
+    {
+      "name": "mysql_global_status_created_tmp_tables",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of temporary tables created",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_created_tmp_tables[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_read_first",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of times the first entry in an index was read",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_read_first[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_read_key",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to read a row based on a key",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_read_key[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_read_next",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to read the next row in key order",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_read_next[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_read_prev",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to read the previous row in key order",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_read_prev[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_read_rnd",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to read a row based on a fixed position",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_read_rnd[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_read_rnd_next",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to read the next row in the data file",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_read_rnd_next[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_update",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to update a row in a table",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_update[5m])"
+    },
+    {
+      "name": "mysql_global_status_handler_write",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of requests to insert a row in a table",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_handler_write[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_pages_data",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pages containing data",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_buffer_pool_pages_data"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_pages_dirty",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pages currently dirty",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_buffer_pool_pages_dirty"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_pages_free",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of free pages",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_buffer_pool_pages_free"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_pages_total",
+      "service": "mysql",
+      "labels": [],
+      "description": "Total number of pages in the buffer pool",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_buffer_pool_pages_total"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_read_requests",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of logical read requests",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_buffer_pool_read_requests[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_reads",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of logical reads that InnoDB could not satisfy from buffer pool",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_buffer_pool_reads[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_buffer_pool_wait_free",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of times waited for a free page",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_buffer_pool_wait_free[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_fsyncs",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of fsync() operations",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_data_fsyncs[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_pending_fsyncs",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pending fsync() operations",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_data_pending_fsyncs"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_pending_reads",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pending read operations",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_data_pending_reads"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_pending_writes",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pending write operations",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_data_pending_writes"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_read",
+      "service": "mysql",
+      "labels": [],
+      "description": "Amount of data read in bytes",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_data_read[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_reads",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of data read operations",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_data_reads[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_writes",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of data write operations",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_data_writes[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_data_written",
+      "service": "mysql",
+      "labels": [],
+      "description": "Amount of data written in bytes",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_data_written[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_log_waits",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of log waits due to a small log buffer",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_log_waits[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_log_write_requests",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of log write requests",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_log_write_requests[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_log_writes",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of physical writes to the log file",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_log_writes[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_os_log_fsyncs",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of fsync() writes done to the log file",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_os_log_fsyncs[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_os_log_pending_fsyncs",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pending fsync() operations on the log file",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_os_log_pending_fsyncs"
+    },
+    {
+      "name": "mysql_global_status_innodb_os_log_pending_writes",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pending write operations on the log file",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_os_log_pending_writes"
+    },
+    {
+      "name": "mysql_global_status_innodb_os_log_written",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of bytes written to the log file",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_os_log_written[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_pages_created",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pages created",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_pages_created[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_pages_read",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pages read",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_pages_read[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_pages_written",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of pages written",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_pages_written[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_row_lock_current_waits",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of row locks currently being waited for",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_row_lock_current_waits"
+    },
+    {
+      "name": "mysql_global_status_innodb_row_lock_time",
+      "service": "mysql",
+      "labels": [],
+      "description": "Time spent in acquiring row locks",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_row_lock_time[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_row_lock_time_avg",
+      "service": "mysql",
+      "labels": [],
+      "description": "Average time to acquire a row lock",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_row_lock_time_avg"
+    },
+    {
+      "name": "mysql_global_status_innodb_row_lock_time_max",
+      "service": "mysql",
+      "labels": [],
+      "description": "Maximum time to acquire a row lock",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_innodb_row_lock_time_max"
+    },
+    {
+      "name": "mysql_global_status_innodb_row_lock_waits",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of times operations had to wait for a row lock",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_row_lock_waits[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_rows_deleted",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of rows deleted from InnoDB tables",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_rows_deleted[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_rows_inserted",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of rows inserted into InnoDB tables",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_rows_inserted[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_rows_read",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of rows read from InnoDB tables",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_rows_read[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_rows_updated",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of rows updated in InnoDB tables",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_rows_updated[5m])"
+    },
+    {
+      "name": "mysql_global_status_innodb_truncated_status",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of times InnoDB truncated the status output",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_innodb_truncated_status[5m])"
+    },
+    {
+      "name": "mysql_global_status_open_files",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of files that are open",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_open_files"
+    },
+    {
+      "name": "mysql_global_status_open_streams",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of streams that are open",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_open_streams"
+    },
+    {
+      "name": "mysql_global_status_open_table_definitions",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of cached table definitions",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_open_table_definitions"
+    },
+    {
+      "name": "mysql_global_status_open_tables",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of tables that are open",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_open_tables"
+    },
+    {
+      "name": "mysql_global_status_opened_files",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of files that have been opened",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_opened_files[5m])"
+    },
+    {
+      "name": "mysql_global_status_opened_table_definitions",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of cached table definitions that have been opened",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_opened_table_definitions[5m])"
+    },
+    {
+      "name": "mysql_global_status_opened_tables",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of tables that have been opened",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_opened_tables[5m])"
+    },
+    {
+      "name": "mysql_global_status_qcache_free_blocks",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of free memory blocks in query cache",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_qcache_free_blocks"
+    },
+    {
+      "name": "mysql_global_status_qcache_free_memory",
+      "service": "mysql",
+      "labels": [],
+      "description": "Amount of free memory for query cache",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_qcache_free_memory"
+    },
+    {
+      "name": "mysql_global_status_qcache_hits",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of query cache hits",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_qcache_hits[5m])"
+    },
+    {
+      "name": "mysql_global_status_qcache_inserts",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of queries added to query cache",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_qcache_inserts[5m])"
+    },
+    {
+      "name": "mysql_global_status_qcache_lowmem_prunes",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of queries that were deleted from query cache because of low memory",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_qcache_lowmem_prunes[5m])"
+    },
+    {
+      "name": "mysql_global_status_qcache_not_cached",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of non-cached queries",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_qcache_not_cached[5m])"
+    },
+    {
+      "name": "mysql_global_status_qcache_queries_in_cache",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of queries registered in the query cache",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_qcache_queries_in_cache"
+    },
+    {
+      "name": "mysql_global_status_qcache_total_blocks",
+      "service": "mysql",
+      "labels": [],
+      "description": "Total number of blocks in query cache",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_qcache_total_blocks"
+    },
+    {
+      "name": "mysql_global_status_select_full_join",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of joins that performed table scans",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_select_full_join[5m])"
+    },
+    {
+      "name": "mysql_global_status_select_full_range_join",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of joins that used a range search on a reference table",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_select_full_range_join[5m])"
+    },
+    {
+      "name": "mysql_global_status_select_range",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of joins that used ranges on the first table",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_select_range[5m])"
+    },
+    {
+      "name": "mysql_global_status_select_range_check",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of joins without keys that check for key usage after each row",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_select_range_check[5m])"
+    },
+    {
+      "name": "mysql_global_status_select_scan",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of joins that did a full scan of the first table",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_select_scan[5m])"
+    },
+    {
+      "name": "mysql_global_status_sort_merge_passes",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of merge passes that the sort algorithm has had to do",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_sort_merge_passes[5m])"
+    },
+    {
+      "name": "mysql_global_status_sort_range",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of sorts that were done using ranges",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_sort_range[5m])"
+    },
+    {
+      "name": "mysql_global_status_sort_rows",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of sorted rows",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_sort_rows[5m])"
+    },
+    {
+      "name": "mysql_global_status_sort_scan",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of sorts that were done by scanning the table",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_sort_scan[5m])"
+    },
+    {
+      "name": "mysql_global_status_table_locks_immediate",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of times that a table lock was acquired immediately",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_table_locks_immediate[5m])"
+    },
+    {
+      "name": "mysql_global_status_table_locks_waited",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of times that a table lock could not be acquired immediately",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_table_locks_waited[5m])"
+    },
+    {
+      "name": "mysql_global_status_threads_cached",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of threads in the thread cache",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_threads_cached"
+    },
+    {
+      "name": "mysql_global_status_threads_created",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of threads created to handle connections",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_threads_created[5m])"
+    },
+    {
+      "name": "mysql_global_status_uptime",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of seconds the MySQL server has been running",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_uptime"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_pages_used",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of pages used in the buffer pool",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_info_schema_innodb_cmpmem_pages_used{page_size=\"16384\"}"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_pages_free",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of free pages in the buffer pool",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_info_schema_innodb_cmpmem_pages_free{page_size=\"16384\"}"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_relocation_ops",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of relocation operations",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmpmem_relocation_ops[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_relocation_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent on relocation operations",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmpmem_relocation_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of pages compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of pages successfully compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent compressing pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of pages decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent decompressing pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of pages successfully decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_primary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of primary pages compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_primary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_primary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of primary pages successfully compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_primary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_primary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent compressing primary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_primary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_secondary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of secondary pages compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_secondary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_secondary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of secondary pages successfully compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_secondary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_secondary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent compressing secondary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_secondary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_primary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of primary pages decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_primary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_primary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of primary pages successfully decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_primary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_primary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent decompressing primary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_primary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_secondary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of secondary pages decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_secondary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_secondary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of secondary pages successfully decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_secondary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_secondary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Time spent decompressing secondary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_secondary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of pages compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of pages successfully compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time spent compressing pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of pages decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of pages successfully decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time spent decompressing pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_primary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of primary pages compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_primary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_primary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of primary pages successfully compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_primary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_primary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time spent compressing primary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_primary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_secondary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of secondary pages compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_secondary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_secondary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of secondary pages successfully compressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_secondary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_compressed_total_secondary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time spent compressing secondary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_compressed_total_secondary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_primary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of primary pages decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_primary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_primary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of primary pages successfully decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_primary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_primary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time spent decompressing primary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_primary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of secondary pages decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary_ok",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of secondary pages successfully decompressed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary_ok[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary_time",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time spent decompressing secondary pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary_time[5m])"
+    }
+  ]

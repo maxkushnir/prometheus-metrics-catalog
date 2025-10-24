@@ -1,0 +1,515 @@
+[
+    {
+      "name": "mongodb_up",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Whether the MongoDB server is up",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "mongodb_up"
+    },
+    {
+      "name": "mongodb_instance_uptime_seconds",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Uptime of the MongoDB instance in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_instance_uptime_seconds"
+    },
+    {
+      "name": "mongodb_connections",
+      "service": "mongodb",
+      "labels": ["state"],
+      "description": "Number of connections to the MongoDB server",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_connections{state=\"current\"}"
+    },
+    {
+      "name": "mongodb_memory",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Memory usage of the MongoDB server",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_memory{type=\"resident\"}"
+    },
+    {
+      "name": "mongodb_op_counters_total",
+      "service": "mongodb",
+      "labels": ["operation"],
+      "description": "Total number of operations performed",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mongodb_op_counters_total{operation=\"insert\"}[5m])"
+    },
+    {
+      "name": "mongodb_network_bytes_total",
+      "service": "mongodb",
+      "labels": ["direction"],
+      "description": "Total network bytes transferred",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_network_bytes_total{direction=\"in\"}[5m])"
+    },
+    {
+      "name": "mongodb_network_metrics_num_requests_total",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total number of network requests",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_network_metrics_num_requests_total[5m])"
+    },
+    {
+      "name": "mongodb_asserts_total",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Total number of assertions",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(mongodb_asserts_total{type=\"msg\"}[5m])"
+    },
+    {
+      "name": "mongodb_extra_info_page_faults_total",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total number of page faults",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_extra_info_page_faults_total[5m])"
+    },
+    {
+      "name": "mongodb_dbstats_collections",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Number of collections in the database",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_dbstats_collections{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_dbstats_objects",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Number of objects in the database",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_dbstats_objects{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_dbstats_dataSize",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Size of data in the database in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_dbstats_dataSize{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_dbstats_indexSize",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Size of indexes in the database in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_dbstats_indexSize{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_dbstats_indexes",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Number of indexes in the database",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_dbstats_indexes{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_mongod_db_collections_total",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Total number of collections in the database",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_db_collections_total{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_mongod_db_objects_total",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Total number of objects in the database",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_db_objects_total{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_mongod_db_data_size_bytes",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Size of data in the database in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_db_data_size_bytes{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_mongod_db_index_size_bytes",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Size of indexes in the database in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_db_index_size_bytes{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_mongod_db_indexes_total",
+      "service": "mongodb",
+      "labels": ["database"],
+      "description": "Total number of indexes in the database",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_db_indexes_total{database=\"admin\"}"
+    },
+    {
+      "name": "mongodb_mongod_global_lock_client",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Number of clients holding global lock",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_global_lock_client{type=\"readers\"}"
+    },
+    {
+      "name": "mongodb_mongod_global_lock_current_queue",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Number of operations waiting for global lock",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_global_lock_current_queue{type=\"readers\"}"
+    },
+    {
+      "name": "mongodb_mongod_global_lock_ratio",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Ratio of time the global lock is held",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_global_lock_ratio"
+    },
+    {
+      "name": "mongodb_mongod_metrics_cursor_open",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of open cursors",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_metrics_cursor_open"
+    },
+    {
+      "name": "mongodb_mongod_metrics_cursor_timed_out_total",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total number of cursors that timed out",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_mongod_metrics_cursor_timed_out_total[5m])"
+    },
+    {
+      "name": "mongodb_mongod_op_latencies_latency_total",
+      "service": "mongodb",
+      "labels": ["operation", "le"],
+      "description": "Total latency for operations",
+      "importance": "high",
+      "type": "histogram",
+      "example_usage": "histogram_quantile(0.95, rate(mongodb_mongod_op_latencies_latency_total_bucket[5m]))"
+    },
+    {
+      "name": "mongodb_mongod_op_latencies_ops_total",
+      "service": "mongodb",
+      "labels": ["operation"],
+      "description": "Total number of operations",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mongodb_mongod_op_latencies_ops_total{operation=\"command\"}[5m])"
+    },
+    {
+      "name": "mongodb_mongod_wiredtiger_cache_bytes",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Current size of WiredTiger cache in bytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_wiredtiger_cache_bytes"
+    },
+    {
+      "name": "mongodb_mongod_wiredtiger_cache_bytes_total",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total size of WiredTiger cache in bytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_wiredtiger_cache_bytes_total"
+    },
+    {
+      "name": "mongodb_mongod_wiredtiger_cache_evicted_total",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total number of pages evicted from WiredTiger cache",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_mongod_wiredtiger_cache_evicted_total[5m])"
+    },
+    {
+      "name": "mongodb_mongod_wiredtiger_cache_pages",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Number of pages in WiredTiger cache",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_wiredtiger_cache_pages{type=\"current\"}"
+    },
+    {
+      "name": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of tickets available for concurrent transactions",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_wiredtiger_concurrent_transactions_out_tickets"
+    },
+    {
+      "name": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total number of tickets for concurrent transactions",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_mongod_wiredtiger_concurrent_transactions_total_tickets"
+    },
+    {
+      "name": "mongodb_ss_asserts",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Server status assertions",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_asserts{type=\"msg\"}[5m])"
+    },
+    {
+      "name": "mongodb_ss_connections",
+      "service": "mongodb",
+      "labels": ["state"],
+      "description": "Server status connections",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_connections{state=\"current\"}"
+    },
+    {
+      "name": "mongodb_ss_extra_info_page_faults",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Server status page faults",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_extra_info_page_faults[5m])"
+    },
+    {
+      "name": "mongodb_ss_globalLock_activeClients_readers",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of active reader clients",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_globalLock_activeClients_readers"
+    },
+    {
+      "name": "mongodb_ss_globalLock_activeClients_writers",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of active writer clients",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_globalLock_activeClients_writers"
+    },
+    {
+      "name": "mongodb_ss_globalLock_currentQueue",
+      "service": "mongodb",
+      "labels": ["type"],
+      "description": "Current queue for global lock",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_globalLock_currentQueue{type=\"readers\"}"
+    },
+    {
+      "name": "mongodb_ss_mem_resident",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Resident memory usage",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_mem_resident"
+    },
+    {
+      "name": "mongodb_ss_mem_virtual",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Virtual memory usage",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_mem_virtual"
+    },
+    {
+      "name": "mongodb_ss_metrics_cursor_open",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of open cursors",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_metrics_cursor_open"
+    },
+    {
+      "name": "mongodb_ss_metrics_cursor_timedOut",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of cursors that timed out",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_metrics_cursor_timedOut[5m])"
+    },
+    {
+      "name": "mongodb_ss_network_bytesIn",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Network bytes received",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_network_bytesIn[5m])"
+    },
+    {
+      "name": "mongodb_ss_network_bytesOut",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Network bytes sent",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_network_bytesOut[5m])"
+    },
+    {
+      "name": "mongodb_ss_network_numRequests",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Number of network requests",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_network_numRequests[5m])"
+    },
+    {
+      "name": "mongodb_ss_opLatencies_latency",
+      "service": "mongodb",
+      "labels": ["operation", "le"],
+      "description": "Operation latency",
+      "importance": "high",
+      "type": "histogram",
+      "example_usage": "histogram_quantile(0.95, rate(mongodb_ss_opLatencies_latency_bucket[5m]))"
+    },
+    {
+      "name": "mongodb_ss_opLatencies_ops",
+      "service": "mongodb",
+      "labels": ["operation"],
+      "description": "Number of operations",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_opLatencies_ops{operation=\"command\"}[5m])"
+    },
+    {
+      "name": "mongodb_ss_opcounters",
+      "service": "mongodb",
+      "labels": ["operation"],
+      "description": "Operation counters",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_opcounters{operation=\"insert\"}[5m])"
+    },
+    {
+      "name": "mongodb_ss_uptime",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Server uptime in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_uptime"
+    },
+    {
+      "name": "mongodb_ss_wt_cache_bytes_currently_in_the_cache",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Bytes currently in WiredTiger cache",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_wt_cache_bytes_currently_in_the_cache"
+    },
+    {
+      "name": "mongodb_ss_wt_cache_bytes_read_into_cache",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Bytes read into WiredTiger cache",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_wt_cache_bytes_read_into_cache[5m])"
+    },
+    {
+      "name": "mongodb_ss_wt_cache_bytes_written_from_cache",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Bytes written from WiredTiger cache",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mongodb_ss_wt_cache_bytes_written_from_cache[5m])"
+    },
+    {
+      "name": "mongodb_ss_wt_cache_pages_currently_held_in_the_cache",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Pages currently held in WiredTiger cache",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_wt_cache_pages_currently_held_in_the_cache"
+    },
+    {
+      "name": "mongodb_ss_wt_cache_tracked_dirty_pages_in_the_cache",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Tracked dirty pages in WiredTiger cache",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_wt_cache_tracked_dirty_pages_in_the_cache"
+    },
+    {
+      "name": "mongodb_ss_wt_concurrentTransactions_out",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Concurrent transactions out",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_wt_concurrentTransactions_out"
+    },
+    {
+      "name": "mongodb_ss_wt_concurrentTransactions_totalTickets",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Total tickets for concurrent transactions",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mongodb_ss_wt_concurrentTransactions_totalTickets"
+    },
+    {
+      "name": "sysdig_container_net_error_count",
+      "service": "mongodb",
+      "labels": [],
+      "description": "Network error count for container",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(sysdig_container_net_error_count[5m])"
+    }
+  ]

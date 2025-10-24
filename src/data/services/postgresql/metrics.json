@@ -1,0 +1,488 @@
+[
+    {
+      "name": "pg_up",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Whether the last scrape of PostgreSQL was able to connect to the server",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "pg_up"
+    },
+    {
+      "name": "pg_stat_database_numbackends",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of backends currently connected to this database",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "pg_stat_database_numbackends{datname=\"postgres\"}"
+    },
+    {
+      "name": "pg_stat_database_xact_commit",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of transactions in this database that have been committed",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_xact_commit[5m])"
+    },
+    {
+      "name": "pg_stat_database_xact_rollback",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of transactions in this database that have been rolled back",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_xact_rollback[5m])"
+    },
+    {
+      "name": "pg_stat_database_blks_read",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of disk blocks read in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_blks_read[5m])"
+    },
+    {
+      "name": "pg_stat_database_blks_hit",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of times disk blocks were found already in the buffer cache",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_blks_hit[5m])"
+    },
+    {
+      "name": "pg_stat_database_tup_returned",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of rows returned by queries in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_tup_returned[5m])"
+    },
+    {
+      "name": "pg_stat_database_tup_fetched",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of rows fetched by queries in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_tup_fetched[5m])"
+    },
+    {
+      "name": "pg_stat_database_tup_inserted",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of rows inserted by queries in this database",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_tup_inserted[5m])"
+    },
+    {
+      "name": "pg_stat_database_tup_updated",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of rows updated by queries in this database",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_tup_updated[5m])"
+    },
+    {
+      "name": "pg_stat_database_tup_deleted",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of rows deleted by queries in this database",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_tup_deleted[5m])"
+    },
+    {
+      "name": "pg_stat_database_conflicts",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of queries canceled due to conflicts with recovery in this database",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_conflicts[5m])"
+    },
+    {
+      "name": "pg_stat_database_temp_files",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of temporary files created by queries in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_temp_files[5m])"
+    },
+    {
+      "name": "pg_stat_database_temp_bytes",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Total amount of data written to temporary files by queries in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_temp_bytes[5m])"
+    },
+    {
+      "name": "pg_stat_database_deadlocks",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Number of deadlocks detected in this database",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_deadlocks[5m])"
+    },
+    {
+      "name": "pg_stat_database_blk_read_time",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Time spent reading data file blocks by backends in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_blk_read_time[5m])"
+    },
+    {
+      "name": "pg_stat_database_blk_write_time",
+      "service": "postgresql",
+      "labels": ["datname"],
+      "description": "Time spent writing data file blocks by backends in this database",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_database_blk_write_time[5m])"
+    },
+    {
+      "name": "pg_stat_user_tables_n_tup_ins",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of rows inserted",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_user_tables_n_tup_ins[5m])"
+    },
+    {
+      "name": "pg_stat_user_tables_n_tup_upd",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of rows updated",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_user_tables_n_tup_upd[5m])"
+    },
+    {
+      "name": "pg_stat_user_tables_n_tup_del",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of rows deleted",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_user_tables_n_tup_del[5m])"
+    },
+    {
+      "name": "pg_stat_user_tables_n_live_tup",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Estimated number of live rows",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_n_live_tup{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_n_dead_tup",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Estimated number of dead rows",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_n_dead_tup{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_n_mod_since_analyze",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Estimated number of rows changed since last ANALYZE",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_n_mod_since_analyze{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_last_vacuum",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Last time at which this table was manually vacuumed",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_last_vacuum{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_last_autovacuum",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Last time at which this table was vacuumed by the autovacuum daemon",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_last_autovacuum{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_last_analyze",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Last time at which this table was manually analyzed",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_last_analyze{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_last_autoanalyze",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Last time at which this table was analyzed by the autovacuum daemon",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_stat_user_tables_last_autoanalyze{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_vacuum_count",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of times this table has been manually vacuumed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "pg_stat_user_tables_vacuum_count{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_autovacuum_count",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of times this table has been vacuumed by the autovacuum daemon",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "pg_stat_user_tables_autovacuum_count{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_analyze_count",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of times this table has been manually analyzed",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "pg_stat_user_tables_analyze_count{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_tables_autoanalyze_count",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname"],
+      "description": "Number of times this table has been analyzed by the autovacuum daemon",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "pg_stat_user_tables_autoanalyze_count{relname=\"users\"}"
+    },
+    {
+      "name": "pg_stat_user_indexes_idx_tup_read",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname", "indexrelname"],
+      "description": "Number of index entries returned by scans on this index",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_user_indexes_idx_tup_read[5m])"
+    },
+    {
+      "name": "pg_stat_user_indexes_idx_tup_fetch",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname", "indexrelname"],
+      "description": "Number of live table rows fetched by simple index scans using this index",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_user_indexes_idx_tup_fetch[5m])"
+    },
+    {
+      "name": "pg_stat_user_indexes_idx_scan",
+      "service": "postgresql",
+      "labels": ["schemaname", "relname", "indexrelname"],
+      "description": "Number of index scans initiated on this index",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(pg_stat_user_indexes_idx_scan[5m])"
+    },
+    {
+      "name": "pg_stat_activity_count",
+      "service": "postgresql",
+      "labels": ["state"],
+      "description": "Number of connections in each state",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "pg_stat_activity_count{state=\"active\"}"
+    },
+    {
+      "name": "pg_stat_activity_max_tx_duration",
+      "service": "postgresql",
+      "labels": ["state"],
+      "description": "The maximum duration in seconds of any current transaction",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "pg_stat_activity_max_tx_duration{state=\"active\"}"
+    },
+    {
+      "name": "pg_replication_lag",
+      "service": "postgresql",
+      "labels": ["client_addr"],
+      "description": "Replication lag behind master in seconds",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "pg_replication_lag{client_addr=\"10.0.0.1\"}"
+    },
+    {
+      "name": "pg_replication_lag_bytes",
+      "service": "postgresql",
+      "labels": ["client_addr"],
+      "description": "Replication lag behind master in bytes",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "pg_replication_lag_bytes{client_addr=\"10.0.0.1\"}"
+    },
+    {
+      "name": "pg_settings_max_connections",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Maximum number of concurrent connections",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "pg_settings_max_connections"
+    },
+    {
+      "name": "pg_settings_shared_buffers",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Amount of memory used for shared memory buffers",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "pg_settings_shared_buffers"
+    },
+    {
+      "name": "pg_settings_effective_cache_size",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Effective size of the disk cache",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_effective_cache_size"
+    },
+    {
+      "name": "pg_settings_work_mem",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Amount of memory to be used by internal sort operations and hash tables",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_work_mem"
+    },
+    {
+      "name": "pg_settings_maintenance_work_mem",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Amount of memory to be used by maintenance operations",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_maintenance_work_mem"
+    },
+    {
+      "name": "pg_settings_wal_buffers",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Amount of shared memory for WAL data",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_wal_buffers"
+    },
+    {
+      "name": "pg_settings_checkpoint_completion_target",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Target duration of checkpoint spread",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_checkpoint_completion_target"
+    },
+    {
+      "name": "pg_settings_wal_keep_segments",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Number of WAL segments to keep for replication",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_wal_keep_segments"
+    },
+    {
+      "name": "pg_settings_max_wal_size",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Maximum size to let the WAL grow during automatic checkpoints",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_max_wal_size"
+    },
+    {
+      "name": "pg_settings_min_wal_size",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Minimum size to shrink the WAL to during automatic checkpoints",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_min_wal_size"
+    },
+    {
+      "name": "pg_settings_random_page_cost",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Sets the planner's estimate of the cost of a non-sequentially-fetched disk page",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_random_page_cost"
+    },
+    {
+      "name": "pg_settings_effective_io_concurrency",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Number of concurrent I/O operations that the system can perform",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_effective_io_concurrency"
+    },
+    {
+      "name": "pg_settings_max_worker_processes",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Maximum number of concurrent worker processes",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_max_worker_processes"
+    },
+    {
+      "name": "pg_settings_max_parallel_workers_per_gather",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Maximum number of parallel workers per gather node",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_max_parallel_workers_per_gather"
+    },
+    {
+      "name": "pg_settings_max_parallel_workers",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Maximum number of parallel workers",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_max_parallel_workers"
+    },
+    {
+      "name": "pg_settings_max_parallel_maintenance_workers",
+      "service": "postgresql",
+      "labels": [],
+      "description": "Maximum number of parallel workers for maintenance operations",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "pg_settings_max_parallel_maintenance_workers"
+    }
+  ]
