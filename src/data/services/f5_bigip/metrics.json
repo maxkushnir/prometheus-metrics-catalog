@@ -1,7 +1,7 @@
 [
     {
       "name": "f5_totRequests",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers", "pools", "members"],
       "description": "Total number of requests processed",
       "importance": "high",
@@ -10,7 +10,7 @@
     },
     {
       "name": "f5_isEnabled",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers", "pools", "members"],
       "description": "Whether the virtual server, pool, or member is enabled",
       "importance": "critical",
@@ -19,7 +19,7 @@
     },
     {
       "name": "f5_isAvailable",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers", "pools", "members"],
       "description": "Whether the virtual server, pool, or member is available",
       "importance": "critical",
@@ -28,7 +28,7 @@
     },
     {
       "name": "f5_Capacity_Float",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers", "pools"],
       "description": "Capacity of the virtual server or pool",
       "importance": "medium",
@@ -37,7 +37,7 @@
     },
     {
       "name": "f5_activeMemberCnt",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["pools"],
       "description": "Number of active members in the pool",
       "importance": "high",
@@ -46,7 +46,7 @@
     },
     {
       "name": "f5_curPriogrp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["pools"],
       "description": "Current priority group",
       "importance": "low",
@@ -55,7 +55,7 @@
     },
     {
       "name": "f5_highestPriogrp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["pools"],
       "description": "Highest priority group",
       "importance": "low",
@@ -64,7 +64,7 @@
     },
     {
       "name": "f5_lowestPriogrp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["pools"],
       "description": "Lowest priority group",
       "importance": "low",
@@ -73,7 +73,7 @@
     },
     {
       "name": "f5_port",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["members"],
       "description": "Port number of the pool member",
       "importance": "medium",
@@ -82,7 +82,7 @@
     },
     {
       "name": "f5_cookiePersistInserts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of cookie persistence insertions",
       "importance": "low",
@@ -91,7 +91,7 @@
     },
     {
       "name": "f5_getReqs",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of GET requests",
       "importance": "medium",
@@ -100,7 +100,7 @@
     },
     {
       "name": "f5_maxKeepaliveReq",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Maximum keepalive requests",
       "importance": "low",
@@ -109,7 +109,7 @@
     },
     {
       "name": "f5_numberReqs",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Total number of requests",
       "importance": "high",
@@ -118,7 +118,7 @@
     },
     {
       "name": "f5_postReqs",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of POST requests",
       "importance": "medium",
@@ -127,7 +127,7 @@
     },
     {
       "name": "f5_2xxResp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of 2xx HTTP responses",
       "importance": "high",
@@ -136,7 +136,7 @@
     },
     {
       "name": "f5_3xxResp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of 3xx HTTP responses",
       "importance": "medium",
@@ -145,7 +145,7 @@
     },
     {
       "name": "f5_4xxResp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of 4xx HTTP responses",
       "importance": "high",
@@ -154,7 +154,7 @@
     },
     {
       "name": "f5_5xxResp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of 5xx HTTP responses",
       "importance": "critical",
@@ -163,7 +163,7 @@
     },
     {
       "name": "f5_respLessThan2m",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of responses with latency less than 2ms",
       "importance": "medium",
@@ -172,7 +172,7 @@
     },
     {
       "name": "f5_respGreaterThan2m",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of responses with latency greater than 2ms",
       "importance": "medium",
@@ -181,7 +181,7 @@
     },
     {
       "name": "f5_v10Reqs",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of HTTP/1.0 requests",
       "importance": "low",
@@ -190,7 +190,7 @@
     },
     {
       "name": "f5_v10Resp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of HTTP/1.0 responses",
       "importance": "low",
@@ -199,7 +199,7 @@
     },
     {
       "name": "f5_v11Reqs",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of HTTP/1.1 requests",
       "importance": "medium",
@@ -208,7 +208,7 @@
     },
     {
       "name": "f5_v11Resp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of HTTP/1.1 responses",
       "importance": "medium",
@@ -217,7 +217,7 @@
     },
     {
       "name": "f5_v9Reqs",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of HTTP/0.9 requests",
       "importance": "low",
@@ -226,7 +226,7 @@
     },
     {
       "name": "f5_v9Resp",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of HTTP/0.9 responses",
       "importance": "low",
@@ -235,7 +235,7 @@
     },
     {
       "name": "f5_activeHandshakeRejected",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of active handshakes rejected",
       "importance": "high",
@@ -244,7 +244,7 @@
     },
     {
       "name": "f5_currentNativeConnections",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Current number of native connections",
       "importance": "high",
@@ -253,7 +253,7 @@
     },
     {
       "name": "f5_currentActiveHandshakes",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Current number of active handshakes",
       "importance": "medium",
@@ -262,7 +262,7 @@
     },
     {
       "name": "f5_data_0rttAccepts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of 0-RTT accepts",
       "importance": "low",
@@ -271,7 +271,7 @@
     },
     {
       "name": "f5_data_0rttRejects",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of 0-RTT rejects",
       "importance": "low",
@@ -280,7 +280,7 @@
     },
     {
       "name": "f5_decryptedBytesIn",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of decrypted bytes received",
       "importance": "medium",
@@ -289,7 +289,7 @@
     },
     {
       "name": "f5_decryptedBytesOut",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of decrypted bytes sent",
       "importance": "medium",
@@ -298,7 +298,7 @@
     },
     {
       "name": "f5_encryptedBytesIn",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of encrypted bytes received",
       "importance": "medium",
@@ -307,7 +307,7 @@
     },
     {
       "name": "f5_encryptedBytesOut",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of encrypted bytes sent",
       "importance": "medium",
@@ -316,7 +316,7 @@
     },
     {
       "name": "f5_fatalAlerts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of fatal alerts",
       "importance": "critical",
@@ -325,7 +325,7 @@
     },
     {
       "name": "f5_handshakeFailures",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of handshake failures",
       "importance": "critical",
@@ -334,7 +334,7 @@
     },
     {
       "name": "f5_peercertInvalid",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of invalid peer certificates",
       "importance": "high",
@@ -343,7 +343,7 @@
     },
     {
       "name": "f5_peercertNone",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of connections with no peer certificate",
       "importance": "medium",
@@ -352,7 +352,7 @@
     },
     {
       "name": "f5_peercertValid",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of valid peer certificates",
       "importance": "medium",
@@ -361,7 +361,7 @@
     },
     {
       "name": "f5_recordsIn",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of records received",
       "importance": "low",
@@ -370,7 +370,7 @@
     },
     {
       "name": "f5_recordsOut",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of records sent",
       "importance": "low",
@@ -379,7 +379,7 @@
     },
     {
       "name": "f5_sniRejects",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Number of SNI rejects",
       "importance": "medium",
@@ -388,7 +388,7 @@
     },
     {
       "name": "f5_totNativeConns",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Total number of native connections",
       "importance": "high",
@@ -397,7 +397,7 @@
     },
     {
       "name": "f5_totalHandshakesOffload",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Total number of handshakes offloaded",
       "importance": "low",
@@ -406,7 +406,7 @@
     },
     {
       "name": "f5_totalHandshakesSoftware",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Total number of software handshakes",
       "importance": "low",
@@ -415,7 +415,7 @@
     },
     {
       "name": "f5_expirationDate",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["virtualServers"],
       "description": "Certificate expiration date",
       "importance": "critical",
@@ -424,7 +424,7 @@
     },
     {
       "name": "f5_hcInBroadcastPkts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of broadcast packets received",
       "importance": "low",
@@ -433,7 +433,7 @@
     },
     {
       "name": "f5_hcInMulticastPkts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of multicast packets received",
       "importance": "low",
@@ -442,7 +442,7 @@
     },
     {
       "name": "f5_hcInOctets",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of octets received",
       "importance": "medium",
@@ -451,7 +451,7 @@
     },
     {
       "name": "f5_hcInUcastPkts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of unicast packets received",
       "importance": "medium",
@@ -460,7 +460,7 @@
     },
     {
       "name": "f5_hcOutBroadcastPkts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of broadcast packets sent",
       "importance": "low",
@@ -469,7 +469,7 @@
     },
     {
       "name": "f5_hcOutMulticastPkts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of multicast packets sent",
       "importance": "low",
@@ -478,7 +478,7 @@
     },
     {
       "name": "f5_hcOutOctets",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of octets sent",
       "importance": "medium",
@@ -487,7 +487,7 @@
     },
     {
       "name": "f5_hcOutUcastPkts",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of unicast packets sent",
       "importance": "medium",
@@ -496,7 +496,7 @@
     },
     {
       "name": "f5_inDiscards",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of inbound packets discarded",
       "importance": "high",
@@ -505,7 +505,7 @@
     },
     {
       "name": "f5_inErrors",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of inbound packets with errors",
       "importance": "critical",
@@ -514,7 +514,7 @@
     },
     {
       "name": "f5_outDiscards",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of outbound packets discarded",
       "importance": "high",
@@ -523,7 +523,7 @@
     },
     {
       "name": "f5_outErrors",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["interfaces"],
       "description": "Number of outbound packets with errors",
       "importance": "critical",
@@ -532,7 +532,7 @@
     },
     {
       "name": "f5_cpuUsageRatio",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["cpu"],
       "description": "CPU usage ratio",
       "importance": "high",
@@ -541,7 +541,7 @@
     },
     {
       "name": "f5_memoryTotalBytes",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": [],
       "description": "Total memory in bytes",
       "importance": "medium",
@@ -550,7 +550,7 @@
     },
     {
       "name": "f5_memoryUsedBytes",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": [],
       "description": "Used memory in bytes",
       "importance": "high",
@@ -559,7 +559,7 @@
     },
     {
       "name": "f5_memoryFreeBytes",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": [],
       "description": "Free memory in bytes",
       "importance": "high",
@@ -568,7 +568,7 @@
     },
     {
       "name": "f5_systemUptime",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": [],
       "description": "System uptime in seconds",
       "importance": "medium",
@@ -577,7 +577,7 @@
     },
     {
       "name": "f5_temperature",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["sensor"],
       "description": "Temperature sensor reading",
       "importance": "medium",
@@ -586,7 +586,7 @@
     },
     {
       "name": "f5_fanSpeed",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["fan"],
       "description": "Fan speed in RPM",
       "importance": "low",
@@ -595,7 +595,7 @@
     },
     {
       "name": "f5_powerSupplyStatus",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["powersupply"],
       "description": "Power supply status",
       "importance": "critical",
@@ -604,7 +604,7 @@
     },
     {
       "name": "f5_diskUsage",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["disk"],
       "description": "Disk usage percentage",
       "importance": "high",
@@ -613,7 +613,7 @@
     },
     {
       "name": "f5_diskFreeBytes",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["disk"],
       "description": "Free disk space in bytes",
       "importance": "high",
@@ -622,7 +622,7 @@
     },
     {
       "name": "f5_diskTotalBytes",
-      "service": "f5-bigip",
+      "service": "f5_bigip",
       "labels": ["disk"],
       "description": "Total disk space in bytes",
       "importance": "medium",
