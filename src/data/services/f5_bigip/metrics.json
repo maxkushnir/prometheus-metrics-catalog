@@ -1,47 +1,633 @@
 [
-  {
-    "name": "f5_totRequests",
-    "service": "f5_bigip",
-    "labels": ["virtualServers", "pools", "members"],
-    "description": "Total number of requests processed",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "f5_totRequests{virtualServers=\"/Common/vs1\"}"
-  },
-  {
-    "name": "f5_totConnections",
-    "service": "f5_bigip",
-    "labels": ["virtualServers", "pools", "members"],
-    "description": "Total number of connections",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "f5_totConnections{virtualServers=\"/Common/vs1\"}"
-  },
-  {
-    "name": "f5_currentConnections",
-    "service": "f5_bigip",
-    "labels": ["virtualServers", "pools", "members"],
-    "description": "Current number of active connections",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "f5_currentConnections{virtualServers=\"/Common/vs1\"}"
-  },
-  {
-    "name": "f5_bytesIn",
-    "service": "f5_bigip",
-    "labels": ["virtualServers", "pools", "members"],
-    "description": "Total bytes received",
-    "importance": "medium",
-    "type": "counter",
-    "example_usage": "rate(f5_bytesIn{virtualServers=\"/Common/vs1\"}[5m])"
-  },
-  {
-    "name": "f5_bytesOut",
-    "service": "f5_bigip",
-    "labels": ["virtualServers", "pools", "members"],
-    "description": "Total bytes sent",
-    "importance": "medium",
-    "type": "counter",
-    "example_usage": "rate(f5_bytesOut{virtualServers=\"/Common/vs1\"}[5m])"
-  }
-]
+    {
+      "name": "f5_totRequests",
+      "service": "f5-bigip",
+      "labels": ["virtualServers", "pools", "members"],
+      "description": "Total number of requests processed",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_totRequests{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_isEnabled",
+      "service": "f5-bigip",
+      "labels": ["virtualServers", "pools", "members"],
+      "description": "Whether the virtual server, pool, or member is enabled",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "f5_isEnabled{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_isAvailable",
+      "service": "f5-bigip",
+      "labels": ["virtualServers", "pools", "members"],
+      "description": "Whether the virtual server, pool, or member is available",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "f5_isAvailable{pools=\"/Common/pool1\"}"
+    },
+    {
+      "name": "f5_Capacity_Float",
+      "service": "f5-bigip",
+      "labels": ["virtualServers", "pools"],
+      "description": "Capacity of the virtual server or pool",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_Capacity_Float{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_activeMemberCnt",
+      "service": "f5-bigip",
+      "labels": ["pools"],
+      "description": "Number of active members in the pool",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_activeMemberCnt{pools=\"/Common/pool1\"}"
+    },
+    {
+      "name": "f5_curPriogrp",
+      "service": "f5-bigip",
+      "labels": ["pools"],
+      "description": "Current priority group",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "f5_curPriogrp{pools=\"/Common/pool1\"}"
+    },
+    {
+      "name": "f5_highestPriogrp",
+      "service": "f5-bigip",
+      "labels": ["pools"],
+      "description": "Highest priority group",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "f5_highestPriogrp{pools=\"/Common/pool1\"}"
+    },
+    {
+      "name": "f5_lowestPriogrp",
+      "service": "f5-bigip",
+      "labels": ["pools"],
+      "description": "Lowest priority group",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "f5_lowestPriogrp{pools=\"/Common/pool1\"}"
+    },
+    {
+      "name": "f5_port",
+      "service": "f5-bigip",
+      "labels": ["members"],
+      "description": "Port number of the pool member",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_port{members=\"/Common/10.1.1.1:80\"}"
+    },
+    {
+      "name": "f5_cookiePersistInserts",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of cookie persistence insertions",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_cookiePersistInserts{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_getReqs",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of GET requests",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_getReqs{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_maxKeepaliveReq",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Maximum keepalive requests",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "f5_maxKeepaliveReq{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_numberReqs",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Total number of requests",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_numberReqs{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_postReqs",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of POST requests",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_postReqs{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_2xxResp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of 2xx HTTP responses",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_2xxResp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_3xxResp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of 3xx HTTP responses",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_3xxResp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_4xxResp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of 4xx HTTP responses",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_4xxResp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_5xxResp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of 5xx HTTP responses",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(f5_5xxResp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_respLessThan2m",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of responses with latency less than 2ms",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_respLessThan2m{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_respGreaterThan2m",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of responses with latency greater than 2ms",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_respGreaterThan2m{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_v10Reqs",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of HTTP/1.0 requests",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_v10Reqs{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_v10Resp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of HTTP/1.0 responses",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_v10Resp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_v11Reqs",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of HTTP/1.1 requests",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_v11Reqs{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_v11Resp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of HTTP/1.1 responses",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_v11Resp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_v9Reqs",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of HTTP/0.9 requests",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_v9Reqs{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_v9Resp",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of HTTP/0.9 responses",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_v9Resp{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_activeHandshakeRejected",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of active handshakes rejected",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_activeHandshakeRejected{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_currentNativeConnections",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Current number of native connections",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_currentNativeConnections{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_currentActiveHandshakes",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Current number of active handshakes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_currentActiveHandshakes{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_data_0rttAccepts",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of 0-RTT accepts",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_data_0rttAccepts{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_data_0rttRejects",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of 0-RTT rejects",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_data_0rttRejects{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_decryptedBytesIn",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of decrypted bytes received",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_decryptedBytesIn{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_decryptedBytesOut",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of decrypted bytes sent",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_decryptedBytesOut{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_encryptedBytesIn",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of encrypted bytes received",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_encryptedBytesIn{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_encryptedBytesOut",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of encrypted bytes sent",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_encryptedBytesOut{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_fatalAlerts",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of fatal alerts",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(f5_fatalAlerts{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_handshakeFailures",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of handshake failures",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(f5_handshakeFailures{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_peercertInvalid",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of invalid peer certificates",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_peercertInvalid{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_peercertNone",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of connections with no peer certificate",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_peercertNone{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_peercertValid",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of valid peer certificates",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_peercertValid{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_recordsIn",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of records received",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_recordsIn{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_recordsOut",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of records sent",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_recordsOut{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_sniRejects",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Number of SNI rejects",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_sniRejects{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_totNativeConns",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Total number of native connections",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_totNativeConns{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_totalHandshakesOffload",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Total number of handshakes offloaded",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_totalHandshakesOffload{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_totalHandshakesSoftware",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Total number of software handshakes",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_totalHandshakesSoftware{virtualServers=\"/Common/vs1\"}[5m])"
+    },
+    {
+      "name": "f5_expirationDate",
+      "service": "f5-bigip",
+      "labels": ["virtualServers"],
+      "description": "Certificate expiration date",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "f5_expirationDate{virtualServers=\"/Common/vs1\"}"
+    },
+    {
+      "name": "f5_hcInBroadcastPkts",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of broadcast packets received",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_hcInBroadcastPkts{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcInMulticastPkts",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of multicast packets received",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_hcInMulticastPkts{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcInOctets",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of octets received",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_hcInOctets{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcInUcastPkts",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of unicast packets received",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_hcInUcastPkts{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcOutBroadcastPkts",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of broadcast packets sent",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_hcOutBroadcastPkts{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcOutMulticastPkts",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of multicast packets sent",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(f5_hcOutMulticastPkts{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcOutOctets",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of octets sent",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_hcOutOctets{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_hcOutUcastPkts",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of unicast packets sent",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(f5_hcOutUcastPkts{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_inDiscards",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of inbound packets discarded",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_inDiscards{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_inErrors",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of inbound packets with errors",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(f5_inErrors{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_outDiscards",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of outbound packets discarded",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "rate(f5_outDiscards{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_outErrors",
+      "service": "f5-bigip",
+      "labels": ["interfaces"],
+      "description": "Number of outbound packets with errors",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(f5_outErrors{interfaces=\"1.0\"}[5m])"
+    },
+    {
+      "name": "f5_cpuUsageRatio",
+      "service": "f5-bigip",
+      "labels": ["cpu"],
+      "description": "CPU usage ratio",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_cpuUsageRatio{cpu=\"0\"}"
+    },
+    {
+      "name": "f5_memoryTotalBytes",
+      "service": "f5-bigip",
+      "labels": [],
+      "description": "Total memory in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_memoryTotalBytes"
+    },
+    {
+      "name": "f5_memoryUsedBytes",
+      "service": "f5-bigip",
+      "labels": [],
+      "description": "Used memory in bytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_memoryUsedBytes"
+    },
+    {
+      "name": "f5_memoryFreeBytes",
+      "service": "f5-bigip",
+      "labels": [],
+      "description": "Free memory in bytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_memoryFreeBytes"
+    },
+    {
+      "name": "f5_systemUptime",
+      "service": "f5-bigip",
+      "labels": [],
+      "description": "System uptime in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_systemUptime"
+    },
+    {
+      "name": "f5_temperature",
+      "service": "f5-bigip",
+      "labels": ["sensor"],
+      "description": "Temperature sensor reading",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_temperature{sensor=\"cpu\"}"
+    },
+    {
+      "name": "f5_fanSpeed",
+      "service": "f5-bigip",
+      "labels": ["fan"],
+      "description": "Fan speed in RPM",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "f5_fanSpeed{fan=\"fan1\"}"
+    },
+    {
+      "name": "f5_powerSupplyStatus",
+      "service": "f5-bigip",
+      "labels": ["powersupply"],
+      "description": "Power supply status",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "f5_powerSupplyStatus{powersupply=\"ps1\"}"
+    },
+    {
+      "name": "f5_diskUsage",
+      "service": "f5-bigip",
+      "labels": ["disk"],
+      "description": "Disk usage percentage",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_diskUsage{disk=\"/dev/sda1\"}"
+    },
+    {
+      "name": "f5_diskFreeBytes",
+      "service": "f5-bigip",
+      "labels": ["disk"],
+      "description": "Free disk space in bytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "f5_diskFreeBytes{disk=\"/dev/sda1\"}"
+    },
+    {
+      "name": "f5_diskTotalBytes",
+      "service": "f5-bigip",
+      "labels": ["disk"],
+      "description": "Total disk space in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "f5_diskTotalBytes{disk=\"/dev/sda1\"}"
+    }
+  ]
+  

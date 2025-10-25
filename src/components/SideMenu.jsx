@@ -6,7 +6,8 @@ const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
     'System monitoring': ['monitoring'],
     'Databases': ['databases'],
     'Brokers': ['kafka'],
-    'Reverse proxies and load balancers': ['nginx'],
+    'Reverse proxies and load balancers': ['nginx', 'f5_bigip'],
+    'Cloud services': ['aws'],
     'Network, security and storage': ['pure']
   };
 
@@ -80,6 +81,8 @@ const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
                                 serviceInfo.color === 'orange' ? 'bg-orange-500' :
                                 serviceInfo.color === 'red' ? 'bg-red-500' :
                                 serviceInfo.color === 'purple' ? 'bg-purple-500' :
+                                serviceInfo.color === 'yellow' ? 'bg-yellow-500' :
+                                serviceInfo.color === 'indigo' ? 'bg-indigo-500' :
                                 'bg-gray-500'
                               }`}
                             />
@@ -138,6 +141,8 @@ const SideMenu = ({ services, selectedService, onServiceSelect, metrics }) => {
                               serviceInfo.color === 'orange' ? 'bg-orange-500' :
                               serviceInfo.color === 'red' ? 'bg-red-500' :
                               serviceInfo.color === 'purple' ? 'bg-purple-500' :
+                              serviceInfo.color === 'yellow' ? 'bg-yellow-500' :
+                              serviceInfo.color === 'indigo' ? 'bg-indigo-500' :
                               'bg-gray-500'
                             }`}
                           />
