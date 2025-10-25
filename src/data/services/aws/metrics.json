@@ -1,0 +1,47 @@
+[
+  {
+    "name": "aws_ec2_cpu_utilization",
+    "service": "aws",
+    "labels": ["instance_id", "region"],
+    "description": "CPU utilization percentage for EC2 instances",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aws_ec2_cpu_utilization{instance_id=\"i-1234567890abcdef0\"}"
+  },
+  {
+    "name": "aws_ec2_memory_utilization",
+    "service": "aws",
+    "labels": ["instance_id", "region"],
+    "description": "Memory utilization percentage for EC2 instances",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aws_ec2_memory_utilization{instance_id=\"i-1234567890abcdef0\"}"
+  },
+  {
+    "name": "aws_rds_cpu_utilization",
+    "service": "aws",
+    "labels": ["db_instance_identifier", "region"],
+    "description": "CPU utilization percentage for RDS instances",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "aws_rds_cpu_utilization{db_instance_identifier=\"my-db-instance\"}"
+  },
+  {
+    "name": "aws_s3_bucket_size",
+    "service": "aws",
+    "labels": ["bucket_name", "region"],
+    "description": "Size of S3 buckets in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "aws_s3_bucket_size{bucket_name=\"my-bucket\"}"
+  },
+  {
+    "name": "aws_lambda_duration",
+    "service": "aws",
+    "labels": ["function_name", "region"],
+    "description": "Duration of Lambda function executions in milliseconds",
+    "importance": "high",
+    "type": "histogram",
+    "example_usage": "histogram_quantile(0.95, rate(aws_lambda_duration_bucket[5m]))"
+  }
+]

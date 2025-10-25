@@ -81,8 +81,28 @@
             "name": "node_exporter",
             "link": "https://github.com/prometheus/node_exporter"
           }
+        },
+        {
+          "name": "kube-state-metrics",
+          "displayName": "Kube-state-metrics",
+          "description": "Kubernetes cluster state metrics",
+          "exporter": {
+            "name": "kube-state-metrics",
+            "link": "https://github.com/kubernetes/kube-state-metrics"
+          }
         }
       ]
+    },
+    {
+      "name": "aws",
+      "displayName": "AWS",
+      "description": "Amazon Web Services metrics",
+      "path": "/data/services/aws/metrics.json",
+      "color": "yellow",
+      "exporter": {
+        "name": "cloudwatch_exporter",
+        "link": "https://github.com/prometheus/cloudwatch_exporter"
+      }
     },
     {
       "name": "nginx",
@@ -93,6 +113,17 @@
       "exporter": {
         "name": "nginx-prometheus-exporter",
         "link": "https://github.com/nginxinc/nginx-prometheus-exporter"
+      }
+    },
+    {
+      "name": "f5_bigip",
+      "displayName": "F5 BIG-IP",
+      "description": "F5 BIG-IP load balancer metrics",
+      "path": "/data/services/f5_bigip/metrics.json",
+      "color": "red",
+      "exporter": {
+        "name": "f5-bigip-exporter",
+        "link": "https://github.com/ExpressenAB/f5-bigip-exporter"
       }
     },
     {

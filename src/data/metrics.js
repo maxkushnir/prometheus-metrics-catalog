@@ -8,6 +8,9 @@ import kafkaMetrics from './services/kafka/metrics.json';
 import mysqlMetrics from './services/mysql/metrics.json';
 import mongodbMetrics from './services/mongodb/metrics.json';
 import postgresqlMetrics from './services/postgresql/metrics.json';
+import awsMetrics from './services/aws/metrics.json';
+import f5BigipMetrics from './services/f5_bigip/metrics.json';
+import kubeStateMetrics from './services/kube-state-metrics/metrics.json';
 import servicesConfig from './services.json';
 
 // Combine all metrics
@@ -20,7 +23,10 @@ export const allMetrics = [
   ...kafkaMetrics,
   ...mysqlMetrics,
   ...mongodbMetrics,
-  ...postgresqlMetrics
+  ...postgresqlMetrics,
+  ...awsMetrics,
+  ...f5BigipMetrics,
+  ...kubeStateMetrics
 ];
 
 // Export services configuration

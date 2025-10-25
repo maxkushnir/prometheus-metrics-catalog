@@ -1,0 +1,47 @@
+[
+  {
+    "name": "f5_totRequests",
+    "service": "f5_bigip",
+    "labels": ["virtualServers", "pools", "members"],
+    "description": "Total number of requests processed",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "f5_totRequests{virtualServers=\"/Common/vs1\"}"
+  },
+  {
+    "name": "f5_totConnections",
+    "service": "f5_bigip",
+    "labels": ["virtualServers", "pools", "members"],
+    "description": "Total number of connections",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "f5_totConnections{virtualServers=\"/Common/vs1\"}"
+  },
+  {
+    "name": "f5_currentConnections",
+    "service": "f5_bigip",
+    "labels": ["virtualServers", "pools", "members"],
+    "description": "Current number of active connections",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "f5_currentConnections{virtualServers=\"/Common/vs1\"}"
+  },
+  {
+    "name": "f5_bytesIn",
+    "service": "f5_bigip",
+    "labels": ["virtualServers", "pools", "members"],
+    "description": "Total bytes received",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(f5_bytesIn{virtualServers=\"/Common/vs1\"}[5m])"
+  },
+  {
+    "name": "f5_bytesOut",
+    "service": "f5_bigip",
+    "labels": ["virtualServers", "pools", "members"],
+    "description": "Total bytes sent",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(f5_bytesOut{virtualServers=\"/Common/vs1\"}[5m])"
+  }
+]
