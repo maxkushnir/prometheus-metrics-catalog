@@ -1,47 +1,426 @@
 [
-  {
-    "name": "aws_ec2_cpu_utilization",
-    "service": "aws",
-    "labels": ["instance_id", "region"],
-    "description": "CPU utilization percentage for EC2 instances",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "aws_ec2_cpu_utilization{instance_id=\"i-1234567890abcdef0\"}"
-  },
-  {
-    "name": "aws_ec2_memory_utilization",
-    "service": "aws",
-    "labels": ["instance_id", "region"],
-    "description": "Memory utilization percentage for EC2 instances",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "aws_ec2_memory_utilization{instance_id=\"i-1234567890abcdef0\"}"
-  },
-  {
-    "name": "aws_rds_cpu_utilization",
-    "service": "aws",
-    "labels": ["db_instance_identifier", "region"],
-    "description": "CPU utilization percentage for RDS instances",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "aws_rds_cpu_utilization{db_instance_identifier=\"my-db-instance\"}"
-  },
-  {
-    "name": "aws_s3_bucket_size",
-    "service": "aws",
-    "labels": ["bucket_name", "region"],
-    "description": "Size of S3 buckets in bytes",
-    "importance": "medium",
-    "type": "gauge",
-    "example_usage": "aws_s3_bucket_size{bucket_name=\"my-bucket\"}"
-  },
-  {
-    "name": "aws_lambda_duration",
-    "service": "aws",
-    "labels": ["function_name", "region"],
-    "description": "Duration of Lambda function executions in milliseconds",
-    "importance": "high",
-    "type": "histogram",
-    "example_usage": "histogram_quantile(0.95, rate(aws_lambda_duration_bucket[5m]))"
-  }
-]
+    {
+      "name": "rds_cpuutilization_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The percentage of CPU utilization",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_cpuutilization_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_freeable_memory_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of available random access memory in bytes",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_freeable_memory_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_database_connections_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The number of database connections in use",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_database_connections_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_read_iops_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of disk read I/O operations per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_read_iops_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_write_iops_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of disk write I/O operations per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_write_iops_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_read_latency_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average amount of time taken per disk I/O read operation in milliseconds",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_read_latency_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_write_latency_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average amount of time taken per disk I/O write operation in milliseconds",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_write_latency_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_read_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of bytes read from disk per second",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_read_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_write_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of bytes written to disk per second",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_write_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_disk_queue_depth_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The number of outstanding IOs (read/write requests) waiting to access the disk",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_disk_queue_depth_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_free_storage_space_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of available storage space in bytes",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_free_storage_space_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_swap_usage_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of swap space used on the DB instance in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_swap_usage_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_network_receive_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The incoming (receive) network traffic on the DB instance in bytes per second",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_network_receive_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_network_transmit_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The outgoing (transmit) network traffic on the DB instance in bytes per second",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_network_transmit_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_replica_lag_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of time a read replica DB instance lags behind the source DB instance in seconds",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_replica_lag_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_burst_balance_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The percent of General Purpose SSD (gp2) burst-bucket I/O credits available",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_burst_balance_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_cpu_credit_usage_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The number of CPU credits spent by the instance for CPU utilization",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_cpu_credit_usage_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_cpu_credit_balance_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The number of earned CPU credits that an instance has accrued since launch",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_cpu_credit_balance_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_bin_log_disk_usage_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of disk space occupied by binary logs on the master in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_bin_log_disk_usage_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_transaction_logs_disk_usage_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The disk space used by transaction logs in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_transaction_logs_disk_usage_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_maximum_used_transaction_ids_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The maximum transaction IDs that have been used",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "rds_maximum_used_transaction_ids_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_oldest_replication_slot_lag_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The lagging size of the replica lagging the most in terms of WAL data received in megabytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_oldest_replication_slot_lag_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_replication_slot_disk_usage_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The disk space used by replication slot files in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_replication_slot_disk_usage_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_transaction_logs_generation_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The size of transaction logs generated per second in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_transaction_logs_generation_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_checkpoint_lag_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of time since the last checkpoint in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_checkpoint_lag_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_engine_uptime_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of time that the instance has been running in seconds",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "rds_engine_uptime_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_failed_sql_server_agent_jobs_count_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The number of failed SQL Server Agent jobs during the last minute",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_failed_sql_server_agent_jobs_count_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_aurora_replica_lag_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "For an Aurora replica, the amount of lag when replicating updates from the primary instance in milliseconds",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_aurora_replica_lag_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_aurora_replica_lag_maximum",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The maximum amount of lag between the primary instance and each Aurora DB instance in the DB cluster in milliseconds",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_aurora_replica_lag_maximum{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_aurora_replica_lag_minimum",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The minimum amount of lag between the primary instance and each Aurora DB instance in the DB cluster in milliseconds",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_aurora_replica_lag_minimum{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_deadlocks_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of deadlocks in the database per second",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_deadlocks_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_login_failures_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of failed login attempts per second",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "rds_login_failures_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_queries_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of queries executed per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_queries_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_active_transactions_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of active transactions",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_active_transactions_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_blocked_transactions_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of blocked transactions",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_blocked_transactions_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_buffer_cache_hit_ratio_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The percentage of requests served by the buffer cache",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_buffer_cache_hit_ratio_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_commit_latency_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of latency for commit operations in milliseconds",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_commit_latency_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_commit_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of commit operations per second",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_commit_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_ddl_latency_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of latency for DDL requests in milliseconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_ddl_latency_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_ddl_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of DDL requests per second",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "rds_ddl_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_dml_latency_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of latency for inserts, updates, and deletes in milliseconds",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_dml_latency_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_dml_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of inserts, updates, and deletes per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_dml_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_select_latency_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of latency for select queries in milliseconds",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_select_latency_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_select_throughput_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of select queries per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "rds_select_throughput_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_volume_bytes_used_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The amount of storage used by your Aurora DB instance in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_volume_bytes_used_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_volume_read_iops_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of billed read I/O operations from a cluster volume",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_volume_read_iops_average{dbinstance_identifier=\"mydb\"}"
+    },
+    {
+      "name": "rds_volume_write_iops_average",
+      "service": "aws",
+      "labels": ["dbinstance_identifier"],
+      "description": "The average number of billed write I/O operations from a cluster volume",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "rds_volume_write_iops_average{dbinstance_identifier=\"mydb\"}"
+    }
+  ]
+  

@@ -1,56 +1,759 @@
 [
-  {
-    "name": "kube_pod_info",
-    "service": "kube-state-metrics",
-    "labels": ["pod", "namespace", "node", "created_by_kind", "created_by_name"],
-    "description": "Information about pods",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "kube_pod_info{namespace=\"default\"}"
-  },
-  {
-    "name": "kube_pod_status_phase",
-    "service": "kube-state-metrics",
-    "labels": ["pod", "namespace", "phase"],
-    "description": "The pods current phase",
-    "importance": "critical",
-    "type": "gauge",
-    "example_usage": "kube_pod_status_phase{phase=\"Running\"}"
-  },
-  {
-    "name": "kube_node_info",
-    "service": "kube-state-metrics",
-    "labels": ["node", "kernel_version", "os_image", "container_runtime_version", "kubelet_version", "kubeproxy_version"],
-    "description": "Information about a cluster node",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "kube_node_info"
-  },
-  {
-    "name": "kube_node_status_condition",
-    "service": "kube-state-metrics",
-    "labels": ["node", "condition", "status"],
-    "description": "The condition of a cluster node",
-    "importance": "critical",
-    "type": "gauge",
-    "example_usage": "kube_node_status_condition{condition=\"Ready\", status=\"true\"}"
-  },
-  {
-    "name": "kube_deployment_status_replicas",
-    "service": "kube-state-metrics",
-    "labels": ["namespace", "deployment"],
-    "description": "The number of replicas per deployment",
-    "importance": "high",
-    "type": "gauge",
-    "example_usage": "kube_deployment_status_replicas{deployment=\"my-app\"}"
-  },
-  {
-    "name": "kube_service_info",
-    "service": "kube-state-metrics",
-    "labels": ["service", "namespace"],
-    "description": "Information about a service",
-    "importance": "medium",
-    "type": "gauge",
-    "example_usage": "kube_service_info{namespace=\"default\"}"
-  }
-]
+    {
+      "name": "kube_configmap_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "configmap"],
+      "description": "Information about configmap",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_configmap_info{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_configmap_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "configmap"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_configmap_created{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_cronjob_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "cronjob"],
+      "description": "Info about cronjob",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_cronjob_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_cronjob_status_active",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "cronjob"],
+      "description": "Active holds pointers to currently running jobs",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_cronjob_status_active{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_cronjob_status_last_schedule_time",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "cronjob"],
+      "description": "LastScheduleTime keeps information of when was the last time the job was successfully scheduled",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_cronjob_status_last_schedule_time{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_cronjob_status_last_successful_time",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "cronjob"],
+      "description": "LastSuccessfulTime keeps information of when was the last time the job was completed successfully",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_cronjob_status_last_successful_time{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_cronjob_spec_suspend",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "cronjob"],
+      "description": "Suspend flag tells the controller to suspend subsequent executions",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_cronjob_spec_suspend{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_cronjob_next_schedule_time",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "cronjob"],
+      "description": "Next time the cronjob should be scheduled",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_cronjob_next_schedule_time{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_daemonset_status_current_number_scheduled",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "daemonset"],
+      "description": "The number of nodes running at least one daemon pod and are supposed to",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_daemonset_status_current_number_scheduled{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_daemonset_status_desired_number_scheduled",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "daemonset"],
+      "description": "The number of nodes that should be running the daemon pod",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_daemonset_status_desired_number_scheduled{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_daemonset_status_number_ready",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "daemonset"],
+      "description": "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_daemonset_status_number_ready{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_daemonset_status_number_available",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "daemonset"],
+      "description": "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_daemonset_status_number_available{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_daemonset_status_number_unavailable",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "daemonset"],
+      "description": "The number of nodes that should be running the daemon pod and have none of the daemon pod running and available",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_daemonset_status_number_unavailable{namespace=\"kube-system\"}"
+    },
+    {
+      "name": "kube_deployment_status_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "The number of replicas per deployment",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_deployment_status_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_status_replicas_available",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "The number of available replicas per deployment",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_deployment_status_replicas_available{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_status_replicas_unavailable",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "The number of unavailable replicas per deployment",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_deployment_status_replicas_unavailable{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_status_replicas_updated",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "The number of updated replicas per deployment",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_deployment_status_replicas_updated{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_spec_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "Number of desired pods for a deployment",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_deployment_spec_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_spec_paused",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "Whether the deployment is paused",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_deployment_spec_paused{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_metadata_generation",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "Sequence number representing a specific generation of the desired state",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_deployment_metadata_generation{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_status_observed_generation",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment"],
+      "description": "The generation observed by the deployment controller",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_deployment_status_observed_generation{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_deployment_status_condition",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "deployment", "condition", "status"],
+      "description": "The current status conditions of a deployment",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_deployment_status_condition{namespace=\"default\", condition=\"Available\"}"
+    },
+    {
+      "name": "kube_endpoint_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "endpoint"],
+      "description": "Information about endpoint",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_endpoint_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_endpoint_address_available",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "endpoint", "address"],
+      "description": "Number of addresses available in endpoint",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_endpoint_address_available{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_endpoint_address_not_ready",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "endpoint", "address"],
+      "description": "Number of addresses not ready in endpoint",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_endpoint_address_not_ready{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_horizontalpodautoscaler_status_current_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "horizontalpodautoscaler"],
+      "description": "Current number of replicas managed by this autoscaler",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_horizontalpodautoscaler_status_current_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_horizontalpodautoscaler_status_desired_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "horizontalpodautoscaler"],
+      "description": "Desired number of replicas managed by this autoscaler",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_horizontalpodautoscaler_status_desired_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_horizontalpodautoscaler_spec_max_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "horizontalpodautoscaler"],
+      "description": "Upper limit for the number of replicas to which the autoscaler can scale up",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_horizontalpodautoscaler_spec_max_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_horizontalpodautoscaler_spec_min_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "horizontalpodautoscaler"],
+      "description": "Lower limit for the number of replicas to which the autoscaler can scale down",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_horizontalpodautoscaler_spec_min_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_ingress_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "ingress"],
+      "description": "Information about ingress",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_ingress_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_ingress_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "ingress"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_ingress_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_ingress_path",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "ingress", "host", "path"],
+      "description": "Ingress host, path and backend service",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_ingress_path{namespace=\"default\", host=\"example.com\"}"
+    },
+    {
+      "name": "kube_job_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "Information about job",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_job_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_job_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_job_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_job_status_succeeded",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "The number of pods which reached Phase Succeeded",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_job_status_succeeded{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_job_status_failed",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "The number of pods which reached Phase Failed",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_job_status_failed{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_job_status_active",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "The number of actively running pods",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_job_status_active{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_job_spec_parallelism",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "The maximum desired number of pods the job should run at any given time",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_job_spec_parallelism{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_job_spec_completions",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "job_name"],
+      "description": "The desired number of successfully finished pods the job should be run with",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_job_spec_completions{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_namespace_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_namespace_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_namespace_status_phase",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "phase"],
+      "description": "The current phase of namespaces",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_namespace_status_phase{namespace=\"default\", phase=\"Active\"}"
+    },
+    {
+      "name": "kube_namespace_annotations",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "annotation_*"],
+      "description": "Kubernetes annotations converted to Prometheus labels",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_namespace_annotations{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_namespace_labels",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "label_*"],
+      "description": "Kubernetes labels converted to Prometheus labels",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_namespace_labels{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_node_info",
+      "service": "kube-state-metrics",
+      "labels": ["node"],
+      "description": "Information about a cluster node",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_node_info{node=\"worker-1\"}"
+    },
+    {
+      "name": "kube_node_created",
+      "service": "kube-state-metrics",
+      "labels": ["node"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_node_created{node=\"worker-1\"}"
+    },
+    {
+      "name": "kube_node_status_condition",
+      "service": "kube-state-metrics",
+      "labels": ["node", "condition", "status"],
+      "description": "The current status conditions of a cluster node",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_node_status_condition{node=\"worker-1\", condition=\"Ready\"}"
+    },
+    {
+      "name": "kube_node_status_phase",
+      "service": "kube-state-metrics",
+      "labels": ["node", "phase"],
+      "description": "The current phase of nodes",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_node_status_phase{node=\"worker-1\", phase=\"Running\"}"
+    },
+    {
+      "name": "kube_node_status_capacity",
+      "service": "kube-state-metrics",
+      "labels": ["node", "resource"],
+      "description": "The capacity for different resources of a node",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_node_status_capacity{node=\"worker-1\", resource=\"cpu\"}"
+    },
+    {
+      "name": "kube_node_status_allocatable",
+      "service": "kube-state-metrics",
+      "labels": ["node", "resource"],
+      "description": "The allocatable for different resources of a node that are available for scheduling",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_node_status_allocatable{node=\"worker-1\", resource=\"cpu\"}"
+    },
+    {
+      "name": "kube_node_spec_unschedulable",
+      "service": "kube-state-metrics",
+      "labels": ["node"],
+      "description": "Whether a node can schedule new pods",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_node_spec_unschedulable{node=\"worker-1\"}"
+    },
+    {
+      "name": "kube_persistentvolume_info",
+      "service": "kube-state-metrics",
+      "labels": ["persistentvolume"],
+      "description": "Information about persistentvolume",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_persistentvolume_info{persistentvolume=\"pv-1\"}"
+    },
+    {
+      "name": "kube_persistentvolume_status_phase",
+      "service": "kube-state-metrics",
+      "labels": ["persistentvolume", "phase"],
+      "description": "The phase the volume is currently in",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_persistentvolume_status_phase{persistentvolume=\"pv-1\", phase=\"Bound\"}"
+    },
+    {
+      "name": "kube_persistentvolume_capacity_bytes",
+      "service": "kube-state-metrics",
+      "labels": ["persistentvolume"],
+      "description": "PersistentVolume capacity in bytes",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_persistentvolume_capacity_bytes{persistentvolume=\"pv-1\"}"
+    },
+    {
+      "name": "kube_persistentvolumeclaim_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "persistentvolumeclaim"],
+      "description": "Information about persistentvolumeclaim",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_persistentvolumeclaim_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_persistentvolumeclaim_status_phase",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "persistentvolumeclaim", "phase"],
+      "description": "The phase the persistent volume claim is currently in",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_persistentvolumeclaim_status_phase{namespace=\"default\", phase=\"Bound\"}"
+    },
+    {
+      "name": "kube_persistentvolumeclaim_resource_requests_storage_bytes",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "persistentvolumeclaim"],
+      "description": "The capacity of storage requested by the persistent volume claim",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_persistentvolumeclaim_resource_requests_storage_bytes{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_pod_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod"],
+      "description": "Information about pod",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_pod_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_pod_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_pod_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_pod_status_phase",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "phase"],
+      "description": "The current phase of pods",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_pod_status_phase{namespace=\"default\", phase=\"Running\"}"
+    },
+    {
+      "name": "kube_pod_status_ready",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "condition"],
+      "description": "Describes whether the pod is ready to serve requests",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_pod_status_ready{namespace=\"default\", condition=\"True\"}"
+    },
+    {
+      "name": "kube_pod_status_scheduled",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "condition"],
+      "description": "Describes the status of the scheduling process for the pod",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_pod_status_scheduled{namespace=\"default\", condition=\"True\"}"
+    },
+    {
+      "name": "kube_pod_container_status_ready",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "container"],
+      "description": "Describes whether the containers readiness check succeeded",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "kube_pod_container_status_ready{namespace=\"default\", container=\"app\"}"
+    },
+    {
+      "name": "kube_pod_container_status_restarts_total",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "container"],
+      "description": "The number of container restarts per container",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "kube_pod_container_status_restarts_total{namespace=\"default\", container=\"app\"}"
+    },
+    {
+      "name": "kube_pod_container_resource_requests",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "container", "resource", "unit"],
+      "description": "The number of requested request resource by a container",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_pod_container_resource_requests{namespace=\"default\", resource=\"cpu\"}"
+    },
+    {
+      "name": "kube_pod_container_resource_limits",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "pod", "container", "resource", "unit"],
+      "description": "The number of requested limit resource by a container",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_pod_container_resource_limits{namespace=\"default\", resource=\"memory\"}"
+    },
+    {
+      "name": "kube_replicaset_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "replicaset"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_replicaset_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_replicaset_status_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "replicaset"],
+      "description": "The number of replicas per replicaset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_replicaset_status_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_replicaset_status_ready_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "replicaset"],
+      "description": "The number of ready replicas per replicaset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_replicaset_status_ready_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_replicaset_spec_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "replicaset"],
+      "description": "Number of desired pods for a replicaset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_replicaset_spec_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_secret_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "secret"],
+      "description": "Information about secret",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_secret_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_secret_type",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "secret", "type"],
+      "description": "Type about secret",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_secret_type{namespace=\"default\", type=\"Opaque\"}"
+    },
+    {
+      "name": "kube_service_info",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "service"],
+      "description": "Information about service",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_service_info{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_service_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "service"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_service_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_service_spec_type",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "service", "type"],
+      "description": "Type about service",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_service_spec_type{namespace=\"default\", type=\"ClusterIP\"}"
+    },
+    {
+      "name": "kube_service_spec_external_ip",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "service", "external_ip"],
+      "description": "Service external ip",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_service_spec_external_ip{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_statefulset_created",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "statefulset"],
+      "description": "Unix creation timestamp",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "kube_statefulset_created{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_statefulset_status_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "statefulset"],
+      "description": "The number of replicas per statefulset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_statefulset_status_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_statefulset_status_replicas_ready",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "statefulset"],
+      "description": "The number of ready replicas per statefulset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_statefulset_status_replicas_ready{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_statefulset_status_replicas_current",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "statefulset"],
+      "description": "The number of current replicas per statefulset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_statefulset_status_replicas_current{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_statefulset_spec_replicas",
+      "service": "kube-state-metrics",
+      "labels": ["namespace", "statefulset"],
+      "description": "Number of desired pods for a statefulset",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_statefulset_spec_replicas{namespace=\"default\"}"
+    },
+    {
+      "name": "kube_volume_attachment_info",
+      "service": "kube-state-metrics",
+      "labels": ["volume_attachment"],
+      "description": "Information about volume attachment",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_volume_attachment_info{volume_attachment=\"va-1\"}"
+    },
+    {
+      "name": "kube_volume_attachment_status_attached",
+      "service": "kube-state-metrics",
+      "labels": ["volume_attachment"],
+      "description": "Volume attachment status",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "kube_volume_attachment_status_attached{volume_attachment=\"va-1\"}"
+    },
+    {
+      "name": "kube_volume_attachment_spec_attacher",
+      "service": "kube-state-metrics",
+      "labels": ["volume_attachment", "attacher"],
+      "description": "Volume attachment attacher",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_volume_attachment_spec_attacher{volume_attachment=\"va-1\"}"
+    },
+    {
+      "name": "kube_volume_attachment_spec_node_name",
+      "service": "kube-state-metrics",
+      "labels": ["volume_attachment", "node"],
+      "description": "Volume attachment node name",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "kube_volume_attachment_spec_node_name{volume_attachment=\"va-1\"}"
+    }
+  ]
+  
