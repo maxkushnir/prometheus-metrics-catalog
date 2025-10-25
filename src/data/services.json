@@ -122,8 +122,8 @@
       "path": "/data/services/f5_bigip/metrics.json",
       "color": "red",
       "exporter": {
-        "name": "f5-bigip-exporter",
-        "link": "https://github.com/ExpressenAB/f5-bigip-exporter"
+        "name": "Built-in metrics",
+        "link": "https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/"
       }
     },
     {
