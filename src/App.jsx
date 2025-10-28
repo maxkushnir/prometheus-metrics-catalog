@@ -35,6 +35,14 @@ function App() {
     isInitialLoad.current = false;
   }, []);
   
+  // Clear metric search when service changes (after initial load)
+  useEffect(() => {
+    if (isInitialLoad.current) return;
+    if (serviceFilter && searchTerm) {
+      setSearchTerm('');
+    }
+  }, [serviceFilter]);
+  
   // Update URL when filters change
   useEffect(() => {
     // Don't update URL during initial load
