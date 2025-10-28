@@ -40,8 +40,8 @@
           "displayName": "MySQL",
           "description": "MySQL database server metrics",
           "exporter": {
-            "name": "mysqld_exporter",
-            "link": "https://github.com/prometheus/mysqld_exporter"
+            "name": "Built-in metrics",
+            "link": "https://mariadb.com/docs/tools/mariadb-enterprise-operator/metrics"
           }
         },
         {
@@ -82,8 +82,8 @@
       "path": "/data/services/maxscale/metrics.json",
       "color": "cyan",
       "exporter": {
-        "name": "maxscale-prometheus-exporter",
-        "link": "https://github.com/mariadb/maxscale-prometheus-exporter"
+        "name": "Built-in metrics",
+        "link": "https://mariadb.com/docs/tools/mariadb-enterprise-operator/metrics"
       }
     },
     {

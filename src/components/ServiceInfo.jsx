@@ -18,6 +18,7 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
   const highImportanceMetrics = serviceMetrics.filter(m => m.importance === 'high').length;
   const mediumImportanceMetrics = serviceMetrics.filter(m => m.importance === 'medium').length;
   const lowImportanceMetrics = serviceMetrics.filter(m => m.importance === 'low').length;
+  const criticalImportanceMetrics = serviceMetrics.filter(m => m.importance === 'critical').length;
 
   if (!serviceInfo) {
     return (
@@ -70,21 +71,25 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
         </div>
       )}
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="bg-gray-50 p-4 rounded-lg">
-          <h3 className="font-semibold text-gray-900 mb-2">Total Metrics</h3>
+          <h3 className="font-semibold text-gray-900 mb-2">Total</h3>
           <p className="text-2xl font-bold text-gray-600">{serviceMetrics.length}</p>
         </div>
+        <div className="bg-purple-50 p-4 rounded-lg">
+          <h3 className="font-semibold text-purple-900 mb-2">Critical</h3>
+          <p className="text-2xl font-bold text-purple-600">{criticalImportanceMetrics}</p>
+        </div>
         <div className="bg-red-50 p-4 rounded-lg">
-          <h3 className="font-semibold text-red-900 mb-2">High Priority</h3>
+          <h3 className="font-semibold text-red-900 mb-2">High</h3>
           <p className="text-2xl font-bold text-red-600">{highImportanceMetrics}</p>
         </div>
         <div className="bg-yellow-50 p-4 rounded-lg">
-          <h3 className="font-semibold text-yellow-900 mb-2">Medium Priority</h3>
+          <h3 className="font-semibold text-yellow-900 mb-2">Medium</h3>
           <p className="text-2xl font-bold text-yellow-600">{mediumImportanceMetrics}</p>
         </div>
         <div className="bg-green-50 p-4 rounded-lg">
-          <h3 className="font-semibold text-green-900 mb-2">Low Priority</h3>
+          <h3 className="font-semibold text-green-900 mb-2">Low</h3>
           <p className="text-2xl font-bold text-green-600">{lowImportanceMetrics}</p>
         </div>
       </div>
@@ -99,6 +104,7 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
               const subHigh = subMetrics.filter(m => m.importance === 'high').length;
               const subMedium = subMetrics.filter(m => m.importance === 'medium').length;
               const subLow = subMetrics.filter(m => m.importance === 'low').length;
+              const subCritical = subMetrics.filter(m => m.importance === 'critical').length;
               
               return (
                 <div key={subservice.name} className="bg-gray-50 p-4 rounded-lg">
@@ -125,17 +131,21 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
                     </div>
                   )}
                   
-                  <div className="grid grid-cols-4 gap-2 text-center">
+                  <div className="grid grid-cols-5 gap-2 text-center">
                     <div>
                       <p className="text-lg font-bold text-gray-600">{subMetrics.length}</p>
                       <p className="text-xs text-gray-500">Total</p>
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-red-600">{subHigh}</p>
+                      <p className="text-lg font-bold text-red-600">{subCritical}</p>
+                      <p className="text-xs text-gray-500">Critical</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-yellow-600">{subHigh}</p>
                       <p className="text-xs text-gray-500">High</p>
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-yellow-600">{subMedium}</p>
+                      <p className="text-lg font-bold text-green-600">{subMedium}</p>
                       <p className="text-xs text-gray-500">Medium</p>
                     </div>
                     <div>
