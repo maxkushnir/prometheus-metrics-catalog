@@ -114,7 +114,6 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
       {/* Subservice breakdown for service groups */}
       {foundServiceInfo.isGroup && foundServiceInfo.subservices && (
         <div className="mt-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Subservices</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {foundServiceInfo.subservices.map((subservice) => {
               const subMetrics = metrics.filter(m => m.service === subservice.name);
