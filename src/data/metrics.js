@@ -6,6 +6,7 @@ import nginxMetrics from './services/nginx/metrics.json';
 import redisMetrics from './services/redis/metrics.json';
 import pureMetrics from './services/pure/metrics.json';
 import kafkaMetrics from './services/kafka/metrics.json';
+import maxscaleMetrics from './services/maxscale/metrics.json';
 import mysqlMetrics from './services/mysql/metrics.json';
 import mongodbMetrics from './services/mongodb/metrics.json';
 import postgresqlMetrics from './services/postgresql/metrics.json';
@@ -23,6 +24,7 @@ export const allMetrics = [
   ...redisMetrics,
   ...pureMetrics,
   ...kafkaMetrics,
+  ...maxscaleMetrics,
   ...mysqlMetrics,
   ...mongodbMetrics,
   ...postgresqlMetrics,

@@ -76,6 +76,17 @@
       }
     },
     {
+      "name": "maxscale",
+      "displayName": "MariaDB MaxScale",
+      "description": "MariaDB MaxScale database proxy and load balancer metrics",
+      "path": "/data/services/maxscale/metrics.json",
+      "color": "cyan",
+      "exporter": {
+        "name": "maxscale-prometheus-exporter",
+        "link": "https://github.com/couchbase/couchbase-exporter"
+      }
+    },
+    {
       "name": "monitoring",
       "displayName": "System Monitoring",
       "description": "System and application monitoring metrics",
