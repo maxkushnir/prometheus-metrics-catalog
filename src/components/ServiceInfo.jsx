@@ -15,12 +15,26 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
     );
   }
   
+  // Try to find as a subservice if not found as main service
+  let foundServiceInfo = serviceInfo;
+  if (!foundServiceInfo) {
+    for (const service of services) {
+      if (service.subservices) {
+        const subservice = service.subservices.find(s => s.name === selectedService);
+        if (subservice) {
+          foundServiceInfo = subservice;
+          break;
+        }
+      }
+    }
+  }
+  
   const highImportanceMetrics = serviceMetrics.filter(m => m.importance === 'high').length;
   const mediumImportanceMetrics = serviceMetrics.filter(m => m.importance === 'medium').length;
   const lowImportanceMetrics = serviceMetrics.filter(m => m.importance === 'low').length;
   const criticalImportanceMetrics = serviceMetrics.filter(m => m.importance === 'critical').length;
 
-  if (!serviceInfo) {
+  if (!foundServiceInfo) {
     return (
       <div className="bg-white rounded-lg shadow-soft border border-gray-200 p-6 mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -38,34 +52,37 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
       <div className="flex items-center mb-4">
         <div 
           className={`w-4 h-4 rounded-full mr-3 ${
-            serviceInfo.color === 'blue' ? 'bg-blue-500' :
-            serviceInfo.color === 'green' ? 'bg-green-500' :
-            serviceInfo.color === 'orange' ? 'bg-orange-500' :
-            serviceInfo.color === 'red' ? 'bg-red-500' :
-            serviceInfo.color === 'purple' ? 'bg-purple-500' :
+            foundServiceInfo.color === 'blue' ? 'bg-blue-500' :
+            foundServiceInfo.color === 'green' ? 'bg-green-500' :
+            foundServiceInfo.color === 'orange' ? 'bg-orange-500' :
+            foundServiceInfo.color === 'red' ? 'bg-red-500' :
+            foundServiceInfo.color === 'purple' ? 'bg-purple-500' :
+            foundServiceInfo.color === 'yellow' ? 'bg-yellow-500' :
+            foundServiceInfo.color === 'indigo' ? 'bg-indigo-500' :
+            foundServiceInfo.color === 'cyan' ? 'bg-cyan-500' :
             'bg-gray-500'
           }`}
         />
-        <h2 className="text-2xl font-bold text-gray-900">{serviceInfo.displayName}</h2>
+        <h2 className="text-2xl font-bold text-gray-900">{foundServiceInfo.displayName}</h2>
       </div>
       
-      <p className="text-gray-600 mb-6">{serviceInfo.description}</p>
+      <p className="text-gray-600 mb-6">{foundServiceInfo.description}</p>
       
       {/* Exporter Information */}
-      {serviceInfo.exporter && (
+      {foundServiceInfo.exporter && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-blue-800 mb-1">
-            <span className="font-medium">Exporter:</span> {serviceInfo.exporter.name}
+            <span className="font-medium">Exporter:</span> {foundServiceInfo.exporter.name}
           </p>
           <p className="text-sm text-blue-800 break-all">
             <span className="font-medium">Link:</span> 
             <a 
-              href={serviceInfo.exporter.link} 
+              href={foundServiceInfo.exporter.link} 
               target="_blank" 
               rel="noopener noreferrer"
               className="ml-1 text-blue-600 hover:text-blue-800 underline break-all"
             >
-              {serviceInfo.exporter.link}
+              {foundServiceInfo.exporter.link}
             </a>
           </p>
         </div>
@@ -95,11 +112,11 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
       </div>
       
       {/* Subservice breakdown for service groups */}
-      {serviceInfo.isGroup && serviceInfo.subservices && (
+      {foundServiceInfo.isGroup && foundServiceInfo.subservices && (
         <div className="mt-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Subservices</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {serviceInfo.subservices.map((subservice) => {
+            {foundServiceInfo.subservices.map((subservice) => {
               const subMetrics = metrics.filter(m => m.service === subservice.name);
               const subHigh = subMetrics.filter(m => m.importance === 'high').length;
               const subMedium = subMetrics.filter(m => m.importance === 'medium').length;
