@@ -33,16 +33,16 @@ const MetricCard = ({ metric }) => {
   };
 
   return (
-    <div className={`bg-white rounded-lg shadow-soft border-l-4 p-6 mb-6 hover:shadow-medium transition-shadow duration-200 ${getImportanceColor(metric.importance)}`}>
+    <div className={`bg-white rounded-lg shadow-soft border-l-4 p-4 mb-4 hover:shadow-medium transition-shadow duration-200 ${getImportanceColor(metric.importance)}`}>
       {/* Header */}
-      <div className="flex justify-between items-start mb-4">
+      <div className="flex justify-between items-start mb-3">
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg lg:text-xl font-mono font-bold text-gray-900 mb-2 break-all">{metric.name}</h3>
+          <h3 className="text-base lg:text-lg font-mono font-bold text-gray-900 mb-1 break-all">{metric.name}</h3>
           <div className="flex items-center gap-2">
-            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getServiceColor(metric.service)}`}>
+            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getServiceColor(metric.service)}`}>
               {metric.service}
             </span>
-            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
               metric.importance === 'critical' ? 'bg-red-100 text-red-800' :
               metric.importance === 'high' ? 'bg-orange-100 text-orange-800' :
               metric.importance === 'medium' ? 'bg-yellow-100 text-yellow-800' :
@@ -55,15 +55,15 @@ const MetricCard = ({ metric }) => {
       </div>
       
       {/* Description */}
-      <div className="mb-4">
-        <p className="text-gray-700 leading-relaxed">{metric.description}</p>
+      <div className="mb-3">
+        <p className="text-sm text-gray-700 leading-relaxed">{metric.description}</p>
       </div>
       
       {/* Labels */}
       {metric.labels && metric.labels.length > 0 && (
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-gray-900 mb-2">Labels</h4>
-          <div className="flex flex-wrap gap-2">
+        <div className="mb-3">
+          <h4 className="text-xs font-semibold text-gray-900 mb-1">Labels</h4>
+          <div className="flex flex-wrap gap-1">
             {metric.labels.map((label, index) => (
               <span key={index} className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
                 {label}
@@ -74,9 +74,9 @@ const MetricCard = ({ metric }) => {
       )}
       
       {/* Example Usage */}
-      <div className="bg-gray-50 rounded-md p-4 border border-gray-200">
+      <div className="bg-gray-50 rounded-md p-3 border border-gray-200">
         <div className="flex justify-between items-center mb-2">
-          <h4 className="text-sm font-semibold text-gray-900">Example Usage</h4>
+          <h4 className="text-xs font-semibold text-gray-900">Example Usage</h4>
           <button
             onClick={() => copyToClipboard(metric.example_usage)}
             className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium transition-colors ${
@@ -102,8 +102,8 @@ const MetricCard = ({ metric }) => {
             )}
           </button>
         </div>
-        <div className="bg-gray-900 rounded-md p-3 overflow-x-auto">
-          <code className="text-sm text-green-400 font-mono break-all whitespace-pre-wrap">{metric.example_usage}</code>
+        <div className="bg-gray-900 rounded-md p-2 overflow-x-auto">
+          <code className="text-xs text-green-400 font-mono break-all whitespace-pre-wrap">{metric.example_usage}</code>
         </div>
       </div>
     </div>

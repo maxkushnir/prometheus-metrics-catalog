@@ -38,7 +38,7 @@ const MetricList = ({ metrics, searchTerm, importanceFilter, serviceFilter, serv
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-2">
       {filteredMetrics.map((metric, index) => (
         <MetricCard key={`${metric.name}-${index}`} metric={metric} />
       ))}
