@@ -83,7 +83,7 @@
       "color": "cyan",
       "exporter": {
         "name": "maxscale-prometheus-exporter",
-        "link": "https://github.com/couchbase/couchbase-exporter"
+        "link": "https://github.com/mariadb/maxscale-prometheus-exporter"
       }
     },
     {
