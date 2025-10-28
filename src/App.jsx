@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SearchBar from './components/SearchBar';
 import MetricList from './components/MetricList';
 import SideMenu from './components/SideMenu';
@@ -13,10 +13,43 @@ function App() {
   const [serviceFilter, setServiceFilter] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isInitialLoad = useRef(true);
+  
   useEffect(() => {
     // Load metrics from embedded data
     setMetrics(allMetrics);
+    
+    // Read URL parameters on load
+    const params = new URLSearchParams(window.location.search);
+    const serviceParam = params.get('service');
+    const metricParam = params.get('metric');
+    
+    if (serviceParam) {
+      setServiceFilter(serviceParam);
+      setSelectedService(serviceParam);
+    }
+    if (metricParam) {
+      setSearchTerm(metricParam);
+    }
+    
+    isInitialLoad.current = false;
   }, []);
+  
+  // Update URL when filters change
+  useEffect(() => {
+    // Don't update URL during initial load
+    if (isInitialLoad.current) return;
+    
+    const params = new URLSearchParams();
+    if (serviceFilter) params.set('service', serviceFilter);
+    if (searchTerm) params.set('metric', searchTerm);
+    
+    const newUrl = params.toString() 
+      ? `${window.location.pathname}?${params.toString()}`
+      : window.location.pathname;
+    
+    window.history.replaceState({}, '', newUrl);
+  }, [serviceFilter, searchTerm]);
 
   // Get unique services from metrics
   const availableServices = [...new Set(metrics.map(metric => metric.service))].sort();
