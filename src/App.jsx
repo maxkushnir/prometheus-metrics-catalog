@@ -75,10 +75,10 @@ function App() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200 py-4 lg:py-10">
+      <header className="bg-gradient-to-r from-blue-600 to-green-500 border-b border-gray-200 py-2 lg:py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mobile menu button */}
-          <div className="lg:hidden mb-4">
+          <div className="lg:hidden mb-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200"
@@ -90,25 +90,18 @@ function App() {
           </div>
           
           <div className="text-center">
-            {/* Prometheus Logo */}
-            <div className="mb-3 lg:mb-6">
-              <svg className="w-10 h-10 lg:w-20 lg:h-20 mx-auto text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            
             {/* Title */}
-            <h1 className="text-2xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 lg:mb-4">
+            <h1 className="text-xl lg:text-3xl font-bold text-white mb-1">
               Prometheus Metrics Catalog
             </h1>
             
             {/* Subtitle */}
-            <p className="text-sm lg:text-xl text-white mb-4 lg:mb-8">
+            <p className="text-xs lg:text-sm text-white mb-2">
               Collection of Prometheus metrics from various services
             </p>
             
             {/* Stats */}
-            <div className="flex justify-center space-x-6 lg:space-x-12 text-sm lg:text-base text-white mb-4 lg:mb-6">
+            <div className="flex justify-center space-x-4 lg:space-x-8 text-xs lg:text-sm text-white mb-2">
               <div>
                 <span className="font-semibold">{metrics.length}</span> metrics
               </div>
