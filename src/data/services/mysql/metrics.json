@@ -1,5 +1,95 @@
 [
     {
+      "name": "mysql_exporter_collector_duration_seconds",
+      "service": "mysql",
+      "labels": [],
+      "description": "Collector time duration",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "mysql_exporter_collector_duration_seconds"
+    },
+    {
+      "name": "mysql_exporter_collector_success",
+      "service": "mysql",
+      "labels": [],
+      "description": "Whether a collector succeeded",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_exporter_collector_success"
+    },
+    {
+      "name": "mysql_galera_evs_repl_latency_avg_seconds",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera group communication latency average value",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_galera_evs_repl_latency_avg_seconds"
+    },
+    {
+      "name": "mysql_galera_evs_repl_latency_max_seconds",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera group communication latency maximum value",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_galera_evs_repl_latency_max_seconds"
+    },
+    {
+      "name": "mysql_galera_evs_repl_latency_min_seconds",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera group communication latency minimum value",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_galera_evs_repl_latency_min_seconds"
+    },
+    {
+      "name": "mysql_galera_evs_repl_latency_sample_size",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera group communication latency sample size",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_galera_evs_repl_latency_sample_size"
+    },
+    {
+      "name": "mysql_galera_evs_repl_latency_stdev",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera group communication latency standard deviation",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_galera_evs_repl_latency_stdev"
+    },
+    {
+      "name": "mysql_galera_gcache_size_bytes",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera gcache size in bytes",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_galera_gcache_size_bytes"
+    },
+    {
+      "name": "mysql_galera_status_info",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera status information",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_galera_status_info"
+    },
+    {
+      "name": "mysql_galera_variables_info",
+      "service": "mysql",
+      "labels": [],
+      "description": "PXC/Galera variables information",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "mysql_galera_variables_info"
+    },
+    {
       "name": "mysql_up",
       "service": "mysql",
       "labels": [],
@@ -7,6 +97,24 @@
       "importance": "critical",
       "type": "gauge",
       "example_usage": "mysql_up"
+    },
+    {
+      "name": "mysql_version_info",
+      "service": "mysql",
+      "labels": [],
+      "description": "MySQL version and distribution information",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_version_info"
+    },
+    {
+      "name": "mysql_transaction_isolation",
+      "service": "mysql",
+      "labels": [],
+      "description": "MySQL transaction isolation level",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_transaction_isolation"
     },
     {
       "name": "mysql_global_status_connections",
@@ -1132,5 +1240,122 @@
       "importance": "low",
       "type": "counter",
       "example_usage": "rate(mysql_info_schema_innodb_cmp_pages_decompressed_total_secondary_time[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_compress_ops_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of times a B-tree page has been compressed",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_compress_ops_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_compress_ops_ok_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of times a B-tree page has been successfully compressed",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_compress_ops_ok_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_compress_time_seconds_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time in seconds spent compressing B-tree pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_compress_time_seconds_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_uncompress_ops_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of times a B-tree page has been uncompressed",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_uncompress_ops_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmp_uncompress_time_seconds_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time in seconds spent uncompressing B-tree pages",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmp_uncompress_time_seconds_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_pages_free_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of blocks currently available for allocation",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_info_schema_innodb_cmpmem_pages_free_total"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_pages_used_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Number of blocks currently in use",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_info_schema_innodb_cmpmem_pages_used_total"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_relocation_ops_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total number of times a block has been relocated",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmpmem_relocation_ops_total[5m])"
+    },
+    {
+      "name": "mysql_info_schema_innodb_cmpmem_relocation_time_seconds_total",
+      "service": "mysql",
+      "labels": ["page_size"],
+      "description": "Total time in seconds spent relocating blocks",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "rate(mysql_info_schema_innodb_cmpmem_relocation_time_seconds_total[5m])"
+    },
+    {
+      "name": "mysql_global_status_aborted_clients",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of connections that were aborted because client died without closing properly",
+      "importance": "medium",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_aborted_clients[5m])"
+    },
+    {
+      "name": "mysql_global_status_access_denied_errors",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of access denied errors",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "rate(mysql_global_status_access_denied_errors[5m])"
+    },
+    {
+      "name": "mysql_global_status_acl_users",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of user accounts configured in ACL",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_acl_users"
+    },
+    {
+      "name": "mysql_global_status_acl_roles",
+      "service": "mysql",
+      "labels": [],
+      "description": "Number of roles configured in ACL",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "mysql_global_status_acl_roles"
     }
   ]
