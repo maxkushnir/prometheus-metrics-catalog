@@ -1,0 +1,470 @@
+[
+  {
+    "name": "maxscale_exporter_collector_duration_seconds",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Collector time duration",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_exporter_collector_duration_seconds"
+  },
+  {
+    "name": "maxscale_exporter_last_scrape_error",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Whether the last scrape of metrics from MaxScale resulted in an error (1 for error, 0 for success)",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_exporter_last_scrape_error"
+  },
+  {
+    "name": "maxscale_exporter_scrapes_total",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Total number of times MaxScale was scraped for metrics",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_exporter_scrapes_total[5m])"
+  },
+  {
+    "name": "maxscale_logging_high_precision",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Whether high precision logging is active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_high_precision"
+  },
+  {
+    "name": "maxscale_logging_level",
+    "service": "maxscale",
+    "labels": [],
+    "description": "The current logging levels active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_level"
+  },
+  {
+    "name": "maxscale_logging_maxlog",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Whether maxlog is active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_maxlog"
+  },
+  {
+    "name": "maxscale_logging_syslog",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Whether syslog is active",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_syslog"
+  },
+  {
+    "name": "maxscale_logging_throttling_count",
+    "service": "maxscale",
+    "labels": [],
+    "description": "The number of logging throttling events",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_throttling_count"
+  },
+  {
+    "name": "maxscale_logging_throttling_suppress_milliseconds",
+    "service": "maxscale",
+    "labels": [],
+    "description": "The value of logging throttling suppress_ms",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_throttling_suppress_milliseconds"
+  },
+  {
+    "name": "maxscale_logging_throttling_suppress_window_milliseconds",
+    "service": "maxscale",
+    "labels": [],
+    "description": "The value of logging throttling window_ms",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_logging_throttling_suppress_window_milliseconds"
+  },
+  {
+    "name": "maxscale_modules",
+    "service": "maxscale",
+    "labels": [],
+    "description": "MaxScale modules currently enabled",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_modules"
+  },
+  {
+    "name": "maxscale_monitor",
+    "service": "maxscale",
+    "labels": [],
+    "description": "MaxScale Monitor information",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_monitor"
+  },
+  {
+    "name": "maxscale_server_active_operations",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The number of active operations on the server",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_server_active_operations{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_adaptive_avg_select_time",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The adaptive average select time (always zero)",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_server_adaptive_avg_select_time{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_connection_pool_empty",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The current connection pool empty count",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_server_connection_pool_empty{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_connections",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The current number of connections to the server",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_server_connections{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_max_connections",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The maximum number of connections allowed to the server",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_server_max_connections{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_max_pool_size",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The current maximum pool size",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_server_max_pool_size{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_persistent_connections",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The number of persistent connections to the server",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_server_persistent_connections{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_reused_connections",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The number of reused connections by the server",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_server_reused_connections{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_routed_packets",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The number of routed packets to the server",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_server_routed_packets[5m])"
+  },
+  {
+    "name": "maxscale_server_state",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The current state of the server",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "maxscale_server_state{server=\"server1\"}"
+  },
+  {
+    "name": "maxscale_server_total_connections",
+    "service": "maxscale",
+    "labels": ["server"],
+    "description": "The total number of connections to the server",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(maxscale_server_total_connections[5m])"
+  },
+  {
+    "name": "maxscale_service_active_connections",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The total number of active operations to the service",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_service_active_connections{service=\"service1\"}"
+  },
+  {
+    "name": "maxscale_service_connections",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The current number of connections to the service",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_service_connections{service=\"service1\"}"
+  },
+  {
+    "name": "maxscale_service_state",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The current state of each service",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "maxscale_service_state{service=\"service1\"}"
+  },
+  {
+    "name": "maxscale_service_statistics_connections",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The total number of connections to the service",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_service_statistics_connections{service=\"service1\"}"
+  },
+  {
+    "name": "maxscale_service_statistics_failed_auths",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The total number of failed authentications to the service",
+    "importance": "critical",
+    "type": "counter",
+    "example_usage": "rate(maxscale_service_statistics_failed_auths[5m])"
+  },
+  {
+    "name": "maxscale_service_statistics_max_connections",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The maximum number of connections to the service",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_service_statistics_max_connections{service=\"service1\"}"
+  },
+  {
+    "name": "maxscale_service_statistics_routed_packets",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The total number of routed packets to the service",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_service_statistics_routed_packets[5m])"
+  },
+  {
+    "name": "maxscale_service_statistics_total_connections",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The total number of connections to the service",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(maxscale_service_statistics_total_connections[5m])"
+  },
+  {
+    "name": "maxscale_service_total_connections",
+    "service": "maxscale",
+    "labels": ["service"],
+    "description": "The total number of connections to the service",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(maxscale_service_total_connections[5m])"
+  },
+  {
+    "name": "maxscale_threads_accepts",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The number of accept events",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_threads_accepts[5m])"
+  },
+  {
+    "name": "maxscale_threads_blocking_polls",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The number of non-blocking poll cycles before a blocking poll",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_blocking_polls{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_count",
+    "service": "maxscale",
+    "labels": [],
+    "description": "The number of threads in MaxScale",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_count"
+  },
+  {
+    "name": "maxscale_threads_current_descriptors",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The current number of descriptors handled by each thread",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_current_descriptors{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_errors",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The number of error events",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "rate(maxscale_threads_errors[5m])"
+  },
+  {
+    "name": "maxscale_threads_event_queue_length",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The amount of I/O events returned by one call to epoll_wait",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_event_queue_length{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_hangups",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The number of hangup events",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_threads_hangups[5m])"
+  },
+  {
+    "name": "maxscale_threads_load_last_hour",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The load during the last 60 minutes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_load_last_hour{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_load_last_minute",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The load during the last 60 seconds",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_load_last_minute{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_load_last_second",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The load during the last second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_load_last_second{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_max_event_queue_length",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The maximum amount of I/O events returned by one call to epoll_wait",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_max_event_queue_length{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_max_exec_time",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The maximum time it took to process an I/O event",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_max_exec_time{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_max_queue_time",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The maximum time before an I/O event was ready for processing (milliseconds)",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_max_queue_time{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_reads",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The number of read events",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_threads_reads[5m])"
+  },
+  {
+    "name": "maxscale_threads_stack_size",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The stack size of each worker thread",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_stack_size{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_total_descriptors",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The total number of descriptors handled by each thread since startup",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_threads_total_descriptors{thread=\"thread-1\"}"
+  },
+  {
+    "name": "maxscale_threads_writes",
+    "service": "maxscale",
+    "labels": ["thread"],
+    "description": "The number of write events",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "rate(maxscale_threads_writes[5m])"
+  },
+  {
+    "name": "maxscale_up",
+    "service": "maxscale",
+    "labels": [],
+    "description": "Whether the MaxScale server is up",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "maxscale_up"
+  },
+  {
+    "name": "maxscale_uptime_seconds",
+    "service": "maxscale",
+    "labels": [],
+    "description": "MaxScale uptime in seconds",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "maxscale_uptime_seconds"
+  },
+  {
+    "name": "maxscale_version",
+    "service": "maxscale",
+    "labels": [],
+    "description": "MaxScale version information",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "maxscale_version"
+  }
+]
