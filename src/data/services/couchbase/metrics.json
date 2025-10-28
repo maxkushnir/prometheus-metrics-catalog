@@ -1,0 +1,1275 @@
+[
+    {
+      "name": "cbbucketinfo_basic_dataused_bytes",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_dataused",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_dataused_bytes{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_basic_diskfetches",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_diskfetches",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_diskfetches{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_basic_diskused_bytes",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_diskused",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_diskused_bytes{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_basic_itemcount",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_itemcount",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_itemcount{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_basic_memused_bytes",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_memused",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_memused_bytes{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_basic_opspersec",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_opspersec",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_opspersec{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_basic_quota_user_percent",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "basic_quotapercentused",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_basic_quota_user_percent{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbbucketinfo_up",
+      "service": "couchbase",
+      "category": "bucketinfo",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbbucketinfo_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_disk_used",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "The total disk size used by Analytics",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbcbas_disk_used{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_gc_count",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of JVM garbage collections for Analytics node",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbcbas_gc_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_gc_time",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "The amount of time in milliseconds spent performing JVM garbage collections for Analytics node",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbcbas_gc_time{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_heap_used",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Amount of JVM heap used by Analytics on this server",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbcbas_heap_used{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_io_reads",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of disk bytes read on Analytics node per second",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbcbas_io_reads{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_io_writes",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of disk bytes written on Analytics node per second",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbcbas_io_writes{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbcbas_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_system_load_avg",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "System load for Analytics node",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbcbas_system_load_avg{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_thread_count",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of threads for Analytics node",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbcbas_thread_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbcbas_up",
+      "service": "couchbase",
+      "category": "analytics",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbcbas_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_dcp_backlog",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Mutations yet to be processed by the function",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbeventing_dcp_backlog{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_failed_count",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Mutations for which the function execution failed",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbeventing_failed_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_n1ql_op_exception_count",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [],
+      "description": "Number of disk bytes read on Analytics node per second",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbeventing_n1ql_op_exception_count"
+    },
+    {
+      "name": "cbeventing_on_delete_failure",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of disk bytes written on Analytics node per second",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbeventing_on_delete_failure{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_on_delete_success",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "System load for Analytics node",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbeventing_on_delete_success{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_processed_count",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Mutations for which the function has finished processing",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbeventing_processed_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbeventing_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_timeout_count",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Function execution timed-out while processing",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbeventing_timeout_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbeventing_up",
+      "service": "couchbase",
+      "category": "eventing",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbeventing_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbfts_curr_batches_blocked_by_herder",
+      "service": "couchbase",
+      "category": "fts",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of DCP batches blocked by the FTS throttler due to high memory consumption",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbfts_curr_batches_blocked_by_herder{cluster=\"production\"}"
+    },
+    {
+      "name": "cbfts_num_bytes_used_ram",
+      "service": "couchbase",
+      "category": "fts",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Amount of RAM used by FTS on this server",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbfts_num_bytes_used_ram{cluster=\"production\"}"
+    },
+    {
+      "name": "cbfts_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "fts",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbfts_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbfts_total_queries_rejected_by_herder",
+      "service": "couchbase",
+      "category": "fts",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Number of fts queries rejected by the FTS throttler due to high memory consumption",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbfts_total_queries_rejected_by_herder{cluster=\"production\"}"
+    },
+    {
+      "name": "cbfts_up",
+      "service": "couchbase",
+      "category": "fts",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbfts_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbindex_memory_quota",
+      "service": "couchbase",
+      "category": "index",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Index Service memory quota",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbindex_memory_quota{cluster=\"production\"}"
+    },
+    {
+      "name": "cbindex_memory_used",
+      "service": "couchbase",
+      "category": "index",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Index Service memory used",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbindex_memory_used{cluster=\"production\"}"
+    },
+    {
+      "name": "cbindex_ram_percent",
+      "service": "couchbase",
+      "category": "index",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Percentage of Index RAM quota in use across all indexes on this server.",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbindex_ram_percent{cluster=\"production\"}"
+    },
+    {
+      "name": "cbindex_remaining_ram",
+      "service": "couchbase",
+      "category": "index",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Bytes of Index RAM quota still available on this server.",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbindex_remaining_ram{cluster=\"production\"}"
+    },
+    {
+      "name": "cbindex_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "index",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbindex_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbindex_up",
+      "service": "couchbase",
+      "category": "index",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbindex_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_cluster_membership",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "whether or not node is part of the CB cluster",
+      "importance": "low",
+      "type": "counter",
+      "example_usage": "cbnode_cluster_membership{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_failover",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "failover",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_failover{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_failover_complete",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "failover_complete",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_failover_complete{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_failover_incomplete",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "failover_incomplete",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_failover_incomplete{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_failover_node",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "failover_node",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_failover_node{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_graceful_failover_fail",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "graceful_failover_fail",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_graceful_failover_fail{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_graceful_failover_start",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "graceful_failover_start",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_graceful_failover_start{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_graceful_failover_success",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "graceful_failover_success",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_graceful_failover_success{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_healthy",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Is this node healthy",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbnode_healthy{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_cmd_get",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Number of reads (get operations) per second from this bucket. (measured from cmd_get)",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_cmd_get{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_couch_docs_actual_disk_size",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "The size of all data service files on disk for this bucket, including the data itself, metadata, and temporary files. (measured from couch_docs_actual_disk_size)",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_couch_docs_actual_disk_size{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_couch_docs_data_size",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of active data in this bucket. (measured from couch_docs_data_size)",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_couch_docs_data_size{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_couch_spatial_data_size",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "interestingstats_couch_spatial_data_size",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_couch_spatial_data_size{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_couch_spatial_disk_size",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "interestingstats_couch_spatial_disk_size",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_couch_spatial_disk_size{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_couch_views_actual_disk_size",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of active items in all the views for this bucket on disk (measured from couch_views_actual_disk_size)",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_couch_views_actual_disk_size{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_couch_views_data_size",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of active data for all the views in this bucket. (measured from couch_views_data_size)",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_couch_views_data_size{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_curr_items",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Current number of unique items in Couchbase",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_curr_items{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_curr_items_tot",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Current number of items in Couchbase including replicas",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_curr_items_tot{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_ep_bg_fetched",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Number of reads per second from disk for this bucket. (measured from ep_bg_fetched)",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_ep_bg_fetched{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_get_hits",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Number of get operations per second for data that this bucket contains. (measured from get_hits)",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_get_hits{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_mem_used",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Total memory used in bytes. (as measured from mem_used)",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_mem_used{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_ops",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Total operations per second (including XDCR) to this bucket. (measured from cmd_get + cmd_set + incr_misses + incr_hits + decr_misses + decr_hits + delete_misses + delete_hits + ep_num_ops_del_meta + ep_num_ops_get_meta + ep_num_ops_set_meta)",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_ops{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_vb_active_number_non_resident",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "interestingstats_vb_active_number_non_resident",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_vb_active_number_non_resident{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_interestingstats_vb_replica_curr_items",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Number of items in replica vBuckets in this bucket. (measured from vb_replica_curr_items)",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbnode_interestingstats_vb_replica_curr_items{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_memcached_memory_allocated",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "memcached_memory_allocated",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "cbnode_memcached_memory_allocated{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_memcached_memory_reserved",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "memcached_memory_reserved",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "cbnode_memcached_memory_reserved{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_memory_free",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "memory_free",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "cbnode_memory_free{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_memory_total",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "memory_total",
+      "importance": "high",
+      "type": "counter",
+      "example_usage": "cbnode_memory_total{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_rebalance_failure",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "rebalance_failure",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_rebalance_failure{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_rebalance_start",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "rebalance_start",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_rebalance_start{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_rebalance_stop",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "rebalance_stop",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_rebalance_stop{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_rebalance_success",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "rebalance_success",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_rebalance_success{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_systemstats_cpu_utilization_rate",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Percentage of CPU in use across all available cores on this server.",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbnode_systemstats_cpu_utilization_rate{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_systemstats_mem_free",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of memory not in use on this server.",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_systemstats_mem_free{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_systemstats_mem_total",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of total memory available on this server.",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_systemstats_mem_total{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_systemstats_swap_total",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of total swap space available on this server.",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_systemstats_swap_total{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_systemstats_swap_used",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "Bytes of swap space in use on this server.",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbnode_systemstats_swap_used{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_up",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbnode_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbnode_uptime",
+      "service": "couchbase",
+      "category": "node",
+      "labels": [
+        "node",
+        "cluster"
+      ],
+      "description": "uptime",
+      "importance": "critical",
+      "type": "counter",
+      "example_usage": "cbnode_uptime{node=\"node1\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_active_requests",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "active number of requests",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_active_requests{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_avg_req_time",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "average request time",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_avg_req_time{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_avg_response_size",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "average response size",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_avg_response_size{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_avg_result_count",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "average result count",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_avg_result_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_avg_svc_time",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "average service time",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_avg_svc_time{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_errors",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "number of query errors",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbquery_errors{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_invalid_requests",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "number of invalid requests",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_invalid_requests{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_queued_requests",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "number of queued requests",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_queued_requests{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_request_time",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "query request time",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_request_time{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_requests",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "number of query requests",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_requests{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_requests_1000ms",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [],
+      "description": "number of requests that take longer than 1000 ms per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_requests_1000ms"
+    },
+    {
+      "name": "cbquery_requests_250ms",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [],
+      "description": "number of requests that take longer than 250 ms per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_requests_250ms"
+    },
+    {
+      "name": "cbquery_requests_5000ms",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [],
+      "description": "number of requests that take longer than 5000 ms per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_requests_5000ms"
+    },
+    {
+      "name": "cbquery_requests_500ms",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [],
+      "description": "number of requests that take longer than 500 ms per second",
+      "importance": "high",
+      "type": "gauge",
+      "example_usage": "cbquery_requests_500ms"
+    },
+    {
+      "name": "cbquery_result_count",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "query result count",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_result_count{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_result_size",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "query result size",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_result_size{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_selects",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "number of queries involving SELECT",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbquery_selects{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_service_time",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "query service time",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbquery_service_time{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_up",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbquery_up{cluster=\"production\"}"
+    },
+    {
+      "name": "cbquery_warnings",
+      "service": "couchbase",
+      "category": "query",
+      "labels": [
+        "cluster"
+      ],
+      "description": "number of query warnings",
+      "importance": "low",
+      "type": "gauge",
+      "example_usage": "cbquery_warnings{cluster=\"production\"}"
+    },
+    {
+      "name": "cbtask_compacting_progress",
+      "service": "couchbase",
+      "category": "task",
+      "labels": [
+        "bucket",
+        "cluster"
+      ],
+      "description": "Progress of a bucket compaction task",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbtask_compacting_progress{bucket=\"default\", cluster=\"production\"}"
+    },
+    {
+      "name": "cbtask_rebalance_progress",
+      "service": "couchbase",
+      "category": "task",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Progress of a rebalance task",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbtask_rebalance_progress{cluster=\"production\"}"
+    },
+    {
+      "name": "cbtask_scrape_duration_seconds",
+      "service": "couchbase",
+      "category": "task",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Scrape duration in seconds",
+      "importance": "medium",
+      "type": "gauge",
+      "example_usage": "cbtask_scrape_duration_seconds{cluster=\"production\"}"
+    },
+    {
+      "name": "cbtask_up",
+      "service": "couchbase",
+      "category": "task",
+      "labels": [
+        "cluster"
+      ],
+      "description": "Couchbase cluster API is responding",
+      "importance": "critical",
+      "type": "gauge",
+      "example_usage": "cbtask_up{cluster=\"production\"}"
+    }
+  ]

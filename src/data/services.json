@@ -18,6 +18,15 @@
           }
         },
         {
+          "name": "couchbase",
+          "displayName": "Couchbase",
+          "description": "NoSQL database metrics",
+          "exporter": {
+            "name": "couchbase-exporter",
+            "link": "https://github.com/couchbase/couchbase-exporter"
+          }
+        },
+        {
           "name": "redis",
           "displayName": "Redis",
           "description": "In-memory data structure store metrics",
