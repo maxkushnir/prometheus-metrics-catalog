@@ -7,7 +7,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_dataused",
+      "description": "Total data stored in the bucket in bytes",
       "importance": "medium",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_dataused_bytes{bucket=\"default\", cluster=\"production\"}"
@@ -20,7 +20,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_diskfetches",
+      "description": "Number of disk operations to fetch items per second",
       "importance": "high",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_diskfetches{bucket=\"default\", cluster=\"production\"}"
@@ -33,7 +33,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_diskused",
+      "description": "Total disk space used by the bucket in bytes",
       "importance": "high",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_diskused_bytes{bucket=\"default\", cluster=\"production\"}"
@@ -46,7 +46,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_itemcount",
+      "description": "Current number of items in the bucket",
       "importance": "medium",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_itemcount{bucket=\"default\", cluster=\"production\"}"
@@ -59,7 +59,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_memused",
+      "description": "Memory currently used by the bucket in bytes",
       "importance": "medium",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_memused_bytes{bucket=\"default\", cluster=\"production\"}"
@@ -72,7 +72,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_opspersec",
+      "description": "Database operations performed per second on this bucket",
       "importance": "high",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_opspersec{bucket=\"default\", cluster=\"production\"}"
@@ -85,7 +85,7 @@
         "bucket",
         "cluster"
       ],
-      "description": "basic_quotapercentused",
+      "description": "Percentage of allocated bucket quota currently in use (0-100%)",
       "importance": "high",
       "type": "gauge",
       "example_usage": "cbbucketinfo_basic_quota_user_percent{bucket=\"default\", cluster=\"production\"}"
@@ -263,7 +263,7 @@
       "service": "couchbase",
       "category": "eventing",
       "labels": [],
-      "description": "Number of disk bytes read on Analytics node per second",
+      "description": "Number of N1QL query exceptions in the eventing service",
       "importance": "critical",
       "type": "gauge",
       "example_usage": "cbeventing_n1ql_op_exception_count"
@@ -275,7 +275,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "Number of disk bytes written on Analytics node per second",
+      "description": "Number of eventing function executions triggered by document deletions that failed",
       "importance": "low",
       "type": "gauge",
       "example_usage": "cbeventing_on_delete_failure{cluster=\"production\"}"
@@ -287,7 +287,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "System load for Analytics node",
+      "description": "Number of eventing function executions successfully triggered by document deletions",
       "importance": "low",
       "type": "gauge",
       "example_usage": "cbeventing_on_delete_success{cluster=\"production\"}"
@@ -492,7 +492,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "failover",
+      "description": "Total number of node failover events",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_failover{cluster=\"production\"}"
@@ -504,7 +504,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "failover_complete",
+      "description": "Number of successfully completed node failovers",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_failover_complete{cluster=\"production\"}"
@@ -516,7 +516,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "failover_incomplete",
+      "description": "Number of failed or incomplete node failovers",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_failover_incomplete{cluster=\"production\"}"
@@ -528,7 +528,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "failover_node",
+      "description": "Nodes that were explicitly failed over",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_failover_node{cluster=\"production\"}"
@@ -540,7 +540,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "graceful_failover_fail",
+      "description": "Number of failed graceful failover attempts",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_graceful_failover_fail{cluster=\"production\"}"
@@ -552,7 +552,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "graceful_failover_start",
+      "description": "Number of graceful failover operations initiated",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_graceful_failover_start{cluster=\"production\"}"
@@ -564,7 +564,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "graceful_failover_success",
+      "description": "Number of successfully completed graceful failovers",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_graceful_failover_success{cluster=\"production\"}"
@@ -629,7 +629,7 @@
         "node",
         "cluster"
       ],
-      "description": "interestingstats_couch_spatial_data_size",
+      "description": "Spatial index data size stored on disk for this bucket in bytes",
       "importance": "medium",
       "type": "gauge",
       "example_usage": "cbnode_interestingstats_couch_spatial_data_size{node=\"node1\", cluster=\"production\"}"
@@ -642,7 +642,7 @@
         "node",
         "cluster"
       ],
-      "description": "interestingstats_couch_spatial_disk_size",
+      "description": "Spatial index files size on disk for this bucket in bytes",
       "importance": "high",
       "type": "gauge",
       "example_usage": "cbnode_interestingstats_couch_spatial_disk_size{node=\"node1\", cluster=\"production\"}"
@@ -759,7 +759,7 @@
         "node",
         "cluster"
       ],
-      "description": "interestingstats_vb_active_number_non_resident",
+      "description": "Estimated number of active vBuckets not currently in memory on this node",
       "importance": "high",
       "type": "gauge",
       "example_usage": "cbnode_interestingstats_vb_active_number_non_resident{node=\"node1\", cluster=\"production\"}"
@@ -785,7 +785,7 @@
         "node",
         "cluster"
       ],
-      "description": "memcached_memory_allocated",
+      "description": "Memory allocated to the memcached engine in bytes",
       "importance": "high",
       "type": "counter",
       "example_usage": "cbnode_memcached_memory_allocated{node=\"node1\", cluster=\"production\"}"
@@ -798,7 +798,7 @@
         "node",
         "cluster"
       ],
-      "description": "memcached_memory_reserved",
+      "description": "Memory reserved by memcached for buffer operations in bytes",
       "importance": "high",
       "type": "counter",
       "example_usage": "cbnode_memcached_memory_reserved{node=\"node1\", cluster=\"production\"}"
@@ -811,7 +811,7 @@
         "node",
         "cluster"
       ],
-      "description": "memory_free",
+      "description": "Available free memory on this Couchbase node in bytes",
       "importance": "high",
       "type": "counter",
       "example_usage": "cbnode_memory_free{node=\"node1\", cluster=\"production\"}"
@@ -824,7 +824,7 @@
         "node",
         "cluster"
       ],
-      "description": "memory_total",
+      "description": "Total system memory available on this Couchbase node in bytes",
       "importance": "high",
       "type": "counter",
       "example_usage": "cbnode_memory_total{node=\"node1\", cluster=\"production\"}"
@@ -836,7 +836,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "rebalance_failure",
+      "description": "Number of completed cluster rebalance operations with failures",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_rebalance_failure{cluster=\"production\"}"
@@ -848,7 +848,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "rebalance_start",
+      "description": "Number of cluster rebalance operations initiated",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_rebalance_start{cluster=\"production\"}"
@@ -860,7 +860,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "rebalance_stop",
+      "description": "Number of cluster rebalance operations that were stopped or aborted",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_rebalance_stop{cluster=\"production\"}"
@@ -872,7 +872,7 @@
       "labels": [
         "cluster"
       ],
-      "description": "rebalance_success",
+      "description": "Number of successfully completed cluster rebalance operations",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_rebalance_success{cluster=\"production\"}"
@@ -974,7 +974,7 @@
         "node",
         "cluster"
       ],
-      "description": "uptime",
+      "description": "Time in seconds since this Couchbase node started",
       "importance": "critical",
       "type": "counter",
       "example_usage": "cbnode_uptime{node=\"node1\", cluster=\"production\"}"
