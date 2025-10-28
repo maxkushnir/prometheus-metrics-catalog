@@ -137,15 +137,15 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
                       <p className="text-xs text-gray-500">Total</p>
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-red-600">{subCritical}</p>
+                      <p className="text-lg font-bold text-purple-600">{subCritical}</p>
                       <p className="text-xs text-gray-500">Critical</p>
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-yellow-600">{subHigh}</p>
+                      <p className="text-lg font-bold text-red-600">{subHigh}</p>
                       <p className="text-xs text-gray-500">High</p>
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-green-600">{subMedium}</p>
+                      <p className="text-lg font-bold text-yellow-600">{subMedium}</p>
                       <p className="text-xs text-gray-500">Medium</p>
                     </div>
                     <div>
