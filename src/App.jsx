@@ -41,6 +41,8 @@ function App() {
     if (serviceFilter && searchTerm) {
       setSearchTerm('');
     }
+    // Scroll to top when service changes
+    window.scrollTo(0, 0);
   }, [serviceFilter]);
   
   // Update URL when filters change
