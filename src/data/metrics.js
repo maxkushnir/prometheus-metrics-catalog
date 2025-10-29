@@ -9,6 +9,7 @@ import kafkaMetrics from './services/kafka/metrics.json';
 import maxscaleMetrics from './services/maxscale/metrics.json';
 import mariadbMetrics from './services/mariadb/metrics.json';
 import mssqlMetrics from './services/mssql/metrics.json';
+import memcachedMetrics from './services/memcached/metrics.json';
 import mongodbMetrics from './services/mongodb/metrics.json';
 import postgresqlMetrics from './services/postgresql/metrics.json';
 import awsMetrics from './services/aws/metrics.json';
@@ -28,6 +29,7 @@ export const allMetrics = [
   ...maxscaleMetrics,
   ...mariadbMetrics,
   ...mssqlMetrics,
+  ...memcachedMetrics,
   ...mongodbMetrics,
   ...postgresqlMetrics,
   ...awsMetrics,

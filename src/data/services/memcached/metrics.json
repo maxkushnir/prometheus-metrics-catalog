@@ -1,0 +1,560 @@
+[
+  {
+    "name": "memcached_up",
+    "service": "memcached",
+    "labels": [],
+    "description": "Could the memcached server be reached",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "memcached_up"
+  },
+  {
+    "name": "memcached_version",
+    "service": "memcached",
+    "labels": [],
+    "description": "The version of this memcached server",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_version"
+  },
+  {
+    "name": "memcached_time_seconds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Current UNIX time according to the server",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "memcached_time_seconds"
+  },
+  {
+    "name": "memcached_uptime_seconds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Number of seconds since the server started",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_uptime_seconds"
+  },
+  {
+    "name": "memcached_rusage_user_seconds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Accumulated user time for this process",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_rusage_user_seconds"
+  },
+  {
+    "name": "memcached_rusage_system_seconds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Accumulated system time for this process",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_rusage_system_seconds"
+  },
+  {
+    "name": "memcached_max_connections",
+    "service": "memcached",
+    "labels": [],
+    "description": "Maximum number of clients allowed",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "memcached_max_connections"
+  },
+  {
+    "name": "memcached_current_connections",
+    "service": "memcached",
+    "labels": [],
+    "description": "Number of open connections",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "memcached_current_connections"
+  },
+  {
+    "name": "memcached_connections_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of connections opened since the server started running",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_connections_total"
+  },
+  {
+    "name": "memcached_rejected_connections_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of connections rejected from hitting the max connection limit",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_rejected_connections_total"
+  },
+  {
+    "name": "memcached_read_bytes_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of bytes read by this server from network",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_read_bytes_total"
+  },
+  {
+    "name": "memcached_written_bytes_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of bytes sent by this server to network",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_written_bytes_total"
+  },
+  {
+    "name": "memcached_commands_total",
+    "service": "memcached",
+    "labels": ["cmd", "status"],
+    "description": "Total number of all requests broken down by command and status",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_commands_total{cmd=\"get\",status=\"hit\"}"
+  },
+  {
+    "name": "memcached_current_bytes",
+    "service": "memcached",
+    "labels": [],
+    "description": "Current number of bytes used by the server to store items",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "memcached_current_bytes"
+  },
+  {
+    "name": "memcached_limit_bytes",
+    "service": "memcached",
+    "labels": [],
+    "description": "Number of bytes this server is allowed to use for storage",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "memcached_limit_bytes"
+  },
+  {
+    "name": "memcached_items_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of items stored in this server ever since it started",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_items_total"
+  },
+  {
+    "name": "memcached_items_current",
+    "service": "memcached",
+    "labels": [],
+    "description": "Current number of items stored in this server",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "memcached_items_current"
+  },
+  {
+    "name": "memcached_items_evicted_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of times an item had to be evicted from the LRU before it expired",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_items_evicted_total"
+  },
+  {
+    "name": "memcached_items_evicted_nonzero_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of times an item with explicit expire time had to be evicted",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_items_evicted_nonzero_total"
+  },
+  {
+    "name": "memcached_items_reclaimed_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of items reclaimed",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_items_reclaimed_total"
+  },
+  {
+    "name": "memcached_items_expired_unfetched_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of valid items evicted from the LRU never touched after being set",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_items_expired_unfetched_total"
+  },
+  {
+    "name": "memcached_items_evicted_unfetched_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of items evicted and never fetched",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_items_evicted_unfetched_total"
+  },
+  {
+    "name": "memcached_items_evicted_time_seconds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Seconds since the last access for the most recent item evicted",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_items_evicted_time_seconds"
+  },
+  {
+    "name": "memcached_items_outofmemory_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of items for that would have triggered an out of memory error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_items_outofmemory_total"
+  },
+  {
+    "name": "memcached_items_crawler_reclaimed_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of items freed by the LRU Crawler",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_items_crawler_reclaimed_total"
+  },
+  {
+    "name": "memcached_items_tailrepairs_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total number of times the entries for a particular ID need repairing",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_items_tailrepairs_total"
+  },
+  {
+    "name": "memcached_malloced_bytes",
+    "service": "memcached",
+    "labels": [],
+    "description": "Number of bytes allocated to the slab allocator",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_malloced_bytes"
+  },
+  {
+    "name": "memcached_slab_chunk_size_bytes",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of bytes allocated to each chunk within this slab class",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_chunk_size_bytes{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_chunks_per_page",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of chunks within a single page for this slab class",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_chunks_per_page{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_current_pages",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of pages allocated to this slab class",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_current_pages{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_current_chunks",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of chunks allocated to this slab class",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_current_chunks{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_chunks_used",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of chunks allocated to an item",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_chunks_used{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_chunks_free",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of chunks not yet allocated items",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_chunks_free{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_chunks_free_end",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of free chunks at the end of the last allocated page",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "memcached_slab_chunks_free_end{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_mem_requested_bytes",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of bytes of memory actual items take up within a slab",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_slab_mem_requested_bytes{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_current_items",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items currently stored in this slab class",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_current_items{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_hot_items",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items presently stored in the HOT LRU",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_hot_items{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_warm_items",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items presently stored in the WARM LRU",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_warm_items{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_cold_items",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items presently stored in the COLD LRU",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_slab_cold_items{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_hot_age_seconds",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Age of the oldest item in HOT LRU",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "memcached_slab_hot_age_seconds{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_warm_age_seconds",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Age of the oldest item in WARM LRU",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "memcached_slab_warm_age_seconds{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_age_seconds",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of seconds the oldest item has been in the slab class",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "memcached_slab_items_age_seconds{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_crawler_reclaimed_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items freed by the LRU Crawler",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_crawler_reclaimed_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_evicted_nonzero_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of times an item with explicit expire time was evicted",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_evicted_nonzero_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_evicted_time_seconds",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Seconds since last access for most recent item evicted",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_evicted_time_seconds{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_evicted_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of times an item had to be evicted from LRU",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_evicted_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_evicted_unfetched_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of items evicted and never fetched",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_evicted_unfetched_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_expired_unfetched_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of valid items evicted never touched after being set",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_expired_unfetched_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_moves_to_cold",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items moved from HOT or WARM into COLD",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_moves_to_cold{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_moves_to_warm",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of items moved from COLD into WARM",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_moves_to_warm{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_moves_within_lru",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of times active items were bumped within HOT or WARM",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_moves_within_lru{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_outofmemory_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of items for slab that triggered an out of memory error",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_outofmemory_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_reclaimed_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of items reclaimed",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_reclaimed_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_items_tailrepairs_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Total number of times entries for a particular ID need repairing",
+    "importance": "low",
+    "type": "counter",
+    "example_usage": "memcached_slab_items_tailrepairs_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_lru_hits_total",
+    "service": "memcached",
+    "labels": ["slab"],
+    "description": "Number of get_hits to the LRU",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_slab_lru_hits_total{slab=\"1\"}"
+  },
+  {
+    "name": "memcached_slab_commands_total",
+    "service": "memcached",
+    "labels": ["slab", "cmd", "status"],
+    "description": "Total number of all requests broken down by command and status per slab",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "memcached_slab_commands_total{slab=\"1\",cmd=\"get\",status=\"hit\"}"
+  },
+  {
+    "name": "memcached_process_cpu_seconds_total",
+    "service": "memcached",
+    "labels": [],
+    "description": "Total user and system CPU time spent in seconds",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "memcached_process_cpu_seconds_total"
+  },
+  {
+    "name": "memcached_process_max_fds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Maximum number of open file descriptors",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_process_max_fds"
+  },
+  {
+    "name": "memcached_process_open_fds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Number of open file descriptors",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_process_open_fds"
+  },
+  {
+    "name": "memcached_process_resident_memory_bytes",
+    "service": "memcached",
+    "labels": [],
+    "description": "Resident memory size in bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "memcached_process_resident_memory_bytes"
+  },
+  {
+    "name": "memcached_process_start_time_seconds",
+    "service": "memcached",
+    "labels": [],
+    "description": "Start time of the process since unix epoch in seconds",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_process_start_time_seconds"
+  },
+  {
+    "name": "memcached_process_virtual_memory_bytes",
+    "service": "memcached",
+    "labels": [],
+    "description": "Virtual memory size in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "memcached_process_virtual_memory_bytes"
+  }
+]

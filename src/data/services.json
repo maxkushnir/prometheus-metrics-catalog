@@ -54,6 +54,15 @@
           }
         },
         {
+          "name": "memcached",
+          "displayName": "Memcached",
+          "description": "In-memory caching system metrics",
+          "exporter": {
+            "name": "memcached_exporter",
+            "link": "https://github.com/prometheus/memcached_exporter"
+          }
+        },
+        {
           "name": "mongodb",
           "displayName": "MongoDB",
           "description": "MongoDB database server metrics",
