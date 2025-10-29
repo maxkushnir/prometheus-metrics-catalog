@@ -1,0 +1,236 @@
+[
+  {
+    "name": "mssql_up",
+    "service": "mssql",
+    "labels": [],
+    "description": "UP Status - whether the MSSQL server is up",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "mssql_up"
+  },
+  {
+    "name": "mssql_product_version",
+    "service": "mssql",
+    "labels": [],
+    "description": "Instance version (Major.Minor)",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_product_version"
+  },
+  {
+    "name": "mssql_instance_local_time",
+    "service": "mssql",
+    "labels": [],
+    "description": "Number of seconds since epoch on local instance",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "mssql_instance_local_time"
+  },
+  {
+    "name": "mssql_connections",
+    "service": "mssql",
+    "labels": ["database", "state"],
+    "description": "Number of active connections",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_connections{database=\"master\",state=\"active\"}"
+  },
+  {
+    "name": "mssql_client_connections",
+    "service": "mssql",
+    "labels": ["client", "database"],
+    "description": "Number of active client connections",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_client_connections{client=\"app\",database=\"master\"}"
+  },
+  {
+    "name": "mssql_deadlocks",
+    "service": "mssql",
+    "labels": [],
+    "description": "Number of lock requests per second that resulted in a deadlock since last restart",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_deadlocks"
+  },
+  {
+    "name": "mssql_user_errors",
+    "service": "mssql",
+    "labels": [],
+    "description": "Number of user errors per second since last restart",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_user_errors"
+  },
+  {
+    "name": "mssql_kill_connection_errors",
+    "service": "mssql",
+    "labels": [],
+    "description": "Number of kill connection errors per second since last restart",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_kill_connection_errors"
+  },
+  {
+    "name": "mssql_database_state",
+    "service": "mssql",
+    "labels": ["database"],
+    "description": "Database states: 0=ONLINE 1=RESTORING 2=RECOVERING 3=RECOVERY_PENDING 4=SUSPECT 5=EMERGENCY 6=OFFLINE 7=COPYING 10=OFFLINE_SECONDARY",
+    "importance": "critical",
+    "type": "gauge",
+    "example_usage": "mssql_database_state{database=\"master\"}"
+  },
+  {
+    "name": "mssql_log_growths",
+    "service": "mssql",
+    "labels": ["database"],
+    "description": "Total number of times the transaction log for the database has been expanded since last restart",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_log_growths{database=\"master\"}"
+  },
+  {
+    "name": "mssql_database_filesize",
+    "service": "mssql",
+    "labels": ["database", "logicalname", "type", "filename"],
+    "description": "Physical sizes of files used by database in KB (type: 0=rows, 1=log, 2=filestream, 3=n/a, 4=fulltext)",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_database_filesize{database=\"master\",logicalname=\"master\",type=\"0\",filename=\"master.mdf\"}"
+  },
+  {
+    "name": "mssql_page_read_total",
+    "service": "mssql",
+    "labels": [],
+    "description": "Page reads per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_page_read_total"
+  },
+  {
+    "name": "mssql_page_write_total",
+    "service": "mssql",
+    "labels": [],
+    "description": "Page writes per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_page_write_total"
+  },
+  {
+    "name": "mssql_page_life_expectancy",
+    "service": "mssql",
+    "labels": [],
+    "description": "Indicates the minimum number of seconds a page will stay in the buffer pool without references (should be above 300 seconds)",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_page_life_expectancy"
+  },
+  {
+    "name": "mssql_lazy_write_total",
+    "service": "mssql",
+    "labels": [],
+    "description": "Lazy writes per second",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_lazy_write_total"
+  },
+  {
+    "name": "mssql_page_checkpoint_total",
+    "service": "mssql",
+    "labels": [],
+    "description": "Checkpoint pages per second",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_page_checkpoint_total"
+  },
+  {
+    "name": "mssql_io_stall",
+    "service": "mssql",
+    "labels": ["database", "type"],
+    "description": "Wait time (milliseconds) of stall since last restart",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_io_stall{database=\"master\",type=\"read\"}"
+  },
+  {
+    "name": "mssql_io_stall_total",
+    "service": "mssql",
+    "labels": ["database"],
+    "description": "Total wait time (milliseconds) of stall since last restart",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_io_stall_total{database=\"master\"}"
+  },
+  {
+    "name": "mssql_batch_requests",
+    "service": "mssql",
+    "labels": [],
+    "description": "Number of Transact-SQL command batches received per second (high batch requests indicate good throughput)",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_batch_requests"
+  },
+  {
+    "name": "mssql_transactions",
+    "service": "mssql",
+    "labels": ["database"],
+    "description": "Number of transactions started for the database per second",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_transactions{database=\"master\"}"
+  },
+  {
+    "name": "mssql_page_fault_count",
+    "service": "mssql",
+    "labels": [],
+    "description": "Number of page faults since last restart",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_page_fault_count"
+  },
+  {
+    "name": "mssql_memory_utilization_percentage",
+    "service": "mssql",
+    "labels": [],
+    "description": "Percentage of memory utilization",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "mssql_memory_utilization_percentage"
+  },
+  {
+    "name": "mssql_total_physical_memory_kb",
+    "service": "mssql",
+    "labels": [],
+    "description": "Total physical memory in KB",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_total_physical_memory_kb"
+  },
+  {
+    "name": "mssql_available_physical_memory_kb",
+    "service": "mssql",
+    "labels": [],
+    "description": "Available physical memory in KB",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "mssql_available_physical_memory_kb"
+  },
+  {
+    "name": "mssql_total_page_file_kb",
+    "service": "mssql",
+    "labels": [],
+    "description": "Total page file in KB",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "mssql_total_page_file_kb"
+  },
+  {
+    "name": "mssql_available_page_file_kb",
+    "service": "mssql",
+    "labels": [],
+    "description": "Available page file in KB",
+    "importance": "low",
+    "type": "gauge",
+    "example_usage": "mssql_available_page_file_kb"
+  }
+]

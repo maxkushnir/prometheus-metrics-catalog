@@ -7,7 +7,8 @@ import redisMetrics from './services/redis/metrics.json';
 import pureMetrics from './services/pure/metrics.json';
 import kafkaMetrics from './services/kafka/metrics.json';
 import maxscaleMetrics from './services/maxscale/metrics.json';
-import mysqlMetrics from './services/mysql/metrics.json';
+import mariadbMetrics from './services/mariadb/metrics.json';
+import mssqlMetrics from './services/mssql/metrics.json';
 import mongodbMetrics from './services/mongodb/metrics.json';
 import postgresqlMetrics from './services/postgresql/metrics.json';
 import awsMetrics from './services/aws/metrics.json';
@@ -25,7 +26,8 @@ export const allMetrics = [
   ...pureMetrics,
   ...kafkaMetrics,
   ...maxscaleMetrics,
-  ...mysqlMetrics,
+  ...mariadbMetrics,
+  ...mssqlMetrics,
   ...mongodbMetrics,
   ...postgresqlMetrics,
   ...awsMetrics,
