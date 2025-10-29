@@ -8,26 +8,10 @@ const ServiceInfo = ({ selectedService, services, metrics }) => {
   const serviceInfo = services.find(s => s.name === selectedService);
   let serviceMetrics = metrics.filter(m => m.service === selectedService);
   
-  // Recursive function to get all subservice names from nested groups
-  const getAllSubserviceNames = (serviceInfo) => {
-    if (!serviceInfo.subservices) return [];
-    let names = [];
-    for (const sub of serviceInfo.subservices) {
-      if (sub.isGroup && sub.subservices) {
-        // Recursively get subservices from nested groups
-        names = names.concat(getAllSubserviceNames(sub));
-      } else {
-        names.push(sub.name);
-      }
-    }
-    return names;
-  };
-  
-  // If this is a service group, get metrics from all subservices (including nested)
+  // If this is a service group, get metrics from all subservices
   if (serviceInfo && serviceInfo.isGroup && serviceInfo.subservices) {
-    const subserviceNames = getAllSubserviceNames(serviceInfo);
     serviceMetrics = metrics.filter(m => 
-      subserviceNames.includes(m.service)
+      serviceInfo.subservices.some(sub => sub.name === m.service)
     );
   }
   

@@ -36,30 +36,22 @@
           }
         },
         {
-          "name": "mysql",
-          "displayName": "MySQL & MariaDB",
-          "description": "MySQL and MariaDB database server metrics",
-          "isGroup": true,
-          "subservices": [
-            {
-              "name": "mariadb",
-              "displayName": "MariaDB",
-              "description": "MariaDB database server metrics",
-              "exporter": {
-                "name": "mariadb-prometheus-exporter",
-                "link": "https://mariadb.com/docs/tools/mariadb-enterprise-operator/metrics"
-              }
-            },
-            {
-              "name": "mssql",
-              "displayName": "MSSQL",
-              "description": "Microsoft SQL Server metrics",
-              "exporter": {
-                "name": "prometheus-mssql-exporter",
-                "link": "https://github.com/awaragi/prometheus-mssql-exporter"
-              }
-            }
-          ]
+          "name": "mariadb",
+          "displayName": "MariaDB",
+          "description": "MariaDB database server metrics",
+          "exporter": {
+            "name": "mariadb-prometheus-exporter",
+            "link": "https://mariadb.com/docs/tools/mariadb-enterprise-operator/metrics"
+          }
+        },
+        {
+          "name": "mssql",
+          "displayName": "MSSQL",
+          "description": "Microsoft SQL Server metrics",
+          "exporter": {
+            "name": "prometheus-mssql-exporter",
+            "link": "https://github.com/awaragi/prometheus-mssql-exporter"
+          }
         },
         {
           "name": "mongodb",
