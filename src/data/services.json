@@ -114,7 +114,7 @@
         {
           "name": "node_exporter",
           "displayName": "Node Exporter",
-          "description": "System and hardware metrics",
+          "description": "Hardware and OS metrics collector",
           "exporter": {
             "name": "node_exporter",
             "link": "https://github.com/prometheus/node_exporter"
@@ -127,6 +127,15 @@
           "exporter": {
             "name": "kube-state-metrics",
             "link": "https://github.com/kubernetes/kube-state-metrics"
+          }
+        },
+        {
+          "name": "windows",
+          "displayName": "Windows",
+          "description": "Windows system and performance metrics",
+          "exporter": {
+            "name": "windows_exporter",
+            "link": "https://github.com/prometheus-community/windows_exporter"
           }
         }
       ]

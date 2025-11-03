@@ -15,6 +15,7 @@ import postgresqlMetrics from './services/postgresql/metrics.json';
 import awsMetrics from './services/aws/metrics.json';
 import f5BigipMetrics from './services/f5_bigip/metrics.json';
 import kubeStateMetrics from './services/kube-state-metrics/metrics.json';
+import windowsMetrics from './services/windows/metrics.json';
 import servicesConfig from './services.json';
 
 // Combine all metrics
@@ -34,7 +35,8 @@ export const allMetrics = [
   ...postgresqlMetrics,
   ...awsMetrics,
   ...f5BigipMetrics,
-  ...kubeStateMetrics
+  ...kubeStateMetrics,
+  ...windowsMetrics
 ];
 
 // Export services configuration

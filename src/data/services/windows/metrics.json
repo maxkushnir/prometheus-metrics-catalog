@@ -1,0 +1,349 @@
+[
+  {
+    "name": "windows_cpu_clock_interrupts_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total number of received and serviced clock tick interrupts",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_cpu_clock_interrupts_total"
+  },
+  {
+    "name": "windows_cpu_core_frequency_mhz",
+    "service": "windows",
+    "labels": [],
+    "description": "Core frequency in megahertz",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_cpu_core_frequency_mhz"
+  },
+  {
+    "name": "windows_cpu_cstate_seconds_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Time spent in low-power idle state",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_cpu_cstate_seconds_total"
+  },
+  {
+    "name": "windows_cs_hostname",
+    "service": "windows",
+    "labels": [],
+    "description": "Hostname of the computer",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_cs_hostname"
+  },
+  {
+    "name": "windows_cs_global_up_time_seconds",
+    "service": "windows",
+    "labels": [],
+    "description": "System uptime in seconds",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "windows_cs_global_up_time_seconds"
+  },
+  {
+    "name": "windows_disk_read_bytes_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "The total number of bytes read from disk",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_disk_read_bytes_total"
+  },
+  {
+    "name": "windows_disk_write_bytes_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "The total number of bytes written to disk",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_disk_write_bytes_total"
+  },
+  {
+    "name": "windows_disk_reads_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "The total number of read operations on disk",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_disk_reads_total"
+  },
+  {
+    "name": "windows_disk_writes_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "The total number of write operations on disk",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_disk_writes_total"
+  },
+  {
+    "name": "windows_logical_disk_free_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Free space in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_logical_disk_free_bytes"
+  },
+  {
+    "name": "windows_logical_disk_size_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Logical disk size in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_logical_disk_size_bytes"
+  },
+  {
+    "name": "windows_logical_disk_read_seconds_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Read time in seconds",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_logical_disk_read_seconds_total"
+  },
+  {
+    "name": "windows_logical_disk_write_seconds_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Write time in seconds",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_logical_disk_write_seconds_total"
+  },
+  {
+    "name": "windows_memory_available_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Available memory in bytes",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "windows_memory_available_bytes"
+  },
+  {
+    "name": "windows_memory_cache_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Cache memory in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_memory_cache_bytes"
+  },
+  {
+    "name": "windows_memory_modified_page_list_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Modified page list memory in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_memory_modified_page_list_bytes"
+  },
+  {
+    "name": "windows_memory_page_faults_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total page faults",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_memory_page_faults_total"
+  },
+  {
+    "name": "windows_memory_swap_page_operations_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total swap page operations",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_memory_swap_page_operations_total"
+  },
+  {
+    "name": "windows_memory_system_cache_resident_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "System cache resident memory",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_memory_system_cache_resident_bytes"
+  },
+  {
+    "name": "windows_memory_system_code_resident_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "System code resident memory",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_memory_system_code_resident_bytes"
+  },
+  {
+    "name": "windows_memory_transition_pages_repurposed_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Transition pages repurposed",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_memory_transition_pages_repurposed_total"
+  },
+  {
+    "name": "windows_net_bytes_recv_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total bytes received on network",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_net_bytes_recv_total"
+  },
+  {
+    "name": "windows_net_bytes_sent_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total bytes sent on network",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_net_bytes_sent_total"
+  },
+  {
+    "name": "windows_net_packets_recv_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total packets received",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_net_packets_recv_total"
+  },
+  {
+    "name": "windows_net_packets_sent_total",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Total packets sent",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_net_packets_sent_total"
+  },
+  {
+    "name": "windows_net_packets_outbound_discarded",
+    "service": "windows",
+    "labels": [],
+    "description": "Total outbound packets discarded",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "windows_net_packets_outbound_discarded"
+  },
+  {
+    "name": "windows_net_packets_inbound_errors",
+    "service": "windows",
+    "labels": [],
+    "description": "Total inbound packet errors",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "windows_net_packets_inbound_errors"
+  },
+  {
+    "name": "windows_net_packets_outbound_errors",
+    "service": "windows",
+    "labels": [],
+    "description": "Total outbound packet errors",
+    "importance": "medium",
+    "type": "counter",
+    "example_usage": "windows_net_packets_outbound_errors"
+  },
+  {
+    "name": "windows_process_handle_count",
+    "service": "windows",
+    "labels": [
+      "instance"
+    ],
+    "description": "Number of handles",
+    "importance": "high",
+    "type": "gauge",
+    "example_usage": "windows_process_handle_count"
+  },
+  {
+    "name": "windows_process_private_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Private memory in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_process_private_bytes"
+  },
+  {
+    "name": "windows_process_virtual_bytes",
+    "service": "windows",
+    "labels": [],
+    "description": "Virtual memory in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_process_virtual_bytes"
+  },
+  {
+    "name": "windows_process_working_set",
+    "service": "windows",
+    "labels": [],
+    "description": "Working set in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_process_working_set"
+  },
+  {
+    "name": "windows_process_working_set_peak",
+    "service": "windows",
+    "labels": [],
+    "description": "Peak working set in bytes",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_process_working_set_peak"
+  },
+  {
+    "name": "windows_system_processor_queue_length",
+    "service": "windows",
+    "labels": [],
+    "description": "Processor queue length",
+    "importance": "medium",
+    "type": "gauge",
+    "example_usage": "windows_system_processor_queue_length"
+  },
+  {
+    "name": "windows_system_system_up_time_seconds",
+    "service": "windows",
+    "labels": [],
+    "description": "System uptime",
+    "importance": "high",
+    "type": "counter",
+    "example_usage": "windows_system_system_up_time_seconds"
+  }
+]
